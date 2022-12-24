@@ -11,6 +11,7 @@ protocol FavsPresenterProtocol: AnyObject {
     
 }
 
-final class FavsPresenter {
-
+final class FavsPresenter: FavsPresenterProtocol {
+    // MARK: - Variable
+    weak var view: FavsViewProtocol?
 }

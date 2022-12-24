@@ -8,6 +8,34 @@
 import UIKit
 import SnapKit
 
-final class FavsView: UIView {
+protocol FavsViewProtocol: AnyObject {
+    
+}
 
+final class FavsView: UIView {
+    // MARK: - Variable
+    var interactor: FavsInteractorProtocol?
+    var router: FavsRouterProtocol?
+    
+    
+    // MARK: - Init
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        layoutUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: - UI
+    private func layoutUI() {
+        
+    }
+}
+
+
+extension FavsView: FavsViewProtocol {
+    
 }

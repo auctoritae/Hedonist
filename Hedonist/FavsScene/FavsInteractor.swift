@@ -11,6 +11,7 @@ protocol FavsInteractorProtocol: AnyObject {
     
 }
 
-final class FavsInteractor {
-
+final class FavsInteractor: FavsInteractorProtocol {
+    // MARK: - Variable
+    var presenter: FavsPresenterProtocol?
 }

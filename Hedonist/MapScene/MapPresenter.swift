@@ -11,6 +11,7 @@ protocol MapPresenterProtocol: AnyObject {
     
 }
 
-final class MapPresenter {
-
+final class MapPresenter: MapPresenterProtocol {
+    // MARK: - Variable
+    weak var view: MapViewProtocol?
 }

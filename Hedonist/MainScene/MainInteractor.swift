@@ -11,6 +11,7 @@ protocol MainInteractorProtocol: AnyObject {
     
 }
 
-final class MainInteractor {
-
+final class MainInteractor: MainInteractorProtocol {
+    // MARK: - Variable
+    var presenter: MainPresenterProtocol?
 }

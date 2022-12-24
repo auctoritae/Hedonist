@@ -11,6 +11,7 @@ protocol MainPresenterProtocol: AnyObject {
     
 }
 
-final class MainPresenter {
-
+final class MainPresenter: MainPresenterProtocol {
+    // MARK: - Variable
+    weak var view: MainViewProtocol?
 }

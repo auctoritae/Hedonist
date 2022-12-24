@@ -11,6 +11,7 @@ protocol FavsRouterProtocol: AnyObject {
     
 }
 
-final class FavsRouter {
-
+final class FavsRouter: FavsRouterProtocol {
+    // MARK: - Variable
+    weak var viewController: FavsVC?
 }

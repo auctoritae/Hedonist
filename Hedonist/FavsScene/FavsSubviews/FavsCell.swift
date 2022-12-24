@@ -9,9 +9,29 @@ import UIKit
 import SnapKit
 
 final class FavsCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    // MARK: - Class function
+    class func cellId() -> String {
+        String(describing: FavsCell.self)
     }
-
+    
+    
+    // MARK: - Init
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        layoutUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: - UI
+    private func layoutUI() {
+        
+    }
 }

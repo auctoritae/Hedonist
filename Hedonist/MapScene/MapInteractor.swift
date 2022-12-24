@@ -11,6 +11,7 @@ protocol MapInteractorProtocol: AnyObject {
     
 }
 
-final class MapInteractor {
-
+final class MapInteractor: MapInteractorProtocol {
+    // MARK: - Variable
+    var presenter: MapPresenterProtocol?
 }

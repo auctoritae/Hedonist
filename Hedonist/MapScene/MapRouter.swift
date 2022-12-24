@@ -11,6 +11,7 @@ protocol MapRouterProtocol: AnyObject {
     
 }
 
-final class MapRouter {
-
+final class MapRouter: MapRouterProtocol {
+    // MARK: - Variable
+    weak var viewController: MapVC?
 }
