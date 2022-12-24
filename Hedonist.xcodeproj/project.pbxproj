@@ -13,6 +13,24 @@
 		FE0BB2AC29537CEE00F757E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE0BB2AB29537CEE00F757E8 /* Assets.xcassets */; };
 		FE0BB2AF29537CEE00F757E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE0BB2AD29537CEE00F757E8 /* LaunchScreen.storyboard */; };
 		FE422D8F2955F45100353890 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FE422D8E2955F45100353890 /* SnapKit */; };
+		FEE6B7C12957004500C3689F /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7C02957004500C3689F /* MainVC.swift */; };
+		FEE6B7C32957006800C3689F /* FavsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7C22957006800C3689F /* FavsVC.swift */; };
+		FEE6B7C52957007D00C3689F /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7C42957007D00C3689F /* MapVC.swift */; };
+		FEE6B7C72957009C00C3689F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7C62957009C00C3689F /* MainView.swift */; };
+		FEE6B7C9295700B000C3689F /* FavsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7C8295700B000C3689F /* FavsView.swift */; };
+		FEE6B7CB295700C900C3689F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7CA295700C900C3689F /* MapView.swift */; };
+		FEE6B7CD295700F600C3689F /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7CC295700F600C3689F /* MainInteractor.swift */; };
+		FEE6B7CF2957010D00C3689F /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7CE2957010D00C3689F /* MainPresenter.swift */; };
+		FEE6B7D12957011A00C3689F /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7D02957011A00C3689F /* MainRouter.swift */; };
+		FEE6B7D32957016200C3689F /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7D22957016200C3689F /* MainBuilder.swift */; };
+		FEE6B7D52957022000C3689F /* FavsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7D42957022000C3689F /* FavsBuilder.swift */; };
+		FEE6B7D72957023F00C3689F /* MapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7D62957023F00C3689F /* MapBuilder.swift */; };
+		FEE6B7D92957026D00C3689F /* FavsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7D82957026D00C3689F /* FavsInteractor.swift */; };
+		FEE6B7DB2957027900C3689F /* FavsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7DA2957027900C3689F /* FavsPresenter.swift */; };
+		FEE6B7DD2957028300C3689F /* FavsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7DC2957028300C3689F /* FavsRouter.swift */; };
+		FEE6B7DF295702F000C3689F /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7DE295702F000C3689F /* MapInteractor.swift */; };
+		FEE6B7E1295702FB00C3689F /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7E0295702FB00C3689F /* MapPresenter.swift */; };
+		FEE6B7E32957030400C3689F /* MapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7E22957030400C3689F /* MapRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +41,24 @@
 		FE0BB2AB29537CEE00F757E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE0BB2AE29537CEE00F757E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE0BB2B029537CEE00F757E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEE6B7C02957004500C3689F /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		FEE6B7C22957006800C3689F /* FavsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavsVC.swift; sourceTree = "<group>"; };
+		FEE6B7C42957007D00C3689F /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		FEE6B7C62957009C00C3689F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FEE6B7C8295700B000C3689F /* FavsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavsView.swift; sourceTree = "<group>"; };
+		FEE6B7CA295700C900C3689F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		FEE6B7CC295700F600C3689F /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
+		FEE6B7CE2957010D00C3689F /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		FEE6B7D02957011A00C3689F /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		FEE6B7D22957016200C3689F /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
+		FEE6B7D42957022000C3689F /* FavsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavsBuilder.swift; sourceTree = "<group>"; };
+		FEE6B7D62957023F00C3689F /* MapBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBuilder.swift; sourceTree = "<group>"; };
+		FEE6B7D82957026D00C3689F /* FavsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavsInteractor.swift; sourceTree = "<group>"; };
+		FEE6B7DA2957027900C3689F /* FavsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavsPresenter.swift; sourceTree = "<group>"; };
+		FEE6B7DC2957028300C3689F /* FavsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavsRouter.swift; sourceTree = "<group>"; };
+		FEE6B7DE295702F000C3689F /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
+		FEE6B7E0295702FB00C3689F /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		FEE6B7E22957030400C3689F /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,11 +95,53 @@
 				FE0BB2A229537CEC00F757E8 /* AppDelegate.swift */,
 				FE0BB2A429537CEC00F757E8 /* SceneDelegate.swift */,
 				FE0BB2A629537CEC00F757E8 /* ViewController.swift */,
+				FEE6B7BD2956FFC300C3689F /* MainScene */,
+				FEE6B7BE2956FFD400C3689F /* FavoritesScene */,
+				FEE6B7BF2956FFEC00C3689F /* MapScene */,
 				FE0BB2AB29537CEE00F757E8 /* Assets.xcassets */,
 				FE0BB2AD29537CEE00F757E8 /* LaunchScreen.storyboard */,
 				FE0BB2B029537CEE00F757E8 /* Info.plist */,
 			);
 			path = Hedonist;
+			sourceTree = "<group>";
+		};
+		FEE6B7BD2956FFC300C3689F /* MainScene */ = {
+			isa = PBXGroup;
+			children = (
+				FEE6B7D22957016200C3689F /* MainBuilder.swift */,
+				FEE6B7C02957004500C3689F /* MainVC.swift */,
+				FEE6B7C62957009C00C3689F /* MainView.swift */,
+				FEE6B7CC295700F600C3689F /* MainInteractor.swift */,
+				FEE6B7CE2957010D00C3689F /* MainPresenter.swift */,
+				FEE6B7D02957011A00C3689F /* MainRouter.swift */,
+			);
+			path = MainScene;
+			sourceTree = "<group>";
+		};
+		FEE6B7BE2956FFD400C3689F /* FavoritesScene */ = {
+			isa = PBXGroup;
+			children = (
+				FEE6B7D42957022000C3689F /* FavsBuilder.swift */,
+				FEE6B7C22957006800C3689F /* FavsVC.swift */,
+				FEE6B7C8295700B000C3689F /* FavsView.swift */,
+				FEE6B7D82957026D00C3689F /* FavsInteractor.swift */,
+				FEE6B7DA2957027900C3689F /* FavsPresenter.swift */,
+				FEE6B7DC2957028300C3689F /* FavsRouter.swift */,
+			);
+			path = FavoritesScene;
+			sourceTree = "<group>";
+		};
+		FEE6B7BF2956FFEC00C3689F /* MapScene */ = {
+			isa = PBXGroup;
+			children = (
+				FEE6B7D62957023F00C3689F /* MapBuilder.swift */,
+				FEE6B7C42957007D00C3689F /* MapVC.swift */,
+				FEE6B7CA295700C900C3689F /* MapView.swift */,
+				FEE6B7DE295702F000C3689F /* MapInteractor.swift */,
+				FEE6B7E0295702FB00C3689F /* MapPresenter.swift */,
+				FEE6B7E22957030400C3689F /* MapRouter.swift */,
+			);
+			path = MapScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,8 +221,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE0BB2A729537CEC00F757E8 /* ViewController.swift in Sources */,
+				FEE6B7C72957009C00C3689F /* MainView.swift in Sources */,
+				FEE6B7C52957007D00C3689F /* MapVC.swift in Sources */,
+				FEE6B7CD295700F600C3689F /* MainInteractor.swift in Sources */,
+				FEE6B7C12957004500C3689F /* MainVC.swift in Sources */,
+				FEE6B7D52957022000C3689F /* FavsBuilder.swift in Sources */,
+				FEE6B7D32957016200C3689F /* MainBuilder.swift in Sources */,
+				FEE6B7E1295702FB00C3689F /* MapPresenter.swift in Sources */,
+				FEE6B7D12957011A00C3689F /* MainRouter.swift in Sources */,
+				FEE6B7DD2957028300C3689F /* FavsRouter.swift in Sources */,
+				FEE6B7C9295700B000C3689F /* FavsView.swift in Sources */,
+				FEE6B7E32957030400C3689F /* MapRouter.swift in Sources */,
 				FE0BB2A329537CEC00F757E8 /* AppDelegate.swift in Sources */,
+				FEE6B7DB2957027900C3689F /* FavsPresenter.swift in Sources */,
+				FEE6B7D92957026D00C3689F /* FavsInteractor.swift in Sources */,
 				FE0BB2A529537CEC00F757E8 /* SceneDelegate.swift in Sources */,
+				FEE6B7CF2957010D00C3689F /* MainPresenter.swift in Sources */,
+				FEE6B7D72957023F00C3689F /* MapBuilder.swift in Sources */,
+				FEE6B7CB295700C900C3689F /* MapView.swift in Sources */,
+				FEE6B7DF295702F000C3689F /* MapInteractor.swift in Sources */,
+				FEE6B7C32957006800C3689F /* FavsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
