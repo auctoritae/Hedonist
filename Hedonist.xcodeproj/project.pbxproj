@@ -31,6 +31,10 @@
 		FEE6B7DF295702F000C3689F /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7DE295702F000C3689F /* MapInteractor.swift */; };
 		FEE6B7E1295702FB00C3689F /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7E0295702FB00C3689F /* MapPresenter.swift */; };
 		FEE6B7E32957030400C3689F /* MapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7E22957030400C3689F /* MapRouter.swift */; };
+		FEE6B7E92957047E00C3689F /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7E82957047E00C3689F /* MainCell.swift */; };
+		FEE6B7EB295704A100C3689F /* FavsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7EA295704A100C3689F /* FavsCell.swift */; };
+		FEE6B7EF295704F000C3689F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7EE295704F000C3689F /* DataManager.swift */; };
+		FEE6B7F22957052100C3689F /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7F02957052100C3689F /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +63,10 @@
 		FEE6B7DE295702F000C3689F /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
 		FEE6B7E0295702FB00C3689F /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
 		FEE6B7E22957030400C3689F /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
+		FEE6B7E82957047E00C3689F /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		FEE6B7EA295704A100C3689F /* FavsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavsCell.swift; sourceTree = "<group>"; };
+		FEE6B7EE295704F000C3689F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		FEE6B7F12957052100C3689F /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +103,9 @@
 				FE0BB2A229537CEC00F757E8 /* AppDelegate.swift */,
 				FE0BB2A429537CEC00F757E8 /* SceneDelegate.swift */,
 				FE0BB2A629537CEC00F757E8 /* ViewController.swift */,
+				FEE6B7E72957043B00C3689F /* DataManager */,
 				FEE6B7BD2956FFC300C3689F /* MainScene */,
-				FEE6B7BE2956FFD400C3689F /* FavoritesScene */,
+				FEE6B7BE2956FFD400C3689F /* FavsScene */,
 				FEE6B7BF2956FFEC00C3689F /* MapScene */,
 				FE0BB2AB29537CEE00F757E8 /* Assets.xcassets */,
 				FE0BB2AD29537CEE00F757E8 /* LaunchScreen.storyboard */,
@@ -114,11 +123,12 @@
 				FEE6B7CC295700F600C3689F /* MainInteractor.swift */,
 				FEE6B7CE2957010D00C3689F /* MainPresenter.swift */,
 				FEE6B7D02957011A00C3689F /* MainRouter.swift */,
+				FEE6B7E4295703FC00C3689F /* MainSubviews */,
 			);
 			path = MainScene;
 			sourceTree = "<group>";
 		};
-		FEE6B7BE2956FFD400C3689F /* FavoritesScene */ = {
+		FEE6B7BE2956FFD400C3689F /* FavsScene */ = {
 			isa = PBXGroup;
 			children = (
 				FEE6B7D42957022000C3689F /* FavsBuilder.swift */,
@@ -127,8 +137,9 @@
 				FEE6B7D82957026D00C3689F /* FavsInteractor.swift */,
 				FEE6B7DA2957027900C3689F /* FavsPresenter.swift */,
 				FEE6B7DC2957028300C3689F /* FavsRouter.swift */,
+				FEE6B7E52957041B00C3689F /* FavsSubviews */,
 			);
-			path = FavoritesScene;
+			path = FavsScene;
 			sourceTree = "<group>";
 		};
 		FEE6B7BF2956FFEC00C3689F /* MapScene */ = {
@@ -142,6 +153,31 @@
 				FEE6B7E22957030400C3689F /* MapRouter.swift */,
 			);
 			path = MapScene;
+			sourceTree = "<group>";
+		};
+		FEE6B7E4295703FC00C3689F /* MainSubviews */ = {
+			isa = PBXGroup;
+			children = (
+				FEE6B7E82957047E00C3689F /* MainCell.swift */,
+			);
+			path = MainSubviews;
+			sourceTree = "<group>";
+		};
+		FEE6B7E52957041B00C3689F /* FavsSubviews */ = {
+			isa = PBXGroup;
+			children = (
+				FEE6B7EA295704A100C3689F /* FavsCell.swift */,
+			);
+			path = FavsSubviews;
+			sourceTree = "<group>";
+		};
+		FEE6B7E72957043B00C3689F /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				FEE6B7EE295704F000C3689F /* DataManager.swift */,
+				FEE6B7F02957052100C3689F /* DataModel.xcdatamodeld */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE0BB2A729537CEC00F757E8 /* ViewController.swift in Sources */,
+				FEE6B7EF295704F000C3689F /* DataManager.swift in Sources */,
 				FEE6B7C72957009C00C3689F /* MainView.swift in Sources */,
 				FEE6B7C52957007D00C3689F /* MapVC.swift in Sources */,
 				FEE6B7CD295700F600C3689F /* MainInteractor.swift in Sources */,
@@ -236,8 +273,11 @@
 				FEE6B7DB2957027900C3689F /* FavsPresenter.swift in Sources */,
 				FEE6B7D92957026D00C3689F /* FavsInteractor.swift in Sources */,
 				FE0BB2A529537CEC00F757E8 /* SceneDelegate.swift in Sources */,
+				FEE6B7E92957047E00C3689F /* MainCell.swift in Sources */,
 				FEE6B7CF2957010D00C3689F /* MainPresenter.swift in Sources */,
 				FEE6B7D72957023F00C3689F /* MapBuilder.swift in Sources */,
+				FEE6B7EB295704A100C3689F /* FavsCell.swift in Sources */,
+				FEE6B7F22957052100C3689F /* DataModel.xcdatamodeld in Sources */,
 				FEE6B7CB295700C900C3689F /* MapView.swift in Sources */,
 				FEE6B7DF295702F000C3689F /* MapInteractor.swift in Sources */,
 				FEE6B7C32957006800C3689F /* FavsVC.swift in Sources */,
@@ -486,6 +526,19 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		FEE6B7F02957052100C3689F /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FEE6B7F12957052100C3689F /* DataModel.xcdatamodel */,
+			);
+			currentVersion = FEE6B7F12957052100C3689F /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FE0BB29729537CEC00F757E8 /* Project object */;
 }
