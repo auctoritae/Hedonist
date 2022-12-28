@@ -12,7 +12,6 @@
 		FE0BB2AC29537CEE00F757E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE0BB2AB29537CEE00F757E8 /* Assets.xcassets */; };
 		FE0BB2AF29537CEE00F757E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE0BB2AD29537CEE00F757E8 /* LaunchScreen.storyboard */; };
 		FE422D8F2955F45100353890 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FE422D8E2955F45100353890 /* SnapKit */; };
-		FEBD71B929573FFC0001CE2A /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBD71B829573FFC0001CE2A /* TabController.swift */; };
 		FEE6B7C12957004500C3689F /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7C02957004500C3689F /* MainVC.swift */; };
 		FEE6B7C32957006800C3689F /* FavsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7C22957006800C3689F /* FavsVC.swift */; };
 		FEE6B7C52957007D00C3689F /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7C42957007D00C3689F /* MapVC.swift */; };
@@ -44,7 +43,6 @@
 		FE0BB2AB29537CEE00F757E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE0BB2AE29537CEE00F757E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE0BB2B029537CEE00F757E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FEBD71B829573FFC0001CE2A /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		FEE6B7C02957004500C3689F /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		FEE6B7C22957006800C3689F /* FavsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavsVC.swift; sourceTree = "<group>"; };
 		FEE6B7C42957007D00C3689F /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 			children = (
 				FE0BB2A229537CEC00F757E8 /* AppDelegate.swift */,
 				FE0BB2A429537CEC00F757E8 /* SceneDelegate.swift */,
-				FEBD71B829573FFC0001CE2A /* TabController.swift */,
 				FEE6B7E72957043B00C3689F /* DataManager */,
 				FEE6B7BD2956FFC300C3689F /* MainScene */,
 				FEE6B7BE2956FFD400C3689F /* FavsScene */,
@@ -268,7 +265,6 @@
 				FEE6B7DD2957028300C3689F /* FavsRouter.swift in Sources */,
 				FEE6B7C9295700B000C3689F /* FavsView.swift in Sources */,
 				FEE6B7E32957030400C3689F /* MapRouter.swift in Sources */,
-				FEBD71B929573FFC0001CE2A /* TabController.swift in Sources */,
 				FE0BB2A329537CEC00F757E8 /* AppDelegate.swift in Sources */,
 				FEE6B7DB2957027900C3689F /* FavsPresenter.swift in Sources */,
 				FEE6B7D92957026D00C3689F /* FavsInteractor.swift in Sources */,

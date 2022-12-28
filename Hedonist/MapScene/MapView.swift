@@ -31,7 +31,7 @@ final class MapView: UIView {
     
     // MARK: - UI
     private func layoutUI() {
-        
+        backgroundColor = .label
     }
 }
 

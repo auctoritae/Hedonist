@@ -31,7 +31,7 @@ final class MainView: UIView {
     
     // MARK: - UI
     private func layoutUI() {
-        
+        backgroundColor = .label
     }
 }
 
