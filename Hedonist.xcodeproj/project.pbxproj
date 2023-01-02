@@ -42,6 +42,7 @@
 		FEE6B7EB295704A100C3689F /* FavsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7EA295704A100C3689F /* FavsCell.swift */; };
 		FEE6B7EF295704F000C3689F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7EE295704F000C3689F /* DataManager.swift */; };
 		FEE6B7F22957052100C3689F /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7F02957052100C3689F /* DataModel.xcdatamodeld */; };
+		FEE833CE29630CBE00B35DCA /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE833CD29630CBE00B35DCA /* ApiConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		FEE6B7EA295704A100C3689F /* FavsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavsCell.swift; sourceTree = "<group>"; };
 		FEE6B7EE295704F000C3689F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		FEE6B7F12957052100C3689F /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		FEE833CD29630CBE00B35DCA /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				FE5CD4C72961BAC50094DCC4 /* ApiManager.swift */,
+				FEE833CD29630CBE00B35DCA /* ApiConstants.swift */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				FEE6B7C72957009C00C3689F /* MainView.swift in Sources */,
 				FEE6B7C52957007D00C3689F /* MapVC.swift in Sources */,
 				FE393C4D295CC3E300A10023 /* PlacePresenter.swift in Sources */,
+				FEE833CE29630CBE00B35DCA /* ApiConstants.swift in Sources */,
 				FEE6B7CD295700F600C3689F /* MainInteractor.swift in Sources */,
 				FEE6B7C12957004500C3689F /* MainVC.swift in Sources */,
 				FE393C51295CC40200A10023 /* PlaceView.swift in Sources */,
