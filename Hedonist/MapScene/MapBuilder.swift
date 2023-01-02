@@ -11,7 +11,7 @@ final class MapBuilder {
     static func build() -> UIViewController {
         let vc = MapVC()
         let view = MapView()
-        let interactor = MapInteractor()
+        let interactor = MapInteractor(api: ApiManager())
         let presenter = MapPresenter()
         let router = MapRouter()
         

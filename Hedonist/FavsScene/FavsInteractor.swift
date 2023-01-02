@@ -14,4 +14,11 @@ protocol FavsInteractorProtocol: AnyObject {
 final class FavsInteractor: FavsInteractorProtocol {
     // MARK: - Variable
     var presenter: FavsPresenterProtocol?
+    private var dataManager: DataManager
+    
+    
+    // MARK: - Init
+    required init(dataManager: DataManager) {
+        self.dataManager = dataManager
+    }
 }

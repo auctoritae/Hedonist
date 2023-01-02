@@ -11,7 +11,7 @@ final class MainBuilder {
     static func build() -> UIViewController {
         let vc = MainVC()
         let view = MainView()
-        let interactor = MainInteractor()
+        let interactor = MainInteractor(api: ApiManager())
         let presenter = MainPresenter()
         let router = MainRouter()
         

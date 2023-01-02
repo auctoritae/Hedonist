@@ -14,4 +14,11 @@ protocol MainInteractorProtocol: AnyObject {
 final class MainInteractor: MainInteractorProtocol {
     // MARK: - Variable
     var presenter: MainPresenterProtocol?
+    private var api: ApiManager
+    
+    
+    // MARK: - Init
+    required init(api: ApiManager) {
+        self.api = api
+    }
 }

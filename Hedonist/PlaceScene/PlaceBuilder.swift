@@ -8,7 +8,7 @@
 import UIKit
 
 final class PlaceBuilder {
-    static func build() -> UIViewController {
+    static func build(place: Place) -> UIViewController {
         let vc = PlaceVC()
         let view = PlaceView()
         let interactor = PlaceInteractor()

@@ -11,7 +11,7 @@ final class FavsBuilder {
     static func build() -> UIViewController {
         let vc = FavsVC()
         let view = FavsView()
-        let interactor = FavsInteractor()
+        let interactor = FavsInteractor(dataManager: DataManager())
         let presenter = FavsPresenter()
         let router = FavsRouter()
         
