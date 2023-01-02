@@ -22,6 +22,8 @@ final class MainBuilder {
         presenter.view = view
         router.viewController = vc
         
+        interactor.fetchLandmarks()
+        
         return vc
     }
 }

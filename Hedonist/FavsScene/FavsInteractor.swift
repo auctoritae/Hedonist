@@ -8,7 +8,9 @@
 import Foundation
 
 protocol FavsInteractorProtocol: AnyObject {
-    
+    func fetchFavorites()
+    func selectFavorite(request: Place)
+    func removeFavorite(request: Place)
 }
 
 final class FavsInteractor: FavsInteractorProtocol {
@@ -21,4 +23,10 @@ final class FavsInteractor: FavsInteractorProtocol {
     required init(dataManager: DataManager) {
         self.dataManager = dataManager
     }
+    
+    
+    // MARK: - Implementation
+    func fetchFavorites() { }
+    func selectFavorite(request: Place) { }
+    func removeFavorite(request: Place) { }
 }

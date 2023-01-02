@@ -22,6 +22,8 @@ final class PlaceBuilder {
         presenter.view = view
         router.viewController = vc
         
+        interactor.fetchPlace(request: place)
+        
         return vc
     }
 }

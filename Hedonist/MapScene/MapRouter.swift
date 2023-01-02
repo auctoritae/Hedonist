@@ -8,10 +8,14 @@
 import Foundation
 
 protocol MapRouterProtocol: AnyObject {
-    
+    func openPlace(place: Place)
 }
 
 final class MapRouter: MapRouterProtocol {
     // MARK: - Variable
     weak var viewController: MapVC?
+    
+    
+    // MARK: - Implementation
+    func openPlace(place: Place) { }
 }

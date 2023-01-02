@@ -9,7 +9,8 @@ import UIKit
 import SnapKit
 
 protocol MapViewProtocol: AnyObject {
-    
+    func displayLandmarks(viewModel: [Landmark])
+    func displayPlace(viewModel: Place)
 }
 
 final class MapView: UIView {
@@ -37,5 +38,6 @@ final class MapView: UIView {
 
 
 extension MapView: MapViewProtocol {
-    
+    func displayLandmarks(viewModel: [Landmark]) { }
+    func displayPlace(viewModel: Place) { }
 }

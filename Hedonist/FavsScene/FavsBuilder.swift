@@ -22,6 +22,8 @@ final class FavsBuilder {
         presenter.view = view
         router.viewController = vc
         
+        interactor.fetchFavorites()
+        
         return vc
     }
 }

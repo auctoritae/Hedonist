@@ -8,10 +8,14 @@
 import Foundation
 
 protocol MainRouterProtocol: AnyObject {
-    
+    func openPlace(place: Place)
 }
 
 final class MainRouter: MainRouterProtocol {
     // MARK: - Variable
     weak var viewController: MainVC?
+    
+    
+    // MARK: - Implementation
+    func openPlace(place: Place) { }
 }

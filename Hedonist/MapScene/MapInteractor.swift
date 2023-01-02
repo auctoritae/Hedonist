@@ -8,7 +8,8 @@
 import Foundation
 
 protocol MapInteractorProtocol: AnyObject {
-    
+    func fetchLandmarks()
+    func selectLandmark(request: Landmark)
 }
 
 final class MapInteractor: MapInteractorProtocol {
@@ -21,4 +22,9 @@ final class MapInteractor: MapInteractorProtocol {
     required init(api: ApiManager) {
         self.api = api
     }
+    
+    
+    // MARK: - Implementation
+    func fetchLandmarks() { }
+    func selectLandmark(request: Landmark) { }
 }

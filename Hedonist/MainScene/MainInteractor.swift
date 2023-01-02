@@ -8,7 +8,10 @@
 import Foundation
 
 protocol MainInteractorProtocol: AnyObject {
-    
+    func fetchLandmarks()
+    func selectLandmark(request: Landmark)
+    func selectSearchFilter()
+    func didSearchTyping()
 }
 
 final class MainInteractor: MainInteractorProtocol {
@@ -21,4 +24,11 @@ final class MainInteractor: MainInteractorProtocol {
     required init(api: ApiManager) {
         self.api = api
     }
+    
+    
+    // MARK: - Implementation
+    func fetchLandmarks() { }
+    func selectLandmark(request: Landmark) { }
+    func selectSearchFilter() { }
+    func didSearchTyping() { }
 }

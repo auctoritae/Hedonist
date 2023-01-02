@@ -22,6 +22,8 @@ final class MapBuilder {
         presenter.view = view
         router.viewController = vc
         
+        interactor.fetchLandmarks()
+        
         return vc
     }
 }

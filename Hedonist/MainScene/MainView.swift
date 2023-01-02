@@ -9,7 +9,10 @@ import UIKit
 import SnapKit
 
 protocol MainViewProtocol: AnyObject {
-    
+    func displayLandmarks(viewModel: [Landmark])
+    func displayPlace(viewModel: Place)
+    func displaySearchFilter()
+    func displaySearchTyping()
 }
 
 final class MainView: UIView {
@@ -37,5 +40,8 @@ final class MainView: UIView {
 
 
 extension MainView: MainViewProtocol {
-    
+    func displayLandmarks(viewModel: [Landmark]) { }
+    func displayPlace(viewModel: Place) { }
+    func displaySearchFilter() { }
+    func displaySearchTyping() { }
 }

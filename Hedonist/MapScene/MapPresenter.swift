@@ -8,10 +8,16 @@
 import Foundation
 
 protocol MapPresenterProtocol: AnyObject {
-    
+    func presentLandmarks(response: [Landmark])
+    func presentLandmark(response: Landmark)
 }
 
 final class MapPresenter: MapPresenterProtocol {
     // MARK: - Variable
     weak var view: MapViewProtocol?
+    
+    
+    // MARK: - Implementation
+    func presentLandmarks(response: [Landmark]) { }
+    func presentLandmark(response: Landmark) { }
 }

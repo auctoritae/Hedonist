@@ -9,7 +9,9 @@ import UIKit
 import SnapKit
 
 protocol FavsViewProtocol: AnyObject {
-    
+    func dispalyFavorites(viewModel: [Place])
+    func displayFavorite(viewModel: Place)
+    func removeFavorite(viewModel: Place)
 }
 
 final class FavsView: UIView {
@@ -37,5 +39,7 @@ final class FavsView: UIView {
 
 
 extension FavsView: FavsViewProtocol {
-    
+    func dispalyFavorites(viewModel: [Place]) { }
+    func displayFavorite(viewModel: Place) { }
+    func removeFavorite(viewModel: Place) { }
 }

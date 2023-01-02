@@ -42,6 +42,7 @@
 		FEE6B7EB295704A100C3689F /* FavsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7EA295704A100C3689F /* FavsCell.swift */; };
 		FEE6B7EF295704F000C3689F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7EE295704F000C3689F /* DataManager.swift */; };
 		FEE6B7F22957052100C3689F /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7F02957052100C3689F /* DataModel.xcdatamodeld */; };
+		FEF117FA29633FF600E1C8AE /* ApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF117F929633FF600E1C8AE /* ApiModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		FEE6B7EA295704A100C3689F /* FavsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavsCell.swift; sourceTree = "<group>"; };
 		FEE6B7EE295704F000C3689F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		FEE6B7F12957052100C3689F /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		FEF117F929633FF600E1C8AE /* ApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				FE5CD4C72961BAC50094DCC4 /* ApiManager.swift */,
+				FEF117F929633FF600E1C8AE /* ApiModel.swift */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				FE0BB2A529537CEC00F757E8 /* SceneDelegate.swift in Sources */,
 				FE393C53295CC41A00A10023 /* PlaceVC.swift in Sources */,
 				FE393C49295CC3C800A10023 /* PlaceBuilder.swift in Sources */,
+				FEF117FA29633FF600E1C8AE /* ApiModel.swift in Sources */,
 				FEE6B7E92957047E00C3689F /* MainCell.swift in Sources */,
 				FEE6B7CF2957010D00C3689F /* MainPresenter.swift in Sources */,
 				FEE6B7D72957023F00C3689F /* MapBuilder.swift in Sources */,
