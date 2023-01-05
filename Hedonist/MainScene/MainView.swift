@@ -31,7 +31,7 @@ final class MainView: UIView {
     private lazy var mainTitle: UILabel = {
         let title = UILabel()
         title.textColor = .label
-        title.font = .systemFont(ofSize: 20, weight: .heavy)
+        title.font = .systemFont(ofSize: 36, weight: .heavy)
         title.text = Titles.mainSceneTitle
         title.textAlignment = .left
         title.numberOfLines = 1
@@ -44,9 +44,10 @@ final class MainView: UIView {
         table.delegate = self
         table.dataSource = self
         table.rowHeight = UITableView.automaticDimension
-        table.estimatedRowHeight = 60
+        table.estimatedRowHeight = 70
         table.backgroundColor = .systemBackground
         table.separatorStyle = .none
+        table.showsVerticalScrollIndicator = false
         return table
     }()
     
@@ -70,8 +71,9 @@ final class MainView: UIView {
         addSubview(tableView)
         
         mainTitle.snp.makeConstraints {
-            $0.top.leading.equalToSuperview().offset(10)
-            $0.trailing.equalToSuperview().offset(-10)
+            $0.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
+            $0.leading.equalToSuperview().offset(15)
+            $0.trailing.equalToSuperview().offset(-15)
         }
         
         tableView.snp.makeConstraints {
@@ -91,6 +93,7 @@ extension MainView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.cellId(), for: indexPath) as? MainCell {
             cell.selectionStyle = .none
+            cell.landmark = model?[indexPath.row]
             return cell
         }
         return UITableViewCell()

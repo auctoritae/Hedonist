@@ -41,7 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         mapVC.tabBarItem = UITabBarItem(title: Titles.mapTabTitle, image: UIImage(systemName: "map.circle.fill"), tag: 2)
         
         tabController.viewControllers = [mainVC, favsVC, mapVC]
-        UITabBar.appearance().backgroundColor = .label
+        UITabBar.appearance().backgroundColor = .systemBackground
         return tabController
     }
 }
