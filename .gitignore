@@ -98,6 +98,8 @@ iOSInjectionProject/
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 
-Constants.swift
+Keys.swift
+Hedonist/Keys.swift
+Hedonist/APIManager/Keys.swift
 
 # End of https://www.toptal.com/developers/gitignore/api/swift,xcode
