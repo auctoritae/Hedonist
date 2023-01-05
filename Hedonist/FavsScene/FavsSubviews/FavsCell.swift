@@ -32,6 +32,6 @@ final class FavsCell: UITableViewCell {
     
     // MARK: - UI
     private func layoutUI() {
-        
+        contentView.backgroundColor = .systemBackground
     }
 }

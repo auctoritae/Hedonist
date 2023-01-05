@@ -37,7 +37,7 @@ class PlaceView: UIView {
     
     // MARK: - UI
     private func layoutUI() {
-        backgroundColor = .label
+        backgroundColor = .systemBackground
     }
 }
 

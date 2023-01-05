@@ -32,6 +32,6 @@ final class MainCell: UITableViewCell {
     
     // MARK: - UI
     private func layoutUI() {
-        
+        contentView.backgroundColor = .systemBackground
     }
 }
