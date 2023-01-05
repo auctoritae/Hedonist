@@ -38,6 +38,7 @@ final class MapView: UIView {
 
 
 extension MapView: MapViewProtocol {
+    // MARK: - Implementation
     func displayLandmarks(viewModel: [Landmark]) { }
     func displayPlace(viewModel: Place) { }
 }

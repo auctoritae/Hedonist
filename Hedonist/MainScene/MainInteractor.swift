@@ -27,7 +27,16 @@ final class MainInteractor: MainInteractorProtocol {
     
     
     // MARK: - Implementation
-    func fetchLandmarks() { }
+    func fetchLandmarks() {
+        api.fetchData { result in
+            if let data = result {
+                let response = data.record
+                self.presenter?.presentLandmarks(response: response)
+            }
+        }
+    }
+    
+    
     func selectLandmark(request: Landmark) { }
     func selectSearchFilter() { }
     func didSearchTyping() { }

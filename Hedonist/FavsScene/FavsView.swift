@@ -39,6 +39,7 @@ final class FavsView: UIView {
 
 
 extension FavsView: FavsViewProtocol {
+    // MARK: - Implementation
     func dispalyFavorites(viewModel: [Place]) { }
     func displayFavorite(viewModel: Place) { }
     func removeFavorite(viewModel: Place) { }

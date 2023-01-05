@@ -43,6 +43,7 @@ class PlaceView: UIView {
 
 
 extension PlaceView: PlaceViewProtocol {
+    // MARK: - Implementation
     func displayPlace(viewModel: Place) { }
     func addToFavoritesAlert(viewModel: Place) { }
     func removeFromFavoritesAlert(viewModel: Place) { }

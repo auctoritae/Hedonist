@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct Record: Codable {
+    let record: [Landmark]
+}
+
 struct Landmark: Codable {
     let category: String?
     let name: String?

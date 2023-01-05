@@ -40,7 +40,12 @@ final class MainView: UIView {
 
 
 extension MainView: MainViewProtocol {
-    func displayLandmarks(viewModel: [Landmark]) { }
+    // MARK: - Implementation
+    func displayLandmarks(viewModel: [Landmark]) {
+        debugPrint(viewModel)
+    }
+    
+    
     func displayPlace(viewModel: Place) { }
     func displaySearchFilter() { }
     func displaySearchTyping() { }
