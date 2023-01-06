@@ -25,10 +25,19 @@ final class MainCell: UITableViewCell {
     
     
     // MARK: - UI Variable
+    private lazy var gradient: CAGradientLayer = {
+        let gradient = CAGradientLayer()
+        gradient.colors = [
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor,
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0.9).cgColor
+        ]
+        return gradient
+    }()
+    
     private lazy var overlay: UIView = {
         let container = UIView()
         container.layer.masksToBounds = true
-        container.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+        container.layer.insertSublayer(gradient, at: 0)
         return container
     }()
     
@@ -86,9 +95,13 @@ final class MainCell: UITableViewCell {
     
     
     // MARK: - UI
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradient.frame = overlay.bounds
+    }
+    
     private func layoutUI() {
         contentView.backgroundColor = .systemBackground
-
         contentView.addSubview(landmarkImage)
         
         landmarkImage.addSubview(overlay)
