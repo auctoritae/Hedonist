@@ -20,6 +20,18 @@ final class FavsView: UIView {
     var router: FavsRouterProtocol?
     
     
+    // MARK: - UI Variable
+    private lazy var favsTitle: UILabel = {
+        let title = UILabel()
+        title.textColor = .label
+        title.font = .systemFont(ofSize: 36, weight: .heavy)
+        title.text = Titles.favSceneTitle
+        title.textAlignment = .left
+        title.numberOfLines = 1
+        return title
+    }()
+    
+    
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -34,6 +46,14 @@ final class FavsView: UIView {
     // MARK: - UI
     private func layoutUI() {
         backgroundColor = .systemBackground
+        
+        addSubview(favsTitle)
+        
+        favsTitle.snp.makeConstraints {
+            $0.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
+            $0.leading.equalToSuperview().offset(15)
+            $0.trailing.equalToSuperview().offset(-15)
+        }
     }
 }
 

@@ -25,11 +25,11 @@ final class MainCell: UITableViewCell {
     
     
     // MARK: - UI Variable
-    private lazy var gradientOverlay: UIView = {
-        let gradient = UIView()
-        gradient.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
-        gradient.layer.masksToBounds = true
-        return gradient
+    private lazy var overlay: UIView = {
+        let container = UIView()
+        container.layer.masksToBounds = true
+        container.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+        return container
     }()
     
     private lazy var landmarkTitle: UILabel = {
@@ -43,7 +43,7 @@ final class MainCell: UITableViewCell {
     
     private lazy var landmarkSubtitle: UILabel = {
         let title = UILabel()
-        title.textColor = .gray
+        title.textColor = .lightGray
         title.font = .systemFont(ofSize: 14, weight: .regular)
         title.textAlignment = .left
         title.numberOfLines = 1
@@ -52,7 +52,7 @@ final class MainCell: UITableViewCell {
     
     private lazy var landmarkImage: UIImageView = {
         let image = UIImageView()
-        image.layer.cornerRadius = 10
+        image.layer.cornerRadius = 8
         image.layer.masksToBounds = true
         image.contentMode = .scaleAspectFill
         return image
@@ -81,7 +81,7 @@ final class MainCell: UITableViewCell {
     private func landmarkSetup() {
         landmarkTitle.text = landmark?.name
         landmarkSubtitle.text = landmark?.category
-        landmarkImage.image = UIImage(named: "Placeholder")
+        landmarkImage.image = UIImage(named: "ABC")
     }
     
     
@@ -91,32 +91,32 @@ final class MainCell: UITableViewCell {
 
         contentView.addSubview(landmarkImage)
         
-        landmarkImage.addSubview(gradientOverlay)
-        landmarkImage.bringSubviewToFront(gradientOverlay)
+        landmarkImage.addSubview(overlay)
+        landmarkImage.bringSubviewToFront(overlay)
         
-        gradientOverlay.addSubview(landmarkTitle)
-        gradientOverlay.addSubview(landmarkSubtitle)
-        gradientOverlay.bringSubviewToFront(landmarkTitle)
-        gradientOverlay.bringSubviewToFront(landmarkSubtitle)
+        overlay.addSubview(landmarkTitle)
+        overlay.addSubview(landmarkSubtitle)
+        overlay.bringSubviewToFront(landmarkTitle)
+        overlay.bringSubviewToFront(landmarkSubtitle)
         
         landmarkImage.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(15)
             $0.top.bottom.equalToSuperview().inset(5)
         }
         
-        gradientOverlay.snp.makeConstraints {
+        overlay.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         
         landmarkTitle.snp.makeConstraints {
             $0.leading.trailing.equalTo(landmarkSubtitle)
-            $0.bottom.equalTo(landmarkSubtitle.snp.top).offset(-5)
+            $0.bottom.equalTo(landmarkSubtitle.snp.top).offset(-2)
         }
         
         landmarkSubtitle.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(10)
-            $0.trailing.equalToSuperview().offset(-10)
-            $0.bottom.equalToSuperview().offset(-10)
+            $0.leading.equalToSuperview().offset(15)
+            $0.trailing.equalToSuperview().offset(-15)
+            $0.bottom.equalToSuperview().offset(-15)
         }
     }
 }
