@@ -21,6 +21,7 @@
 		FE5CD4C82961BAC50094DCC4 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5CD4C72961BAC50094DCC4 /* ApiManager.swift */; };
 		FE5CD4CB2961BB530094DCC4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FE5CD4CA2961BB530094DCC4 /* Alamofire */; };
 		FE94AB072967599D007BE0D6 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = FE94AB062967599D007BE0D6 /* AlamofireImage */; };
+		FE99DB052969908500FD5064 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99DB042969908500FD5064 /* Helpers.swift */; };
 		FEBD8FC829670B8300286F8C /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBD8FC729670B8300286F8C /* Keys.swift */; };
 		FEE6B7C12957004500C3689F /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7C02957004500C3689F /* MainVC.swift */; };
 		FEE6B7C32957006800C3689F /* FavsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6B7C22957006800C3689F /* FavsVC.swift */; };
@@ -61,6 +62,7 @@
 		FE393C50295CC40200A10023 /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
 		FE393C52295CC41A00A10023 /* PlaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceVC.swift; sourceTree = "<group>"; };
 		FE5CD4C72961BAC50094DCC4 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		FE99DB042969908500FD5064 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		FEBD8FC729670B8300286F8C /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		FEE6B7C02957004500C3689F /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		FEE6B7C22957006800C3689F /* FavsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavsVC.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				FE0BB2A229537CEC00F757E8 /* AppDelegate.swift */,
 				FE0BB2A429537CEC00F757E8 /* SceneDelegate.swift */,
+				FE99DB032969907000FD5064 /* Helpers */,
 				FE5CD4C62961BAA30094DCC4 /* APIManager */,
 				FEE6B7E72957043B00C3689F /* DataManager */,
 				FEE6B7BD2956FFC300C3689F /* MainScene */,
@@ -156,6 +159,14 @@
 				FEBD8FC729670B8300286F8C /* Keys.swift */,
 			);
 			path = APIManager;
+			sourceTree = "<group>";
+		};
+		FE99DB032969907000FD5064 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FE99DB042969908500FD5064 /* Helpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		FEE6B7BD2956FFC300C3689F /* MainScene */ = {
@@ -331,6 +342,7 @@
 				FEE6B7D72957023F00C3689F /* MapBuilder.swift in Sources */,
 				FE393C4B295CC3D600A10023 /* PlaceInteractor.swift in Sources */,
 				FEE6B7EB295704A100C3689F /* FavsCell.swift in Sources */,
+				FE99DB052969908500FD5064 /* Helpers.swift in Sources */,
 				FEE6B7F22957052100C3689F /* DataModel.xcdatamodeld in Sources */,
 				FEE6B7CB295700C900C3689F /* MapView.swift in Sources */,
 				FEE6B7DF295702F000C3689F /* MapInteractor.swift in Sources */,

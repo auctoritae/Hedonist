@@ -11,7 +11,6 @@ protocol MainInteractorProtocol: AnyObject {
     func fetchLandmarks()
     func selectLandmark(request: Landmark)
     func selectSearchFilter()
-    func didSearchTyping()
 }
 
 final class MainInteractor: MainInteractorProtocol {
@@ -39,5 +38,4 @@ final class MainInteractor: MainInteractorProtocol {
     
     func selectLandmark(request: Landmark) { }
     func selectSearchFilter() { }
-    func didSearchTyping() { }
 }

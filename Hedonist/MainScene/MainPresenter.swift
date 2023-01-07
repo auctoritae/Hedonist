@@ -11,7 +11,6 @@ protocol MainPresenterProtocol: AnyObject {
     func presentLandmarks(response: [Landmark])
     func presentLandmark(response: Landmark)
     func presentSearchFilter()
-    func presentSearchTyping()
 }
 
 final class MainPresenter: MainPresenterProtocol {
@@ -28,5 +27,4 @@ final class MainPresenter: MainPresenterProtocol {
     
     func presentLandmark(response: Landmark) { }
     func presentSearchFilter() { }
-    func presentSearchTyping() { }
 }

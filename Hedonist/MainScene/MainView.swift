@@ -12,7 +12,6 @@ protocol MainViewProtocol: AnyObject {
     func displayLandmarks(viewModel: [Landmark])
     func displayPlace(viewModel: Place)
     func displaySearchFilter()
-    func displaySearchTyping()
 }
 
 final class MainView: UIView {
@@ -110,5 +109,4 @@ extension MainView: MainViewProtocol {
     
     func displayPlace(viewModel: Place) { }
     func displaySearchFilter() { }
-    func displaySearchTyping() { }
 }
