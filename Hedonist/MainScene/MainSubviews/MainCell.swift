@@ -11,7 +11,7 @@ import AlamofireImage
 
 final class MainCell: UITableViewCell {
     // MARK: - Class function
-    class func cellId() -> String {
+    static func cellId() -> String {
         String(describing: MainCell.self)
     }
     

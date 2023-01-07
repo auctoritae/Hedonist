@@ -14,10 +14,10 @@ enum Titles {
     static let mapSceneTitle = "Карта"
 }
 
-enum SearchTitles {
-    static let all = "Все"
-    static let restaraunt = "Ресторан"
-    static let places = "Места"
-    static let breakfasts = "Завтраки"
-    static let drinks = "Бар"
+enum SearchTitles: String, CaseIterable {
+    case all = "Все"
+    case breakfasts = "Завтраки"
+    case restaraunt = "Ресторан"
+    case places = "Места"
+    case drinks = "Бар"
 }

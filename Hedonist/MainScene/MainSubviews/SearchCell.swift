@@ -10,12 +10,18 @@ import SnapKit
 
 final class SearchCell: UICollectionViewCell {
     // MARK: - Class function
-    class func cellId() -> String {
+    static func cellId() -> String {
         String(describing: SearchCell.self)
     }
     
     
     // MARK: - Variable
+    var item: String? {
+        didSet {
+            titleSetup()
+        }
+    }
+    
     override var isSelected: Bool {
         didSet {
             changeColor()
@@ -37,6 +43,7 @@ final class SearchCell: UICollectionViewCell {
     // MARK: - Init
     override func prepareForReuse() {
         super.prepareForReuse()
+        item = nil
         categoryTitle.text = nil
     }
     
@@ -52,6 +59,10 @@ final class SearchCell: UICollectionViewCell {
     
     
     // MARK: - Private
+    private func titleSetup() {
+        categoryTitle.text = item
+    }
+    
     private func changeColor() {
         if isSelected {
             contentView.backgroundColor = UIColor(red: 0.829, green: 0.169, blue: 0.169, alpha: 1)

@@ -19,6 +19,8 @@ final class MainView: UIView {
     var interactor: MainInteractorProtocol?
     var router: MainRouterProtocol?
     
+    private var search: [String] = SearchTitles.allCases.map { $0.rawValue }
+    
     private var model: [Landmark]? {
         didSet {
             tableView.reloadData()
@@ -49,6 +51,9 @@ final class MainView: UIView {
         collection.dataSource = self
         collection.backgroundColor = .clear
         collection.showsHorizontalScrollIndicator = false
+        
+        let defaultSelection = IndexPath(item: 0, section: 0)
+        collection.selectItem(at: defaultSelection, animated: false, scrollPosition: [])
         return collection
     }()
     
@@ -108,12 +113,13 @@ final class MainView: UIView {
 // MARK: - Extensions
 extension MainView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        search.count
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCell.cellId(), for: indexPath) as? SearchCell {
+            cell.item = search[indexPath.row]
             return cell
         }
         
@@ -121,9 +127,9 @@ extension MainView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     }
     
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 100, height: 36)
+    }
 }
 
 
