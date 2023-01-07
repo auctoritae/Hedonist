@@ -37,8 +37,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let mapVC = MapBuilder.build()
         
         mainVC.tabBarItem = UITabBarItem(title: Titles.mainTabTitle, image: UIImage(systemName: "antenna.radiowaves.left.and.right.circle.fill"), tag: 0)
-        favsVC.tabBarItem = UITabBarItem(title: Titles.favTabTitle, image: UIImage(systemName: "heart.circle.fill"), tag: 1)
-        mapVC.tabBarItem = UITabBarItem(title: Titles.mapTabTitle, image: UIImage(systemName: "map.circle.fill"), tag: 2)
+        favsVC.tabBarItem = UITabBarItem(title: Titles.favSceneTitle, image: UIImage(systemName: "heart.circle.fill"), tag: 1)
+        mapVC.tabBarItem = UITabBarItem(title: Titles.mapSceneTitle, image: UIImage(systemName: "map.circle.fill"), tag: 2)
         
         tabController.viewControllers = [mainVC, favsVC, mapVC]
         UITabBar.appearance().backgroundColor = .systemBackground

@@ -37,6 +37,21 @@ final class MainView: UIView {
         return title
     }()
     
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 8
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
+        
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.register(SearchCell.self, forCellWithReuseIdentifier: SearchCell.cellId())
+        collection.delegate = self
+        collection.dataSource = self
+        collection.backgroundColor = .clear
+        collection.showsHorizontalScrollIndicator = false
+        return collection
+    }()
+    
     private lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
         table.register(MainCell.self, forCellReuseIdentifier: MainCell.cellId())
@@ -67,6 +82,7 @@ final class MainView: UIView {
         backgroundColor = .systemBackground
         
         addSubview(mainTitle)
+        addSubview(collectionView)
         addSubview(tableView)
         
         mainTitle.snp.makeConstraints {
@@ -75,11 +91,39 @@ final class MainView: UIView {
             $0.trailing.equalToSuperview().offset(-15)
         }
         
-        tableView.snp.makeConstraints {
+        collectionView.snp.makeConstraints {
             $0.top.equalTo(mainTitle.snp.bottom).offset(10)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(60)
+        }
+        
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(collectionView.snp.bottom).offset(10)
             $0.leading.trailing.bottom.equalToSuperview()
         }
     }
+}
+
+
+// MARK: - Extensions
+extension MainView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCell.cellId(), for: indexPath) as? SearchCell {
+            return cell
+        }
+        
+        return UICollectionViewCell()
+    }
+    
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//
+//    }
 }
 
 
@@ -101,7 +145,6 @@ extension MainView: UITableViewDelegate, UITableViewDataSource {
 
 
 extension MainView: MainViewProtocol {
-    // MARK: - Implementation
     func displayLandmarks(viewModel: [Landmark]) {
         model = viewModel
     }
