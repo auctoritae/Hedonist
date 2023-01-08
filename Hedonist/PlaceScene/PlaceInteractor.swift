@@ -23,7 +23,12 @@ final class PlaceInteractor: PlaceInteractorProtocol {
     
     
     // MARK: - Implementation
-    func fetchPlace(request: Landmark) { }
+    func fetchPlace(request: Landmark) {
+        let response = request
+        presenter?.presentPlace(response: response)
+    }
+    
+    
     func addToFavorites(request: Landmark) { }
     func removeFromFavorites(request: Landmark) { }
     func openSMM(request: Landmark) { }

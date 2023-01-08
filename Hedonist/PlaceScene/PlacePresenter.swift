@@ -23,7 +23,12 @@ final class PlacePresenter: PlacePresenterProtocol {
     
     
     // MARK: - Implementation
-    func presentPlace(response: Landmark) { }
+    func presentPlace(response: Landmark) {
+        let viewModel = response
+        view?.displayPlace(viewModel: viewModel)
+    }
+    
+    
     func addToFavorites(response: Landmark) { }
     func removeFromFavorites(response: Landmark) { }
     func presentSMM(response: Landmark) { }
