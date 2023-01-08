@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MainRouterProtocol: AnyObject {
-    func openPlace(place: Place)
+    func openLandmark(landmark: Landmark)
 }
 
 final class MainRouter: MainRouterProtocol {
@@ -17,5 +17,7 @@ final class MainRouter: MainRouterProtocol {
     
     
     // MARK: - Implementation
-    func openPlace(place: Place) { }
+    func openLandmark(landmark: Landmark) {
+        debugPrint(landmark.name)
+    }
 }

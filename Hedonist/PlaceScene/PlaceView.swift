@@ -9,12 +9,12 @@ import UIKit
 import SnapKit
 
 protocol PlaceViewProtocol: AnyObject {
-    func displayPlace(viewModel: Place)
-    func addToFavoritesAlert(viewModel: Place)
-    func removeFromFavoritesAlert(viewModel: Place)
-    func displaySMM(viewModel: Place)
-    func displayCall(viewModel: Place)
-    func displayMap(viewModel: Place)
+    func displayPlace(viewModel: Landmark)
+    func addToFavoritesAlert(viewModel: Landmark)
+    func removeFromFavoritesAlert(viewModel: Landmark)
+    func displaySMM(viewModel: Landmark)
+    func displayCall(viewModel: Landmark)
+    func displayMap(viewModel: Landmark)
     func dismissView()
 }
 
@@ -44,11 +44,11 @@ class PlaceView: UIView {
 
 extension PlaceView: PlaceViewProtocol {
     // MARK: - Implementation
-    func displayPlace(viewModel: Place) { }
-    func addToFavoritesAlert(viewModel: Place) { }
-    func removeFromFavoritesAlert(viewModel: Place) { }
-    func displaySMM(viewModel: Place) { }
-    func displayCall(viewModel: Place) { }
-    func displayMap(viewModel: Place) { }
+    func displayPlace(viewModel: Landmark) { }
+    func addToFavoritesAlert(viewModel: Landmark) { }
+    func removeFromFavoritesAlert(viewModel: Landmark) { }
+    func displaySMM(viewModel: Landmark) { }
+    func displayCall(viewModel: Landmark) { }
+    func displayMap(viewModel: Landmark) { }
     func dismissView() { }
 }

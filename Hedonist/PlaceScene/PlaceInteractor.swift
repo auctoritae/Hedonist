@@ -8,12 +8,12 @@
 import Foundation
 
 protocol PlaceInteractorProtocol: AnyObject {
-    func fetchPlace(request: Place)
-    func addToFavorites(request: Place)
-    func removeFromFavorites(request: Place)
-    func openSMM(request: Place)
-    func call(request: Place)
-    func openMap(request: Place)
+    func fetchPlace(request: Landmark)
+    func addToFavorites(request: Landmark)
+    func removeFromFavorites(request: Landmark)
+    func openSMM(request: Landmark)
+    func call(request: Landmark)
+    func openMap(request: Landmark)
     func dismissView()
 }
 
@@ -23,11 +23,11 @@ final class PlaceInteractor: PlaceInteractorProtocol {
     
     
     // MARK: - Implementation
-    func fetchPlace(request: Place) { }
-    func addToFavorites(request: Place) { }
-    func removeFromFavorites(request: Place) { }
-    func openSMM(request: Place) { }
-    func call(request: Place) { }
-    func openMap(request: Place) { }
+    func fetchPlace(request: Landmark) { }
+    func addToFavorites(request: Landmark) { }
+    func removeFromFavorites(request: Landmark) { }
+    func openSMM(request: Landmark) { }
+    func call(request: Landmark) { }
+    func openMap(request: Landmark) { }
     func dismissView() { }
 }

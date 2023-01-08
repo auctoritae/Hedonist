@@ -10,8 +10,8 @@ import SnapKit
 
 protocol MainViewProtocol: AnyObject {
     func displayLandmarks(viewModel: [Landmark])
-    func displayPlace(viewModel: Place)
-    func displaySearchFilter()
+    func displayLandmark(viewModel: Landmark)
+    func displaySearchFilter(category: String)
 }
 
 final class MainView: UIView {
@@ -110,7 +110,7 @@ final class MainView: UIView {
 }
 
 
-// MARK: - Extensions
+// MARK: - CollectionView extension
 extension MainView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         search.count
@@ -130,9 +130,16 @@ extension MainView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 100, height: 36)
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = search[indexPath.row]
+        interactor?.selectSearchFilter(request: item)
+    }
 }
 
 
+// MARK: - TableView extension
 extension MainView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         model?.count ?? 0
@@ -147,15 +154,30 @@ extension MainView: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let landmark = model?[indexPath.row] {
+            interactor?.selectLandmark(request: landmark)
+        }
+    }
 }
 
 
+// MARK: - Protocol implementation
 extension MainView: MainViewProtocol {
     func displayLandmarks(viewModel: [Landmark]) {
         model = viewModel
     }
     
     
-    func displayPlace(viewModel: Place) { }
-    func displaySearchFilter() { }
+    func displayLandmark(viewModel: Landmark) {
+        let landmark = viewModel
+        router?.openLandmark(landmark: landmark)
+    }
+    
+    
+    func displaySearchFilter(category: String) {
+        debugPrint(category)
+    }
 }
