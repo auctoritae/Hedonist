@@ -178,6 +178,24 @@ extension MainView: MainViewProtocol {
     
     
     func displaySearchFilter(category: String) {
-        debugPrint(category)
+        if category != "Все" {
+            if let index = search.firstIndex(where: { $0 == category }) {
+                interactor?.fetchLandmarks()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    let filtered = self.model?.filter { $0.category == category }
+                    self.model = filtered
+                    self.tableView.reloadData()
+                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                    self.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
+                }
+            }
+            
+        } else {
+            interactor?.fetchLandmarks()
+            tableView.reloadData()
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+        }
     }
 }
