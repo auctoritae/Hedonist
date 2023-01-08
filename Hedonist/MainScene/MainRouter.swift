@@ -18,6 +18,7 @@ final class MainRouter: MainRouterProtocol {
     
     // MARK: - Implementation
     func openLandmark(landmark: Landmark) {
-        debugPrint(landmark.name)
+        let scene = PlaceBuilder.build(place: landmark)
+        viewController?.present(scene, animated: true)
     }
 }

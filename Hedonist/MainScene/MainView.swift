@@ -180,22 +180,20 @@ extension MainView: MainViewProtocol {
     func displaySearchFilter(category: String) {
         if category != "Все" {
             if let index = search.firstIndex(where: { $0 == category }) {
-                interactor?.fetchLandmarks()
+                collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
                     let filtered = self.model?.filter { $0.category == category }
                     self.model = filtered
-                    self.tableView.reloadData()
-                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-                    self.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
                 }
             }
             
         } else {
-            interactor?.fetchLandmarks()
-            tableView.reloadData()
-            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
         }
+        
+        interactor?.fetchLandmarks()
+        tableView.reloadData()
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
 }
