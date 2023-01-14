@@ -29,7 +29,7 @@ final class MainCell: UITableViewCell {
         let gradient = CAGradientLayer()
         gradient.colors = [
             UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor,
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0.9).cgColor
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor
         ]
         return gradient
     }()
@@ -37,7 +37,6 @@ final class MainCell: UITableViewCell {
     private lazy var overlay: UIView = {
         let container = UIView()
         container.layer.masksToBounds = true
-        container.layer.insertSublayer(gradient, at: 0)
         return container
     }()
     
@@ -95,22 +94,21 @@ final class MainCell: UITableViewCell {
     
     
     // MARK: - UI
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        overlay.layer.addSublayer(gradient)
         gradient.frame = overlay.bounds
     }
     
     private func layoutUI() {
         contentView.backgroundColor = .systemBackground
+        
         contentView.addSubview(landmarkImage)
+        contentView.addSubview(landmarkTitle)
+        contentView.addSubview(landmarkSubtitle)
         
         landmarkImage.addSubview(overlay)
         landmarkImage.bringSubviewToFront(overlay)
-        
-        overlay.addSubview(landmarkTitle)
-        overlay.addSubview(landmarkSubtitle)
-        overlay.bringSubviewToFront(landmarkTitle)
-        overlay.bringSubviewToFront(landmarkSubtitle)
         
         landmarkImage.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(15)
@@ -127,9 +125,9 @@ final class MainCell: UITableViewCell {
         }
         
         landmarkSubtitle.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(15)
-            $0.trailing.equalToSuperview().offset(-15)
-            $0.bottom.equalToSuperview().offset(-15)
+            $0.leading.equalTo(landmarkImage.snp.leading).offset(15)
+            $0.trailing.equalTo(landmarkImage.snp.trailing).offset(-15)
+            $0.bottom.equalTo(landmarkImage.snp.bottom).offset(-15)
         }
     }
 }

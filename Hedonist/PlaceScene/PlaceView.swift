@@ -35,7 +35,7 @@ class PlaceView: UIView, MKMapViewDelegate {
         gradient.colors = [
             UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor,
             UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor,
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0.9).cgColor
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor
         ]
         return gradient
     }()
@@ -212,7 +212,7 @@ class PlaceView: UIView, MKMapViewDelegate {
         
         placeImage.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalToSuperview().multipliedBy(0.45)
+            $0.height.equalToSuperview().multipliedBy(0.4)
         }
         
         overlay.snp.makeConstraints {
