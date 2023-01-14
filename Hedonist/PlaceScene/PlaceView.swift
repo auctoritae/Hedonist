@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import MapKit
 
 protocol PlaceViewProtocol: AnyObject {
     func displayPlace(viewModel: Landmark)
@@ -16,7 +17,7 @@ protocol PlaceViewProtocol: AnyObject {
     func displayMap(viewModel: Landmark)
 }
 
-class PlaceView: UIView {
+class PlaceView: UIView, MKMapViewDelegate {
     // MARK: - Variable
     var interactor: PlaceInteractorProtocol?
     var router: PlaceRouterProtocol?
@@ -73,11 +74,11 @@ class PlaceView: UIView {
         return button
     }()
     
-    private lazy var mapView: UIView = {
-        let map = UIView()
+    private lazy var mapView: MKMapView = {
+        let map = MKMapView()
+        map.delegate = self
         map.layer.cornerRadius = 8
         map.layer.masksToBounds = true
-        map.backgroundColor = .lightGray
         return map
     }()
     
@@ -148,12 +149,24 @@ class PlaceView: UIView {
     
     // MARK: - Private
     private func placeData() {
-        placeTitle.text = model?.name
-        placeSubtitle.text = model?.category
-        placeImage.image = UIImage(named: "ABC")
-        descriptionLabel.text = model?.descript
-        addressLabel.text = model?.address
-        hoursLabel.text = model?.workhours
+        if let model = model {
+            placeTitle.text = model.name
+            placeSubtitle.text = model.category
+            placeImage.image = UIImage(named: "ABC")
+            descriptionLabel.text = model.descript
+            addressLabel.text = model.address
+            hoursLabel.text = model.workhours
+            
+            if let latitude = model.lat, let longtitude = model.long {
+                let location = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
+                let region = MKCoordinateRegion(center: location, latitudinalMeters: 500, longitudinalMeters: 500)
+                mapView.setRegion(region, animated: false)
+                
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
+                mapView.addAnnotation(annotation)
+            }
+        }
     }
     
     @objc private func favorites() {
@@ -239,7 +252,7 @@ class PlaceView: UIView {
             $0.top.equalTo(placeImage.snp.bottom).offset(20)
             $0.leading.equalToSuperview().offset(15)
             $0.trailing.equalToSuperview().offset(-15)
-            $0.height.equalToSuperview().multipliedBy(0.15)
+            $0.height.equalToSuperview().multipliedBy(0.2)
         }
         
         descriptionLabel.snp.makeConstraints {
