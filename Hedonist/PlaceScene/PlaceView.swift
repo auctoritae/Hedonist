@@ -29,6 +29,16 @@ class PlaceView: UIView {
     
     
     // MARK: - UI Variable
+    private lazy var gradient: CAGradientLayer = {
+        let gradient = CAGradientLayer()
+        gradient.colors = [
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor,
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor,
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0.9).cgColor
+        ]
+        return gradient
+    }()
+    
     private lazy var overlay: UIView = {
         let container = UIView()
         container.layer.masksToBounds = true
@@ -41,6 +51,7 @@ class PlaceView: UIView {
         button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         button.addTarget(self, action: #selector(favorites), for: .touchUpInside)
         button.tintColor = .white
+        button.contentMode = .scaleAspectFit
         return button
     }()
     
@@ -49,6 +60,7 @@ class PlaceView: UIView {
         button.setImage(UIImage(systemName: "camera.fill"), for: .normal)
         button.addTarget(self, action: #selector(smm), for: .touchUpInside)
         button.tintColor = .white
+        button.contentMode = .scaleAspectFit
         return button
     }()
     
@@ -57,6 +69,7 @@ class PlaceView: UIView {
         button.setImage(UIImage(systemName: "iphone.radiowaves.left.and.right"), for: .normal)
         button.addTarget(self, action: #selector(call), for: .touchUpInside)
         button.tintColor = .white
+        button.contentMode = .scaleAspectFit
         return button
     }()
     
@@ -161,6 +174,12 @@ class PlaceView: UIView {
     
     
     // MARK: - UI
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        overlay.layer.addSublayer(gradient)
+        gradient.frame = overlay.bounds
+    }
+    
     private func layoutUI() {
         backgroundColor = .systemBackground
         
@@ -169,21 +188,14 @@ class PlaceView: UIView {
         addSubview(descriptionLabel)
         addSubview(addressLabel)
         addSubview(hoursLabel)
-
+        addSubview(favoritesButton)
+        addSubview(callButton)
+        addSubview(smmButton)
+        addSubview(placeTitle)
+        addSubview(placeSubtitle)
+        
         placeImage.addSubview(overlay)
         placeImage.bringSubviewToFront(overlay)
-        
-        overlay.addSubview(favoritesButton)
-        overlay.addSubview(callButton)
-        overlay.addSubview(smmButton)
-        overlay.addSubview(placeTitle)
-        overlay.addSubview(placeSubtitle)
-        
-        overlay.bringSubviewToFront(favoritesButton)
-        overlay.bringSubviewToFront(callButton)
-        overlay.bringSubviewToFront(smmButton)
-        overlay.bringSubviewToFront(placeTitle)
-        overlay.bringSubviewToFront(placeSubtitle)
         
         placeImage.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
@@ -195,21 +207,21 @@ class PlaceView: UIView {
         }
         
         favoritesButton.snp.makeConstraints {
-            $0.width.height.equalTo(35)
-            $0.top.equalToSuperview().offset(15)
-            $0.trailing.equalToSuperview().offset(-15)
+            $0.width.height.equalTo(40)
+            $0.top.equalTo(placeImage.snp.top).offset(15)
+            $0.trailing.equalTo(placeImage.snp.trailing).offset(-15)
         }
         
         callButton.snp.makeConstraints {
-            $0.width.height.equalTo(35)
-            $0.top.equalToSuperview().offset(15)
-            $0.leading.equalToSuperview().offset(15)
+            $0.width.height.equalTo(40)
+            $0.top.equalTo(placeImage.snp.top).offset(15)
+            $0.leading.equalTo(placeImage.snp.leading).offset(15)
         }
         
         smmButton.snp.makeConstraints {
-            $0.width.height.equalTo(35)
-            $0.top.equalToSuperview().offset(15)
-            $0.leading.equalTo(callButton.snp.trailing).offset(15)
+            $0.width.height.equalTo(40)
+            $0.top.equalTo(placeImage.snp.top).offset(15)
+            $0.leading.equalTo(callButton.snp.trailing).offset(5)
         }
         
         placeTitle.snp.makeConstraints {
@@ -218,9 +230,9 @@ class PlaceView: UIView {
         }
         
         placeSubtitle.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(15)
-            $0.trailing.equalToSuperview().offset(-15)
-            $0.bottom.equalToSuperview().offset(-15)
+            $0.leading.equalTo(placeImage.snp.leading).offset(15)
+            $0.trailing.equalTo(placeImage.snp.trailing).offset(-15)
+            $0.bottom.equalTo(placeImage.snp.bottom).offset(-15)
         }
         
         mapView.snp.makeConstraints {
