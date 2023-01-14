@@ -14,7 +14,6 @@ protocol PlaceInteractorProtocol: AnyObject {
     func openSMM(request: Landmark)
     func call(request: Landmark)
     func openMap(request: Landmark)
-    func dismissView()
 }
 
 final class PlaceInteractor: PlaceInteractorProtocol {
@@ -28,11 +27,26 @@ final class PlaceInteractor: PlaceInteractorProtocol {
         presenter?.presentPlace(response: response)
     }
     
+    func addToFavorites(request: Landmark) {
+        
+    }
     
-    func addToFavorites(request: Landmark) { }
-    func removeFromFavorites(request: Landmark) { }
-    func openSMM(request: Landmark) { }
-    func call(request: Landmark) { }
-    func openMap(request: Landmark) { }
-    func dismissView() { }
+    func removeFromFavorites(request: Landmark) {
+        
+    }
+    
+    func openSMM(request: Landmark) {
+        let response = request
+        presenter?.presentSMM(response: response)
+    }
+    
+    func call(request: Landmark) {
+        let response = request
+        presenter?.presentCall(response: response)
+    }
+    
+    func openMap(request: Landmark) {
+        let response = request
+        presenter?.presentMap(response: response)
+    }
 }

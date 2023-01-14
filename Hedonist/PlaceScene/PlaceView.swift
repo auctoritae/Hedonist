@@ -10,12 +10,10 @@ import SnapKit
 
 protocol PlaceViewProtocol: AnyObject {
     func displayPlace(viewModel: Landmark)
-    func addToFavoritesAlert(viewModel: Landmark)
-    func removeFromFavoritesAlert(viewModel: Landmark)
+    func favoritesAlert(viewModel: Landmark)
     func displaySMM(viewModel: Landmark)
     func displayCall(viewModel: Landmark)
     func displayMap(viewModel: Landmark)
-    func dismissView()
 }
 
 class PlaceView: UIView {
@@ -31,20 +29,35 @@ class PlaceView: UIView {
     
     
     // MARK: - UI Variable
-    private lazy var gradient: CAGradientLayer = {
-        let gradient = CAGradientLayer()
-        gradient.colors = [
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor,
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0.9).cgColor
-        ]
-        return gradient
-    }()
-    
     private lazy var overlay: UIView = {
         let container = UIView()
         container.layer.masksToBounds = true
-        container.layer.insertSublayer(gradient, at: 0)
+        container.isUserInteractionEnabled = true
         return container
+    }()
+    
+    private lazy var favoritesButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        button.addTarget(self, action: #selector(favorites), for: .touchUpInside)
+        button.tintColor = .white
+        return button
+    }()
+    
+    private lazy var smmButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "camera.fill"), for: .normal)
+        button.addTarget(self, action: #selector(smm), for: .touchUpInside)
+        button.tintColor = .white
+        return button
+    }()
+    
+    private lazy var callButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "iphone.radiowaves.left.and.right"), for: .normal)
+        button.addTarget(self, action: #selector(call), for: .touchUpInside)
+        button.tintColor = .white
+        return button
     }()
     
     private lazy var mapView: UIView = {
@@ -104,6 +117,7 @@ class PlaceView: UIView {
         let image = UIImageView()
         image.layer.masksToBounds = true
         image.contentMode = .scaleAspectFill
+        image.isUserInteractionEnabled = true
         return image
     }()
     
@@ -119,7 +133,7 @@ class PlaceView: UIView {
     }
     
     
-    // MARK: - UI
+    // MARK: - Private
     private func placeData() {
         placeTitle.text = model?.name
         placeSubtitle.text = model?.category
@@ -129,8 +143,24 @@ class PlaceView: UIView {
         hoursLabel.text = model?.workhours
     }
     
+    @objc private func favorites() {
+        
+    }
     
-    // MARK: - UI    
+    @objc private func smm() {
+        if let landmark = model {
+            interactor?.openSMM(request: landmark)
+        }
+    }
+    
+    @objc private func call() {
+        if let landmark = model {
+            interactor?.call(request: landmark)
+        }
+    }
+    
+    
+    // MARK: - UI
     private func layoutUI() {
         backgroundColor = .systemBackground
         
@@ -139,12 +169,19 @@ class PlaceView: UIView {
         addSubview(descriptionLabel)
         addSubview(addressLabel)
         addSubview(hoursLabel)
-        
+
         placeImage.addSubview(overlay)
         placeImage.bringSubviewToFront(overlay)
         
+        overlay.addSubview(favoritesButton)
+        overlay.addSubview(callButton)
+        overlay.addSubview(smmButton)
         overlay.addSubview(placeTitle)
         overlay.addSubview(placeSubtitle)
+        
+        overlay.bringSubviewToFront(favoritesButton)
+        overlay.bringSubviewToFront(callButton)
+        overlay.bringSubviewToFront(smmButton)
         overlay.bringSubviewToFront(placeTitle)
         overlay.bringSubviewToFront(placeSubtitle)
         
@@ -155,6 +192,24 @@ class PlaceView: UIView {
         
         overlay.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        
+        favoritesButton.snp.makeConstraints {
+            $0.width.height.equalTo(35)
+            $0.top.equalToSuperview().offset(15)
+            $0.trailing.equalToSuperview().offset(-15)
+        }
+        
+        callButton.snp.makeConstraints {
+            $0.width.height.equalTo(35)
+            $0.top.equalToSuperview().offset(15)
+            $0.leading.equalToSuperview().offset(15)
+        }
+        
+        smmButton.snp.makeConstraints {
+            $0.width.height.equalTo(35)
+            $0.top.equalToSuperview().offset(15)
+            $0.leading.equalTo(callButton.snp.trailing).offset(15)
         }
         
         placeTitle.snp.makeConstraints {
@@ -202,11 +257,19 @@ extension PlaceView: PlaceViewProtocol {
         model = viewModel
     }
     
+    func favoritesAlert(viewModel: Landmark) {
+        
+    }
     
-    func addToFavoritesAlert(viewModel: Landmark) { }
-    func removeFromFavoritesAlert(viewModel: Landmark) { }
-    func displaySMM(viewModel: Landmark) { }
-    func displayCall(viewModel: Landmark) { }
-    func displayMap(viewModel: Landmark) { }
-    func dismissView() { }
+    func displaySMM(viewModel: Landmark) {
+        router?.openSMM(from: viewModel)
+    }
+    
+    func displayCall(viewModel: Landmark) {
+        router?.openCall(from: viewModel)
+    }
+    
+    func displayMap(viewModel: Landmark) {
+        router?.openMap(from: viewModel)
+    }
 }

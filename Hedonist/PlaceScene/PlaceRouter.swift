@@ -8,10 +8,9 @@
 import Foundation
 
 protocol PlaceRouterProtocol: AnyObject {
-    func openSMM(request: Place)
-    func openCall(request: Place)
-    func openMap(request: Place)
-    func dismissView()
+    func openSMM(from: Landmark)
+    func openCall(from: Landmark)
+    func openMap(from: Landmark)
 }
 
 final class PlaceRouter: PlaceRouterProtocol {
@@ -20,8 +19,15 @@ final class PlaceRouter: PlaceRouterProtocol {
     
     
     // MARK: - Implementation
-    func openSMM(request: Place) { }
-    func openCall(request: Place) { }
-    func openMap(request: Place) { }
-    func dismissView() { }
+    func openSMM(from: Landmark) {
+        
+    }
+    
+    func openCall(from: Landmark) {
+        
+    }
+    
+    func openMap(from: Landmark) {
+        
+    }
 }
