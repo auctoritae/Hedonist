@@ -8,13 +8,13 @@
 import UIKit
 import SnapKit
 import MapKit
+import CoreData
 
 protocol PlaceViewProtocol: AnyObject {
     func displayPlace(viewModel: Landmark)
-    func favoritesAlert(viewModel: Landmark)
+    func favoritesAction()
     func displaySMM(viewModel: Landmark)
     func displayCall(viewModel: Landmark)
-    func displayMap(viewModel: Landmark)
 }
 
 class PlaceView: UIView, MKMapViewDelegate {
@@ -149,23 +149,22 @@ class PlaceView: UIView, MKMapViewDelegate {
     
     // MARK: - Private
     private func placeData() {
-        if let model = model {
-            placeTitle.text = model.name
-            placeSubtitle.text = model.category
-            placeImage.image = UIImage(named: "ABC")
-            descriptionLabel.text = model.descript
-            addressLabel.text = model.address
-            hoursLabel.text = model.workhours
+        placeTitle.text = model?.name
+        placeSubtitle.text = model?.category
+        placeImage.image = UIImage(named: "ABC")
+        descriptionLabel.text = model?.descript
+        addressLabel.text = model?.address
+        hoursLabel.text = model?.workhours
+        
+        if let latitude = model?.lat, let longtitude = model?.long {
+            let location = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
+            let region = MKCoordinateRegion(center: location, latitudinalMeters: 500, longitudinalMeters: 500)
             
-            if let latitude = model.lat, let longtitude = model.long {
-                let location = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
-                let region = MKCoordinateRegion(center: location, latitudinalMeters: 500, longitudinalMeters: 500)
-                mapView.setRegion(region, animated: false)
-                
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
-                mapView.addAnnotation(annotation)
-            }
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
+            
+            mapView.setRegion(region, animated: false)
+            mapView.addAnnotation(annotation)
         }
     }
     
@@ -282,7 +281,7 @@ extension PlaceView: PlaceViewProtocol {
         model = viewModel
     }
     
-    func favoritesAlert(viewModel: Landmark) {
+    func favoritesAction() {
         
     }
     
@@ -292,9 +291,5 @@ extension PlaceView: PlaceViewProtocol {
     
     func displayCall(viewModel: Landmark) {
         router?.openCall(from: viewModel)
-    }
-    
-    func displayMap(viewModel: Landmark) {
-        router?.openMap(from: viewModel)
     }
 }

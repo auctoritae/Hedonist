@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MapRouterProtocol: AnyObject {
-    func openPlace(place: Place)
+    func openLandmark(landmark: Landmark)
 }
 
 final class MapRouter: MapRouterProtocol {
@@ -17,5 +17,5 @@ final class MapRouter: MapRouterProtocol {
     
     
     // MARK: - Implementation
-    func openPlace(place: Place) { }
+    func openLandmark(landmark: Landmark) { }
 }

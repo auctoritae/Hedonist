@@ -10,10 +10,9 @@ import Foundation
 protocol PlaceInteractorProtocol: AnyObject {
     func fetchPlace(request: Landmark)
     func addToFavorites(request: Landmark)
-    func removeFromFavorites(request: Landmark)
+    func removeFromFavorites(request: Place)
     func openSMM(request: Landmark)
     func call(request: Landmark)
-    func openMap(request: Landmark)
 }
 
 final class PlaceInteractor: PlaceInteractorProtocol {
@@ -31,7 +30,7 @@ final class PlaceInteractor: PlaceInteractorProtocol {
         
     }
     
-    func removeFromFavorites(request: Landmark) {
+    func removeFromFavorites(request: Place) {
         
     }
     
@@ -43,10 +42,5 @@ final class PlaceInteractor: PlaceInteractorProtocol {
     func call(request: Landmark) {
         let response = request
         presenter?.presentCall(response: response)
-    }
-    
-    func openMap(request: Landmark) {
-        let response = request
-        presenter?.presentMap(response: response)
     }
 }

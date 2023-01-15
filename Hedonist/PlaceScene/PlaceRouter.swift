@@ -5,12 +5,13 @@
 //  Created by a.lobanov on 12/28/22.
 //
 
-import Foundation
+import UIKit
+import CallKit
+import SafariServices
 
 protocol PlaceRouterProtocol: AnyObject {
     func openSMM(from: Landmark)
     func openCall(from: Landmark)
-    func openMap(from: Landmark)
 }
 
 final class PlaceRouter: PlaceRouterProtocol {
@@ -20,14 +21,21 @@ final class PlaceRouter: PlaceRouterProtocol {
     
     // MARK: - Implementation
     func openSMM(from: Landmark) {
-        
+        if let instagram = from.url, let url = URL(string: instagram) {
+            viewController?.present(SFSafariViewController(url: url), animated: true)
+        } else {
+            debugPrint("Instagram url error")
+        }
     }
+    
     
     func openCall(from: Landmark) {
-        
-    }
-    
-    func openMap(from: Landmark) {
-        
+        if let number = from.phone?.components(separatedBy: NSCharacterSet.decimalDigits.inverted).joined(separator: "") {
+            if let url = NSURL(string: ("tel:" + "+" + number)) {
+                UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+            }
+        } else {
+            debugPrint("Phone call error")
+        }
     }
 }
