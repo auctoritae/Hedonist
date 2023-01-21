@@ -11,7 +11,7 @@ import SnapKit
 protocol MainViewProtocol: AnyObject {
     func displayLandmarks(viewModel: [Landmark])
     func displayLandmark(viewModel: Landmark)
-    func displaySearchFilter(category: String)
+    func displaySearchFilter(viewModel: [Landmark], filter: String)
 }
 
 final class MainView: UIView {
@@ -67,6 +67,7 @@ final class MainView: UIView {
         table.backgroundColor = .systemBackground
         table.separatorStyle = .none
         table.showsVerticalScrollIndicator = false
+        table.removeExcessCells()
         return table
     }()
     
@@ -91,9 +92,9 @@ final class MainView: UIView {
         addSubview(tableView)
         
         mainTitle.snp.makeConstraints {
-            $0.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
-            $0.leading.equalToSuperview().offset(15)
-            $0.trailing.equalToSuperview().offset(-15)
+            $0.top.equalTo(safeAreaLayoutGuide.snp.top).offset(UIConstants.topPadding)
+            $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
+            $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
         }
         
         collectionView.snp.makeConstraints {
@@ -134,7 +135,7 @@ extension MainView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = search[indexPath.row]
-        interactor?.selectSearchFilter(request: item)
+        interactor?.selectSearchFilter(filter: item)
     }
 }
 
@@ -168,6 +169,9 @@ extension MainView: UITableViewDelegate, UITableViewDataSource {
 extension MainView: MainViewProtocol {
     func displayLandmarks(viewModel: [Landmark]) {
         model = viewModel
+        tableView.reloadData()
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
     }
     
     
@@ -177,23 +181,15 @@ extension MainView: MainViewProtocol {
     }
     
     
-    func displaySearchFilter(category: String) {
-        if category != "Все" {
-            if let index = search.firstIndex(where: { $0 == category }) {
-                collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
-                    let filtered = self.model?.filter { $0.category == category }
-                    self.model = filtered
-                }
+    func displaySearchFilter(viewModel: [Landmark], filter: String) {
+        if let index = search.firstIndex(where: { $0 == filter }) {
+            DispatchQueue.main.async {
+                let filtered = viewModel.filter { $0.category == filter }
+                self.model = filtered
+                self.tableView.reloadData()
+                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                self.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
             }
-            
-        } else {
-            collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
         }
-        
-        interactor?.fetchLandmarks()
-        tableView.reloadData()
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 protocol MainInteractorProtocol: AnyObject {
     func fetchLandmarks()
     func selectLandmark(request: Landmark)
-    func selectSearchFilter(request: String)
+    func selectSearchFilter(filter: String)
 }
 
 final class MainInteractor: MainInteractorProtocol {
@@ -27,10 +27,10 @@ final class MainInteractor: MainInteractorProtocol {
     
     // MARK: - Implementation
     func fetchLandmarks() {
-        api.fetchData { result in
+        api.fetchData { [weak self] (result) in
             if let data = result {
                 let response = data.record
-                self.presenter?.presentLandmarks(response: response)
+                self?.presenter?.presentLandmarks(response: response)
             }
         }
     }
@@ -42,8 +42,14 @@ final class MainInteractor: MainInteractorProtocol {
     }
     
     
-    func selectSearchFilter(request: String) {
-        let item = request
-        presenter?.presentSearchFilter(response: item)
+    func selectSearchFilter(filter: String) {
+        let filter = filter
+        
+        api.fetchData { [weak self] (result) in
+            if let data = result {
+                let response = data.record
+                self?.presenter?.presentSearchFilter(response: response, filter: filter)
+            }
+        }
     }
 }

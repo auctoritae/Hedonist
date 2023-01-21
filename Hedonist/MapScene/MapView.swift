@@ -60,8 +60,8 @@ final class MapView: UIView, MKMapViewDelegate {
         
         mapTitle.snp.makeConstraints {
             $0.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
-            $0.leading.equalToSuperview().offset(15)
-            $0.trailing.equalToSuperview().offset(-15)
+            $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
+            $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
         }
         
         mapView.snp.makeConstraints {

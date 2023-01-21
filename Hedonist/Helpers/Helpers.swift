@@ -8,11 +8,12 @@
 import Foundation
 
 enum Titles {
-    static let mainTabTitle = "Все"    
+    static let mainTabTitle = "Все"
     static let mainSceneTitle = "Места"
     static let favSceneTitle = "Избранное"
     static let mapSceneTitle = "Карта"
 }
+
 
 enum SearchTitles: String, CaseIterable {
     case all = "Все"
@@ -20,4 +21,29 @@ enum SearchTitles: String, CaseIterable {
     case restaraunt = "Ресторан"
     case places = "Места"
     case drinks = "Бар"
+}
+
+
+enum UIConstants {
+    static let sidePadding: CGFloat = 15
+    static let topPadding: CGFloat = 20
+}
+
+
+enum Errors {
+    static let fetchError = "Ошибка загрузки.\nПожалуста, попробуйте еще раз"
+    static let faillURL = "Неверный или устаревший адрес ссылки.\nВ ближайшее обновление все поправим😉"
+    static let favsFail = "Произошла ошибка при добавлении в Избранное"
+    static let phoneError = "У этого места нет актуального номера телефона в данный момент"
+}
+
+
+enum Alerts {
+    static let addedToFavorites = "Добавлено в Избранное✌️"
+    static let locationServices = "Похоже, у Вас не включена геолокация или отсутствует разрешение на ее использование. Вы можете изменить это в настройках Вашего iPhone"
+}
+
+
+enum EmptyState {
+    static let favsEmpty = "У Вас пока еще нет мест в Избранном. \nПосмотрите, что есть в нашей подборке 🧐"
 }

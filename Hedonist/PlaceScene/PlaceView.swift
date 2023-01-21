@@ -220,19 +220,19 @@ class PlaceView: UIView, MKMapViewDelegate {
         
         favoritesButton.snp.makeConstraints {
             $0.width.height.equalTo(40)
-            $0.top.equalTo(placeImage.snp.top).offset(15)
-            $0.trailing.equalTo(placeImage.snp.trailing).offset(-15)
+            $0.top.equalTo(placeImage.snp.top).offset(UIConstants.sidePadding)
+            $0.trailing.equalTo(placeImage.snp.trailing).offset(-UIConstants.sidePadding)
         }
         
         callButton.snp.makeConstraints {
             $0.width.height.equalTo(40)
-            $0.top.equalTo(placeImage.snp.top).offset(15)
-            $0.leading.equalTo(placeImage.snp.leading).offset(15)
+            $0.top.equalTo(placeImage.snp.top).offset(UIConstants.sidePadding)
+            $0.leading.equalTo(placeImage.snp.leading).offset(UIConstants.sidePadding)
         }
         
         smmButton.snp.makeConstraints {
             $0.width.height.equalTo(40)
-            $0.top.equalTo(placeImage.snp.top).offset(15)
+            $0.top.equalTo(placeImage.snp.top).offset(UIConstants.sidePadding)
             $0.leading.equalTo(callButton.snp.trailing).offset(5)
         }
         
@@ -242,34 +242,34 @@ class PlaceView: UIView, MKMapViewDelegate {
         }
         
         placeSubtitle.snp.makeConstraints {
-            $0.leading.equalTo(placeImage.snp.leading).offset(15)
-            $0.trailing.equalTo(placeImage.snp.trailing).offset(-15)
-            $0.bottom.equalTo(placeImage.snp.bottom).offset(-15)
+            $0.leading.equalTo(placeImage.snp.leading).offset(UIConstants.sidePadding)
+            $0.trailing.equalTo(placeImage.snp.trailing).offset(-UIConstants.sidePadding)
+            $0.bottom.equalTo(placeImage.snp.bottom).offset(-UIConstants.sidePadding)
         }
         
         mapView.snp.makeConstraints {
-            $0.top.equalTo(placeImage.snp.bottom).offset(20)
-            $0.leading.equalToSuperview().offset(15)
-            $0.trailing.equalToSuperview().offset(-15)
+            $0.top.equalTo(placeImage.snp.bottom).offset(UIConstants.topPadding)
+            $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
+            $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
             $0.height.equalToSuperview().multipliedBy(0.2)
         }
         
         descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(mapView.snp.bottom).offset(20)
-            $0.leading.equalToSuperview().offset(15)
-            $0.trailing.equalToSuperview().offset(-15)
+            $0.top.equalTo(mapView.snp.bottom).offset(UIConstants.topPadding)
+            $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
+            $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
         }
         
         addressLabel.snp.makeConstraints {
-            $0.top.equalTo(descriptionLabel.snp.bottom).offset(15)
-            $0.leading.equalToSuperview().offset(15)
-            $0.trailing.equalToSuperview().offset(-15)
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(UIConstants.sidePadding)
+            $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
+            $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
         }
         
         hoursLabel.snp.makeConstraints {
             $0.top.equalTo(addressLabel.snp.bottom).offset(5)
-            $0.leading.equalToSuperview().offset(15)
-            $0.trailing.equalToSuperview().offset(-15)
+            $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
+            $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
         }
     }
 }

@@ -20,6 +20,7 @@
 		FE422D8F2955F45100353890 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FE422D8E2955F45100353890 /* SnapKit */; };
 		FE5CD4C82961BAC50094DCC4 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5CD4C72961BAC50094DCC4 /* ApiManager.swift */; };
 		FE5CD4CB2961BB530094DCC4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FE5CD4CA2961BB530094DCC4 /* Alamofire */; };
+		FE77DB5E297C46C900CD2C0A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE77DB5D297C46C900CD2C0A /* Extensions.swift */; };
 		FE94AB072967599D007BE0D6 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = FE94AB062967599D007BE0D6 /* AlamofireImage */; };
 		FE99DB052969908500FD5064 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99DB042969908500FD5064 /* Helpers.swift */; };
 		FE99DB07296990F000FD5064 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99DB06296990F000FD5064 /* SearchCell.swift */; };
@@ -63,6 +64,7 @@
 		FE393C50295CC40200A10023 /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
 		FE393C52295CC41A00A10023 /* PlaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceVC.swift; sourceTree = "<group>"; };
 		FE5CD4C72961BAC50094DCC4 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		FE77DB5D297C46C900CD2C0A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FE99DB042969908500FD5064 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		FE99DB06296990F000FD5064 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		FEBD8FC729670B8300286F8C /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				FE99DB042969908500FD5064 /* Helpers.swift */,
+				FE77DB5D297C46C900CD2C0A /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				FEE6B7DB2957027900C3689F /* FavsPresenter.swift in Sources */,
 				FEE6B7D92957026D00C3689F /* FavsInteractor.swift in Sources */,
 				FE0BB2A529537CEC00F757E8 /* SceneDelegate.swift in Sources */,
+				FE77DB5E297C46C900CD2C0A /* Extensions.swift in Sources */,
 				FE393C53295CC41A00A10023 /* PlaceVC.swift in Sources */,
 				FE393C49295CC3C800A10023 /* PlaceBuilder.swift in Sources */,
 				FEF117FA29633FF600E1C8AE /* ApiModel.swift in Sources */,

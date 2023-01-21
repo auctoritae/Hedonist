@@ -10,7 +10,7 @@ import Foundation
 protocol MainPresenterProtocol: AnyObject {
     func presentLandmarks(response: [Landmark])
     func presentLandmark(response: Landmark)
-    func presentSearchFilter(response: String)
+    func presentSearchFilter(response: [Landmark], filter: String)
 }
 
 final class MainPresenter: MainPresenterProtocol {
@@ -31,8 +31,14 @@ final class MainPresenter: MainPresenterProtocol {
     }
     
     
-    func presentSearchFilter(response: String) {
-        let item = response
-        view?.displaySearchFilter(category: item)
+    func presentSearchFilter(response: [Landmark], filter: String) {
+        let filter = filter
+        let viewModel = response
+
+        if filter == "Все" {
+            view?.displayLandmarks(viewModel: viewModel)
+        } else {
+            view?.displaySearchFilter(viewModel: viewModel, filter: filter)
+        }
     }
 }

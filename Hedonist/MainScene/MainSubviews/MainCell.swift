@@ -111,7 +111,7 @@ final class MainCell: UITableViewCell {
         landmarkImage.bringSubviewToFront(overlay)
         
         landmarkImage.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(15)
+            $0.leading.trailing.equalToSuperview().inset(UIConstants.sidePadding)
             $0.top.bottom.equalToSuperview().inset(5)
         }
         
@@ -125,9 +125,9 @@ final class MainCell: UITableViewCell {
         }
         
         landmarkSubtitle.snp.makeConstraints {
-            $0.leading.equalTo(landmarkImage.snp.leading).offset(15)
-            $0.trailing.equalTo(landmarkImage.snp.trailing).offset(-15)
-            $0.bottom.equalTo(landmarkImage.snp.bottom).offset(-15)
+            $0.leading.equalTo(landmarkImage.snp.leading).offset(UIConstants.sidePadding)
+            $0.trailing.equalTo(landmarkImage.snp.trailing).offset(-UIConstants.sidePadding)
+            $0.bottom.equalTo(landmarkImage.snp.bottom).offset(-UIConstants.sidePadding)
         }
     }
 }
