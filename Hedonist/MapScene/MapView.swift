@@ -58,10 +58,25 @@ final class MapView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         layoutUI()
+        setupLocationManager()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: - Private
+    private func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    
+    private func setDefaultRegion() {
+        let location = CLLocationCoordinate2D(latitude: 55.7582313, longitude: 37.5949771)
+        let region = MKCoordinateRegion(center: location, latitudinalMeters: 1500, longitudinalMeters: 1500)
+        mapView.setRegion(region, animated: false)
     }
     
     
@@ -98,10 +113,6 @@ extension MapView: MapViewProtocol {
             annotation.coordinate = CLLocationCoordinate2D(latitude: landmark.lat ?? 0.0, longitude: landmark.long ?? 0.0)
             mapView.addAnnotation(annotation)
         }
-        
-        let location = CLLocationCoordinate2D(latitude: DefaultLocation.latitude, longitude: DefaultLocation.longitude)
-        let region = MKCoordinateRegion(center: location, latitudinalMeters: 1000, longitudinalMeters: 1000)
-        mapView.setRegion(region, animated: false)
     }
     
     
@@ -117,5 +128,40 @@ extension MapView: MKMapViewDelegate {
         guard let annotation = annotation as? CustomAnnotation else { return }
         let landmark = annotation.landmark
         interactor?.selectLandmark(request: landmark)
+    }
+}
+
+
+extension MapView: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion.init(center: center, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        mapView.setRegion(region, animated: true)
+        locationManager.stopUpdatingLocation()
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch manager.authorizationStatus {
+            case .notDetermined:
+                locationManager.requestWhenInUseAuthorization()
+                
+            case .restricted: break
+            case .denied: break
+                
+            case .authorizedAlways:
+                mapView.showsUserLocation = true
+                locationManager.startUpdatingLocation()
+                setDefaultRegion()
+                
+            case .authorizedWhenInUse:
+                mapView.showsUserLocation = true
+                locationManager.startUpdatingLocation()
+                setDefaultRegion()
+                
+            @unknown default: break
+        }
     }
 }

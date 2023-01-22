@@ -158,7 +158,7 @@ class PlaceView: UIView, MKMapViewDelegate {
         
         if let latitude = model?.lat, let longtitude = model?.long {
             let location = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
-            let region = MKCoordinateRegion(center: location, latitudinalMeters: 500, longitudinalMeters: 500)
+            let region = MKCoordinateRegion(center: location, latitudinalMeters: 700, longitudinalMeters: 700)
             
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
