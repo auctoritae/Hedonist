@@ -30,6 +30,12 @@ enum UIConstants {
 }
 
 
+enum DefaultLocation {
+    static let latitude = 55.7582313
+    static let longitude = 37.5949771
+}
+
+
 enum Errors {
     static let fetchError = "Ошибка загрузки.\nПожалуста, попробуйте еще раз"
     static let faillURL = "Неверный или устаревший адрес ссылки.\nВ ближайшее обновление все поправим😉"

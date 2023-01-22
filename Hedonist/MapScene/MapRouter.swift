@@ -17,5 +17,8 @@ final class MapRouter: MapRouterProtocol {
     
     
     // MARK: - Implementation
-    func openLandmark(landmark: Landmark) { }
+    func openLandmark(landmark: Landmark) {
+        let scene = PlaceBuilder.build(place: landmark)
+        viewController?.present(scene, animated: true)
+    }
 }

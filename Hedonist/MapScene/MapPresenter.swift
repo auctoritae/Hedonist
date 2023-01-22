@@ -18,6 +18,14 @@ final class MapPresenter: MapPresenterProtocol {
     
     
     // MARK: - Implementation
-    func presentLandmarks(response: [Landmark]) { }
-    func presentLandmark(response: Landmark) { }
+    func presentLandmarks(response: [Landmark]) {
+        let viewModel = response
+        view?.displayLandmarks(viewModel: viewModel)
+    }
+    
+    
+    func presentLandmark(response: Landmark) {
+        let viewModel = response
+        view?.displayLandmark(viewModel: viewModel)
+    }
 }

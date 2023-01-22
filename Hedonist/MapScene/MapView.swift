@@ -15,10 +15,24 @@ protocol MapViewProtocol: AnyObject {
     func displayLandmark(viewModel: Landmark)
 }
 
-final class MapView: UIView, MKMapViewDelegate {
+
+final class CustomAnnotation: MKPointAnnotation {
+    var landmark: Landmark
+    
+    init(landmark: Landmark) {
+        self.landmark = landmark
+        super.init()
+    }
+}
+
+
+final class MapView: UIView {
     // MARK: - Variable
     var interactor: MapInteractorProtocol?
     var router: MapRouterProtocol?
+    
+    private var model: [Landmark]?
+    private let locationManager = CLLocationManager()
     
     
     // MARK: - UI Variable
@@ -74,6 +88,34 @@ final class MapView: UIView, MKMapViewDelegate {
 
 extension MapView: MapViewProtocol {
     // MARK: - Implementation
-    func displayLandmarks(viewModel: [Landmark]) { }
-    func displayLandmark(viewModel: Landmark) { }
+    func displayLandmarks(viewModel: [Landmark]) {
+        model = viewModel
+        
+        model?.forEach { landmark in
+            let annotation = CustomAnnotation(landmark: landmark)
+            annotation.title = landmark.name
+            annotation.subtitle = landmark.category
+            annotation.coordinate = CLLocationCoordinate2D(latitude: landmark.lat ?? 0.0, longitude: landmark.long ?? 0.0)
+            mapView.addAnnotation(annotation)
+        }
+        
+        let location = CLLocationCoordinate2D(latitude: DefaultLocation.latitude, longitude: DefaultLocation.longitude)
+        let region = MKCoordinateRegion(center: location, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        mapView.setRegion(region, animated: false)
+    }
+    
+    
+    func displayLandmark(viewModel: Landmark) {
+        let landmark = viewModel
+        router?.openLandmark(landmark: landmark)
+    }
+}
+
+
+extension MapView: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
+        guard let annotation = annotation as? CustomAnnotation else { return }
+        let landmark = annotation.landmark
+        interactor?.selectLandmark(request: landmark)
+    }
 }

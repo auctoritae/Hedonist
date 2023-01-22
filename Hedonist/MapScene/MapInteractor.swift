@@ -25,6 +25,18 @@ final class MapInteractor: MapInteractorProtocol {
     
     
     // MARK: - Implementation
-    func fetchLandmarks() { }
-    func selectLandmark(request: Landmark) { }
+    func fetchLandmarks() {
+        api.fetchData { [weak self] (result) in
+            if let data = result {
+                let response = data.record
+                self?.presenter?.presentLandmarks(response: response)
+            }
+        }
+    }
+    
+    
+    func selectLandmark(request: Landmark) {
+        let response = request
+        presenter?.presentLandmark(response: response)
+    }
 }
