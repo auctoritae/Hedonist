@@ -26,7 +26,17 @@ final class FavsInteractor: FavsInteractorProtocol {
     
     
     // MARK: - Implementation
-    func fetchFavorites() { }
-    func selectFavorite(request: Place) { }
-    func removeFavorite(request: Place) { }
+    func fetchFavorites() {
+        
+    }
+    
+    
+    func selectFavorite(request: Place) {
+        
+    }
+    
+    
+    func removeFavorite(request: Place) {
+        
+    }
 }

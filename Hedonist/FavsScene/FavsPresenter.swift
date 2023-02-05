@@ -19,7 +19,17 @@ final class FavsPresenter: FavsPresenterProtocol {
     
     
     // MARK: - Implementation
-    func presentFavorites(response: [Place]) { }
-    func presentFavorite(response: Place) { }
-    func removeFavorite(response: Place) { }
+    func presentFavorites(response: [Place]) {
+        
+    }
+    
+    
+    func presentFavorite(response: Place) {
+        
+    }
+    
+    
+    func removeFavorite(response: Place) {
+        
+    }
 }

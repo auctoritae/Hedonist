@@ -8,9 +8,7 @@
 import UIKit
 
 final class FavsVC: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
 }

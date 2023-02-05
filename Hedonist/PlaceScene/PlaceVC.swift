@@ -8,9 +8,7 @@
 import UIKit
 
 class PlaceVC: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
 }

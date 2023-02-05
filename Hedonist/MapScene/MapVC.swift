@@ -8,9 +8,7 @@
 import UIKit
 
 final class MapVC: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
 }

@@ -17,5 +17,7 @@ final class FavsRouter: FavsRouterProtocol {
     
     
     // MARK: - Variable
-    func openFavorite(place: Place) { }
+    func openFavorite(place: Place) {
+        
+    }
 }
