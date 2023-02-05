@@ -9,7 +9,6 @@ import Foundation
 
 protocol MapRouterProtocol: AnyObject {
     func openLandmark(landmark: Landmark)
-    func showError()
 }
 
 final class MapRouter: MapRouterProtocol {
@@ -21,10 +20,5 @@ final class MapRouter: MapRouterProtocol {
     func openLandmark(landmark: Landmark) {
         let scene = PlaceBuilder.build(place: landmark)
         viewController?.present(scene, animated: true)
-    }
-    
-    
-    func showError() {
-        viewController?.presentAlert(title: AlertTitle.error, message: Errors.fetchError)
     }
 }

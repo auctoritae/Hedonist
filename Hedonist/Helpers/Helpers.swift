@@ -34,6 +34,7 @@ enum UIConstants {
 enum DefaultLocation {
     static let latitude = 55.7582313
     static let longitude = 37.5949771
+    static let zoom: Double = 1000
 }
 
 

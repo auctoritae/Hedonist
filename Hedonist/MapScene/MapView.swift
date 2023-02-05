@@ -75,7 +75,7 @@ final class MapView: UIView {
     
     private func setDefaultRegion() {
         let location = CLLocationCoordinate2D(latitude: 55.7582313, longitude: 37.5949771)
-        let region = MKCoordinateRegion(center: location, latitudinalMeters: 1500, longitudinalMeters: 1500)
+        let region = MKCoordinateRegion(center: location, latitudinalMeters: DefaultLocation.zoom, longitudinalMeters: DefaultLocation.zoom)
         mapView.setRegion(region, animated: false)
     }
     
@@ -104,17 +104,13 @@ final class MapView: UIView {
 extension MapView: MapViewProtocol {
     // MARK: - Implementation
     func displayLandmarks(viewModel: [Landmark]) {
-        if viewModel.count > 0 {
-            model = viewModel
-            model?.forEach { landmark in
-                let annotation = CustomAnnotation(landmark: landmark)
-                annotation.title = landmark.name
-                annotation.subtitle = landmark.category
-                annotation.coordinate = CLLocationCoordinate2D(latitude: landmark.lat ?? 0.0, longitude: landmark.long ?? 0.0)
-                mapView.addAnnotation(annotation)
-            }
-        } else {
-            router?.showError()
+        model = viewModel
+        model?.forEach { landmark in
+            let annotation = CustomAnnotation(landmark: landmark)
+            annotation.title = landmark.name
+            annotation.subtitle = landmark.category
+            annotation.coordinate = CLLocationCoordinate2D(latitude: landmark.lat ?? 0.0, longitude: landmark.long ?? 0.0)
+            mapView.addAnnotation(annotation)
         }
     }
     
@@ -140,9 +136,9 @@ extension MapView: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion.init(center: center, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: DefaultLocation.zoom, longitudinalMeters: DefaultLocation.zoom)
         mapView.setRegion(region, animated: true)
-        locationManager.stopUpdatingLocation()
+        locationManager.startUpdatingLocation()
     }
     
     
@@ -151,8 +147,11 @@ extension MapView: CLLocationManagerDelegate {
             case .notDetermined:
                 locationManager.requestWhenInUseAuthorization()
                 
-            case .restricted: break
-            case .denied: break
+            case .restricted:
+                setDefaultRegion()
+            
+            case .denied:
+                setDefaultRegion()
                 
             case .authorizedAlways:
                 mapView.showsUserLocation = true
