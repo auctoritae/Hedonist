@@ -11,6 +11,7 @@ protocol MainPresenterProtocol: AnyObject {
     func presentLandmarks(response: [Landmark])
     func presentLandmark(response: Landmark)
     func presentSearchFilter(response: [Landmark], filter: String)
+    func presentError()
 }
 
 final class MainPresenter: MainPresenterProtocol {
@@ -40,5 +41,10 @@ final class MainPresenter: MainPresenterProtocol {
         } else {
             view?.displaySearchFilter(viewModel: viewModel, filter: filter)
         }
+    }
+    
+    
+    func presentError() {
+        view?.displayError()
     }
 }

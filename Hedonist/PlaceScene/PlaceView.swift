@@ -15,6 +15,7 @@ protocol PlaceViewProtocol: AnyObject {
     func favoritesAction()
     func displaySMM(viewModel: Landmark)
     func displayCall(viewModel: Landmark)
+    func closeScene()
 }
 
 class PlaceView: UIView, MKMapViewDelegate {
@@ -45,6 +46,15 @@ class PlaceView: UIView, MKMapViewDelegate {
         container.layer.masksToBounds = true
         container.isUserInteractionEnabled = true
         return container
+    }()
+    
+    private lazy var closeButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "x.circle.fill"), for: .normal)
+        button.addTarget(self, action: #selector(close), for: .touchUpInside)
+        button.tintColor = .white
+        button.contentMode = .scaleAspectFit
+        return button
     }()
     
     private lazy var favoritesButton: UIButton = {
@@ -168,15 +178,23 @@ class PlaceView: UIView, MKMapViewDelegate {
         }
     }
     
+    
+    @objc private func close() {
+        interactor?.close()
+    }
+    
+    
     @objc private func favorites() {
         
     }
+    
     
     @objc private func smm() {
         if let landmark = model {
             interactor?.openSMM(request: landmark)
         }
     }
+    
     
     @objc private func call() {
         if let landmark = model {
@@ -197,12 +215,16 @@ class PlaceView: UIView, MKMapViewDelegate {
         
         addSubview(placeImage)
         addSubview(mapView)
+        
         addSubview(descriptionLabel)
         addSubview(addressLabel)
         addSubview(hoursLabel)
+        
+        addSubview(closeButton)
         addSubview(favoritesButton)
         addSubview(callButton)
         addSubview(smmButton)
+        
         addSubview(placeTitle)
         addSubview(placeSubtitle)
         
@@ -218,22 +240,28 @@ class PlaceView: UIView, MKMapViewDelegate {
             $0.edges.equalToSuperview()
         }
         
+        closeButton.snp.makeConstraints {
+            $0.width.height.equalTo(40)
+            $0.top.equalTo(safeAreaLayoutGuide.snp.top)
+            $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
+        }
+        
         favoritesButton.snp.makeConstraints {
             $0.width.height.equalTo(40)
-            $0.top.equalTo(placeImage.snp.top).offset(UIConstants.sidePadding)
-            $0.trailing.equalTo(placeImage.snp.trailing).offset(-UIConstants.sidePadding)
+            $0.top.equalTo(safeAreaLayoutGuide.snp.top)
+            $0.leading.equalTo(closeButton.snp.trailing).offset(10)
         }
         
         callButton.snp.makeConstraints {
             $0.width.height.equalTo(40)
-            $0.top.equalTo(placeImage.snp.top).offset(UIConstants.sidePadding)
-            $0.leading.equalTo(placeImage.snp.leading).offset(UIConstants.sidePadding)
+            $0.top.equalTo(safeAreaLayoutGuide.snp.top)
+            $0.trailing.equalTo(smmButton.snp.leading).offset(-10)
         }
         
         smmButton.snp.makeConstraints {
             $0.width.height.equalTo(40)
-            $0.top.equalTo(placeImage.snp.top).offset(UIConstants.sidePadding)
-            $0.leading.equalTo(callButton.snp.trailing).offset(5)
+            $0.top.equalTo(safeAreaLayoutGuide.snp.top)
+            $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
         }
         
         placeTitle.snp.makeConstraints {
@@ -281,15 +309,23 @@ extension PlaceView: PlaceViewProtocol {
         model = viewModel
     }
     
+    
     func favoritesAction() {
         
     }
+    
     
     func displaySMM(viewModel: Landmark) {
         router?.openSMM(from: viewModel)
     }
     
+    
     func displayCall(viewModel: Landmark) {
         router?.openCall(from: viewModel)
+    }
+    
+    
+    func closeScene() {
+        router?.close()
     }
 }

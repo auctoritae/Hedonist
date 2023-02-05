@@ -12,6 +12,7 @@ protocol MainViewProtocol: AnyObject {
     func displayLandmarks(viewModel: [Landmark])
     func displayLandmark(viewModel: Landmark)
     func displaySearchFilter(viewModel: [Landmark], filter: String)
+    func displayError()
 }
 
 final class MainView: UIView {
@@ -191,5 +192,10 @@ extension MainView: MainViewProtocol {
                 self.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
             }
         }
+    }
+    
+    
+    func displayError() {
+        router?.showError()
     }
 }

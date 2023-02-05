@@ -12,6 +12,7 @@ import SafariServices
 protocol PlaceRouterProtocol: AnyObject {
     func openSMM(from: Landmark)
     func openCall(from: Landmark)
+    func close()
 }
 
 final class PlaceRouter: PlaceRouterProtocol {
@@ -37,5 +38,10 @@ final class PlaceRouter: PlaceRouterProtocol {
         } else {
             viewController?.presentAlert(title: AlertTitle.error, message: Errors.serverError)
         }
+    }
+    
+    
+    func close() {
+        viewController?.dismiss(animated: true)
     }
 }

@@ -8,15 +8,17 @@
 import UIKit
 
 final class Spinner: UIView {
-    var innerFillColor: UIColor  = .clear
-    var innerStrokeColor: UIColor = .red
-    var innerLineWidth: CGFloat = 2.0
-    var innerEndStroke: CGFloat = 0.75
-    var innerAnimationDuration: CGFloat = 1.6
+    // MARK: - Variable
+    private var innerFillColor: UIColor  = .clear
+    private var innerStrokeColor: UIColor = .red
+    private var innerLineWidth: CGFloat = 2.0
+    private var innerEndStroke: CGFloat = 0.75
+    private var innerAnimationDuration: CGFloat = 1.6
+    private var innerView: UIView = UIView()
+    private var currentInnerRotation: CGFloat = 0
     
-    var innerView: UIView = UIView()
-    var currentInnerRotation: CGFloat = 0
     
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -27,9 +29,12 @@ final class Spinner: UIView {
         commonInit()
     }
     
+    
+    // MARK: - Private / override
     private func commonInit(){
         backgroundColor = .clear
     }
+    
     
     override func draw(_ rect: CGRect) {
         innerStrokeColor = .gray
@@ -52,6 +57,7 @@ final class Spinner: UIView {
         startAnimating()
     }
     
+    
     private func animateInnerRing(){
         let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
         rotationAnimation.fromValue = 0 * CGFloat(Double.pi / 180)
@@ -61,12 +67,15 @@ final class Spinner: UIView {
         innerView.layer.add(rotationAnimation, forKey: "rotateInner")
     }
     
-    func startAnimating(){
+    
+    // MARK: - Public
+    public func startAnimating(){
         isHidden = false
         animateInnerRing()
     }
     
-    func stopAnimating(){
+    
+    public func stopAnimating(){
         isHidden = true
         innerView.layer.removeAllAnimations()
     }

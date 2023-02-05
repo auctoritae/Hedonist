@@ -104,14 +104,17 @@ final class MapView: UIView {
 extension MapView: MapViewProtocol {
     // MARK: - Implementation
     func displayLandmarks(viewModel: [Landmark]) {
-        model = viewModel
-        
-        model?.forEach { landmark in
-            let annotation = CustomAnnotation(landmark: landmark)
-            annotation.title = landmark.name
-            annotation.subtitle = landmark.category
-            annotation.coordinate = CLLocationCoordinate2D(latitude: landmark.lat ?? 0.0, longitude: landmark.long ?? 0.0)
-            mapView.addAnnotation(annotation)
+        if viewModel.count > 0 {
+            model = viewModel
+            model?.forEach { landmark in
+                let annotation = CustomAnnotation(landmark: landmark)
+                annotation.title = landmark.name
+                annotation.subtitle = landmark.category
+                annotation.coordinate = CLLocationCoordinate2D(latitude: landmark.lat ?? 0.0, longitude: landmark.long ?? 0.0)
+                mapView.addAnnotation(annotation)
+            }
+        } else {
+            router?.showError()
         }
     }
     

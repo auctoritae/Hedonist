@@ -13,6 +13,7 @@ protocol PlacePresenterProtocol: AnyObject {
     func removeFromFavorites(response: Place)
     func presentSMM(response: Landmark)
     func presentCall(response: Landmark)
+    func close()
 }
 
 final class PlacePresenter: PlacePresenterProtocol {
@@ -26,21 +27,30 @@ final class PlacePresenter: PlacePresenterProtocol {
         view?.displayPlace(viewModel: viewModel)
     }
     
+    
     func addToFavorites(response: Landmark) {
         
     }
     
+    
     func removeFromFavorites(response: Place) {
         
     }
+    
     
     func presentSMM(response: Landmark) {
         let viewModel = response
         view?.displaySMM(viewModel: viewModel)
     }
     
+    
     func presentCall(response: Landmark) {
         let viewModel = response
         view?.displayCall(viewModel: viewModel)
+    }
+    
+    
+    func close() {
+        view?.closeScene()
     }
 }
