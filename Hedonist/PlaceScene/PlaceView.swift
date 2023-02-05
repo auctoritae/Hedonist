@@ -34,9 +34,9 @@ class PlaceView: UIView, MKMapViewDelegate {
     private lazy var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.colors = [
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor,
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor,
             UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor,
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0.7).cgColor
         ]
         return gradient
     }()
@@ -50,7 +50,8 @@ class PlaceView: UIView, MKMapViewDelegate {
     
     private lazy var closeButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "x.circle.fill"), for: .normal)
+        let symbolConfig = UIImage.SymbolConfiguration(pointSize: UIConstants.iconSize, weight: .medium, scale: .medium)
+        button.setImage(UIImage(systemName: "x.circle.fill", withConfiguration: symbolConfig), for: .normal)
         button.addTarget(self, action: #selector(close), for: .touchUpInside)
         button.tintColor = .white
         button.contentMode = .scaleAspectFit
@@ -59,7 +60,8 @@ class PlaceView: UIView, MKMapViewDelegate {
     
     private lazy var favoritesButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        let symbolConfig = UIImage.SymbolConfiguration(pointSize: UIConstants.iconSize, weight: .medium, scale: .medium)
+        button.setImage(UIImage(systemName: "heart.circle.fill", withConfiguration: symbolConfig), for: .normal)
         button.addTarget(self, action: #selector(favorites), for: .touchUpInside)
         button.tintColor = .white
         button.contentMode = .scaleAspectFit
@@ -68,7 +70,8 @@ class PlaceView: UIView, MKMapViewDelegate {
     
     private lazy var smmButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "camera.fill"), for: .normal)
+        let symbolConfig = UIImage.SymbolConfiguration(pointSize: UIConstants.iconSize, weight: .medium, scale: .medium)
+        button.setImage(UIImage(systemName: "camera.circle.fill", withConfiguration: symbolConfig), for: .normal)
         button.addTarget(self, action: #selector(smm), for: .touchUpInside)
         button.tintColor = .white
         button.contentMode = .scaleAspectFit
@@ -77,7 +80,8 @@ class PlaceView: UIView, MKMapViewDelegate {
     
     private lazy var callButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "iphone.radiowaves.left.and.right"), for: .normal)
+        let symbolConfig = UIImage.SymbolConfiguration(pointSize: UIConstants.iconSize, weight: .medium, scale: .medium)
+        button.setImage(UIImage(systemName: "phone.circle.fill", withConfiguration: symbolConfig), for: .normal)
         button.addTarget(self, action: #selector(call), for: .touchUpInside)
         button.tintColor = .white
         button.contentMode = .scaleAspectFit

@@ -27,6 +27,7 @@ enum SearchTitles: String, CaseIterable {
 enum UIConstants {
     static let sidePadding: CGFloat = 15
     static let topPadding: CGFloat = 20
+    static let iconSize: CGFloat = 32
 }
 
 
