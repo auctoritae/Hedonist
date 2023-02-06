@@ -11,7 +11,7 @@ final class PlaceBuilder {
     static func build(place: Landmark) -> UIViewController {
         let vc = PlaceVC()
         let view = PlaceView()
-        let interactor = PlaceInteractor()
+        let interactor = PlaceInteractor(dataManager: DataManager())
         let presenter = PlacePresenter()
         let router = PlaceRouter()
         

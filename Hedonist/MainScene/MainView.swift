@@ -169,7 +169,7 @@ extension MainView: UITableViewDelegate, UITableViewDataSource {
 // MARK: - Protocol implementation
 extension MainView: MainViewProtocol {
     func displayLandmarks(viewModel: [Landmark]) {
-        model = viewModel
+        model = viewModel.shuffled()
         tableView.reloadData()
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
@@ -186,7 +186,7 @@ extension MainView: MainViewProtocol {
         if let index = search.firstIndex(where: { $0 == filter }) {
             DispatchQueue.main.async {
                 let filtered = viewModel.filter { $0.category == filter }
-                self.model = filtered
+                self.model = filtered.shuffled()
                 self.tableView.reloadData()
                 self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
                 self.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)

@@ -10,7 +10,7 @@ import Foundation
 protocol PlaceInteractorProtocol: AnyObject {
     func fetchPlace(request: Landmark)
     func addToFavorites(request: Landmark)
-    func removeFromFavorites(request: Place)
+    func removeFromFavorites(request: Landmark)
     func openSMM(request: Landmark)
     func call(request: Landmark)
     func close()
@@ -19,22 +19,36 @@ protocol PlaceInteractorProtocol: AnyObject {
 final class PlaceInteractor: PlaceInteractorProtocol {
     // MARK: - Variable
     var presenter: PlacePresenterProtocol?
+    private var dataManager: DataManager
+    
+    
+    // MARK: - Init
+    required init(dataManager: DataManager) {
+        self.dataManager = dataManager
+    }
     
     
     // MARK: - Implementation
     func fetchPlace(request: Landmark) {
         let response = request
-        presenter?.presentPlace(response: response)
+        let favorites = dataManager.fetchPlaces()
+        let status = favorites.contains(where: { $0.name == request.name })
+        presenter?.presentPlace(response: response, favorite: status)
     }
     
     
     func addToFavorites(request: Landmark) {
-        
+        dataManager.add(landmark: request)
+        presenter?.addToFavorites(favorite: true)
     }
     
     
-    func removeFromFavorites(request: Place) {
-        
+    func removeFromFavorites(request: Landmark) {
+        let favorites = dataManager.fetchPlaces()
+        if let object = favorites.first(where: { $0.name == request.name }) {
+            dataManager.delete(object: object)
+            presenter?.addToFavorites(favorite: false)
+        }
     }
     
     

@@ -46,25 +46,25 @@ final class DataManager {
     }
     
     
-    func addPlace(address: String, category: String, descript: String, lat: Double, long: Double, name: String, phone: String, picture: String, smm: String, workhours: String) {
+    func add(landmark: Landmark) {
         let place = Place(context: persistentContainer.viewContext)
-        place.address = address
-        place.category = category
+        place.address = landmark.address
+        place.category = landmark.category
         place.date = Date()
-        place.descript = descript
+        place.descript = landmark.descript
         place.id = UUID()
-        place.lat = lat
-        place.long = long
-        place.name = name
-        place.phone = phone
-        place.picture = picture
-        place.smm = smm
-        place.workhours = workhours
+        place.lat = landmark.lat ?? 0.0
+        place.long = landmark.long ?? 0.0
+        place.name = landmark.name
+        place.phone = landmark.phone
+        place.picture = landmark.image
+        place.smm = landmark.url
+        place.workhours = landmark.workhours
         saveContext()
     }
     
     
-    func deletePlace(object: Place) {
+    func delete(object: Place) {
         let context = persistentContainer.viewContext
         context.delete(object)
     }

@@ -8,9 +8,9 @@
 import Foundation
 
 protocol PlacePresenterProtocol: AnyObject {
-    func presentPlace(response: Landmark)
-    func addToFavorites(response: Landmark)
-    func removeFromFavorites(response: Place)
+    func presentPlace(response: Landmark, favorite: Bool)
+    func addToFavorites(favorite: Bool)
+    func removeFromFavorites(favorite: Bool)
     func presentSMM(response: Landmark)
     func presentCall(response: Landmark)
     func close()
@@ -22,19 +22,19 @@ final class PlacePresenter: PlacePresenterProtocol {
     
     
     // MARK: - Implementation
-    func presentPlace(response: Landmark) {
+    func presentPlace(response: Landmark, favorite: Bool) {
         let viewModel = response
-        view?.displayPlace(viewModel: viewModel)
+        view?.displayPlace(viewModel: viewModel, favorite: favorite)
     }
     
     
-    func addToFavorites(response: Landmark) {
-        
+    func addToFavorites(favorite: Bool) {
+        view?.updateStatus(favorite)
     }
     
     
-    func removeFromFavorites(response: Place) {
-        
+    func removeFromFavorites(favorite: Bool) {
+        view?.updateStatus(favorite)
     }
     
     

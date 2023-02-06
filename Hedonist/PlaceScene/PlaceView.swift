@@ -11,10 +11,10 @@ import MapKit
 import CoreData
 
 protocol PlaceViewProtocol: AnyObject {
-    func displayPlace(viewModel: Landmark)
-    func favoritesAction()
+    func displayPlace(viewModel: Landmark, favorite: Bool)
     func displaySMM(viewModel: Landmark)
     func displayCall(viewModel: Landmark)
+    func updateStatus(_ favorite: Bool)
     func closeScene()
 }
 
@@ -23,6 +23,8 @@ class PlaceView: UIView, MKMapViewDelegate {
     var interactor: PlaceInteractorProtocol?
     var router: PlaceRouterProtocol?
     
+    private var isFavorite: Bool?
+
     var model: Landmark? {
         didSet {
             placeData()
@@ -181,7 +183,7 @@ class PlaceView: UIView, MKMapViewDelegate {
             mapView.addAnnotation(annotation)
         }
     }
-    
+
     
     @objc private func close() {
         interactor?.close()
@@ -189,7 +191,13 @@ class PlaceView: UIView, MKMapViewDelegate {
     
     
     @objc private func favorites() {
-        
+        if let landmark = model {
+            if isFavorite == true {
+                interactor?.removeFromFavorites(request: landmark)
+            } else {
+                interactor?.addToFavorites(request: landmark)
+            }
+        }
     }
     
     
@@ -309,13 +317,9 @@ class PlaceView: UIView, MKMapViewDelegate {
 
 // MARK: - Implementation
 extension PlaceView: PlaceViewProtocol {
-    func displayPlace(viewModel: Landmark) {
+    func displayPlace(viewModel: Landmark, favorite: Bool) {
         model = viewModel
-    }
-    
-    
-    func favoritesAction() {
-        
+        isFavorite = favorite
     }
     
     
@@ -326,6 +330,11 @@ extension PlaceView: PlaceViewProtocol {
     
     func displayCall(viewModel: Landmark) {
         router?.openCall(from: viewModel)
+    }
+    
+    
+    func updateStatus(_ favorite: Bool) {
+
     }
     
     
