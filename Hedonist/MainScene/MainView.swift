@@ -143,6 +143,7 @@ extension MainView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
 
 // MARK: - TableView extension
 extension MainView: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         model?.count ?? 0
     }
@@ -154,6 +155,7 @@ extension MainView: UITableViewDelegate, UITableViewDataSource {
             cell.landmark = model?[indexPath.row]
             return cell
         }
+        
         return UITableViewCell()
     }
     

@@ -20,7 +20,8 @@ final class FavsPresenter: FavsPresenterProtocol {
     
     // MARK: - Implementation
     func presentFavorites(response: [Place]) {
-        
+        let viewModel = response
+        view?.dispalyFavorites(viewModel: viewModel)
     }
     
     

@@ -19,6 +19,12 @@ final class FavsView: UIView {
     var interactor: FavsInteractorProtocol?
     var router: FavsRouterProtocol?
     
+    private var model: [Place]? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     
     // MARK: - UI Variable
     private lazy var favsTitle: UILabel = {
@@ -29,6 +35,19 @@ final class FavsView: UIView {
         title.textAlignment = .left
         title.numberOfLines = 1
         return title
+    }()
+    
+    private lazy var tableView: UITableView = {
+        let table = UITableView(frame: .zero, style: .plain)
+        table.register(FavsCell.self, forCellReuseIdentifier: FavsCell.cellId())
+        table.delegate = self
+        table.dataSource = self
+        table.rowHeight = 125
+        table.backgroundColor = .systemBackground
+        table.separatorStyle = .none
+        table.showsVerticalScrollIndicator = false
+        table.removeExcessCells()
+        return table
     }()
     
     
@@ -48,12 +67,37 @@ final class FavsView: UIView {
         backgroundColor = .systemBackground
         
         addSubview(favsTitle)
+        addSubview(tableView)
         
         favsTitle.snp.makeConstraints {
             $0.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
             $0.leading.equalToSuperview().offset(15)
             $0.trailing.equalToSuperview().offset(-15)
         }
+        
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(favsTitle.snp.bottom).offset(10)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
+    }
+}
+
+
+extension FavsView: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        model?.count ?? 0
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: FavsCell.cellId(), for: indexPath) as? FavsCell {
+            cell.selectionStyle = .none
+            cell.place = model?[indexPath.row]
+            return cell
+        }
+        
+        return UITableViewCell()
     }
 }
 
@@ -61,7 +105,8 @@ final class FavsView: UIView {
 extension FavsView: FavsViewProtocol {
     // MARK: - Implementation
     func dispalyFavorites(viewModel: [Place]) {
-        
+        model = viewModel
+        tableView.reloadData()
     }
     
     

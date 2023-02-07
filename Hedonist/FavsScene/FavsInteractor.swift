@@ -27,7 +27,8 @@ final class FavsInteractor: FavsInteractorProtocol {
     
     // MARK: - Implementation
     func fetchFavorites() {
-        
+        let response = dataManager.fetchPlaces()
+        presenter?.presentFavorites(response: response)
     }
     
     
