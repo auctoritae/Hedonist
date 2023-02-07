@@ -24,6 +24,7 @@ class PlaceView: UIView, MKMapViewDelegate {
     var router: PlaceRouterProtocol?
     
     private var isFavorite: Bool?
+    private var symbolConfig = UIImage.SymbolConfiguration(pointSize: UIConstants.iconSize, weight: .medium, scale: .medium)
 
     var model: Landmark? {
         didSet {
@@ -52,7 +53,6 @@ class PlaceView: UIView, MKMapViewDelegate {
     
     private lazy var closeButton: UIButton = {
         let button = UIButton()
-        let symbolConfig = UIImage.SymbolConfiguration(pointSize: UIConstants.iconSize, weight: .medium, scale: .medium)
         button.setImage(UIImage(systemName: "x.circle.fill", withConfiguration: symbolConfig), for: .normal)
         button.addTarget(self, action: #selector(close), for: .touchUpInside)
         button.tintColor = .white
@@ -62,8 +62,6 @@ class PlaceView: UIView, MKMapViewDelegate {
     
     private lazy var favoritesButton: UIButton = {
         let button = UIButton()
-        let symbolConfig = UIImage.SymbolConfiguration(pointSize: UIConstants.iconSize, weight: .medium, scale: .medium)
-        button.setImage(UIImage(systemName: "heart.circle.fill", withConfiguration: symbolConfig), for: .normal)
         button.addTarget(self, action: #selector(favorites), for: .touchUpInside)
         button.tintColor = .white
         button.contentMode = .scaleAspectFit
@@ -72,7 +70,6 @@ class PlaceView: UIView, MKMapViewDelegate {
     
     private lazy var smmButton: UIButton = {
         let button = UIButton()
-        let symbolConfig = UIImage.SymbolConfiguration(pointSize: UIConstants.iconSize, weight: .medium, scale: .medium)
         button.setImage(UIImage(systemName: "camera.circle.fill", withConfiguration: symbolConfig), for: .normal)
         button.addTarget(self, action: #selector(smm), for: .touchUpInside)
         button.tintColor = .white
@@ -82,7 +79,6 @@ class PlaceView: UIView, MKMapViewDelegate {
     
     private lazy var callButton: UIButton = {
         let button = UIButton()
-        let symbolConfig = UIImage.SymbolConfiguration(pointSize: UIConstants.iconSize, weight: .medium, scale: .medium)
         button.setImage(UIImage(systemName: "phone.circle.fill", withConfiguration: symbolConfig), for: .normal)
         button.addTarget(self, action: #selector(call), for: .touchUpInside)
         button.tintColor = .white
@@ -334,7 +330,7 @@ extension PlaceView: PlaceViewProtocol {
     
     
     func updateStatus(_ favorite: Bool) {
-
+        isFavorite = favorite
     }
     
     

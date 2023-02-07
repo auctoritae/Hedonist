@@ -45,7 +45,7 @@ final class MainCell: UITableViewCell {
         title.textColor = .white
         title.font = .systemFont(ofSize: 18, weight: .bold)
         title.textAlignment = .left
-        title.numberOfLines = 1
+        title.numberOfLines = 2
         return title
     }()
     
