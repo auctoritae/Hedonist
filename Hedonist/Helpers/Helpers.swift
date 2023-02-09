@@ -5,13 +5,23 @@
 //  Created by a.lobanov on 1/7/23.
 //
 
-import Foundation
+import UIKit
 
 enum Titles {
     static let mainTabTitle = "Все"
     static let mainSceneTitle = "Места"
     static let favSceneTitle = "Избранное"
     static let mapSceneTitle = "Карта"
+}
+
+
+enum Fonts {
+    static let header = UIFont(name: "SF Pro Display Bold", size: 46)
+    static let placeTitle = UIFont(name: "SF Pro Display Bold", size: 36)
+    static let cellTitle = UIFont(name: "SF Pro Display Bold", size: 20)
+    static let subtitle = UIFont(name: "SF Pro Display Medium", size: 14)
+    static let body = UIFont(name: "SF Pro Display Light", size: 16)
+    static let bubble = UIFont(name: "SF Pro Display Bold", size: 14)
 }
 
 
@@ -26,7 +36,7 @@ enum SearchTitles: String, CaseIterable {
 
 enum UIConstants {
     static let sidePadding: CGFloat = 15
-    static let topPadding: CGFloat = 20
+    static let topPadding: CGFloat = 25
     static let iconSize: CGFloat = 32
 }
 

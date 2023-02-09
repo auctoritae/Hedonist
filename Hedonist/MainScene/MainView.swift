@@ -33,8 +33,8 @@ final class MainView: UIView {
     private lazy var mainTitle: UILabel = {
         let title = UILabel()
         title.textColor = .label
-        title.font = .systemFont(ofSize: 36, weight: .heavy)
-        title.text = Titles.mainSceneTitle
+        title.font = Fonts.header
+        title.text = Titles.mainSceneTitle.uppercased()
         title.textAlignment = .left
         title.numberOfLines = 1
         return title

@@ -38,8 +38,8 @@ class PlaceView: UIView, MKMapViewDelegate {
         let gradient = CAGradientLayer()
         gradient.colors = [
             UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor,
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor,
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0.7).cgColor
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor,
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor
         ]
         return gradient
     }()
@@ -97,25 +97,16 @@ class PlaceView: UIView, MKMapViewDelegate {
     private lazy var placeTitle: UILabel = {
         let title = UILabel()
         title.textColor = .white
-        title.font = .systemFont(ofSize: 24, weight: .bold)
+        title.font = Fonts.placeTitle
         title.textAlignment = .left
-        title.numberOfLines = 1
-        return title
-    }()
-    
-    private lazy var placeSubtitle: UILabel = {
-        let title = UILabel()
-        title.textColor = .lightGray
-        title.font = .systemFont(ofSize: 16, weight: .regular)
-        title.textAlignment = .left
-        title.numberOfLines = 1
+        title.numberOfLines = 4
         return title
     }()
     
     private lazy var descriptionLabel: UILabel = {
         let title = UILabel()
         title.textColor = .label
-        title.font = .systemFont(ofSize: 16, weight: .regular)
+        title.font = Fonts.body
         title.textAlignment = .left
         title.numberOfLines = 0
         return title
@@ -124,16 +115,16 @@ class PlaceView: UIView, MKMapViewDelegate {
     private lazy var addressLabel: UILabel = {
         let title = UILabel()
         title.textColor = .label
-        title.font = .systemFont(ofSize: 16, weight: .bold)
+        title.font = Fonts.body
         title.textAlignment = .left
-        title.numberOfLines = 1
+        title.numberOfLines = 2
         return title
     }()
     
     private lazy var hoursLabel: UILabel = {
         let title = UILabel()
         title.textColor = .label
-        title.font = .systemFont(ofSize: 16, weight: .bold)
+        title.font = Fonts.body
         title.textAlignment = .left
         title.numberOfLines = 1
         return title
@@ -161,8 +152,7 @@ class PlaceView: UIView, MKMapViewDelegate {
     
     // MARK: - Private
     private func placeData() {
-        placeTitle.text = model?.name
-        placeSubtitle.text = model?.category
+        placeTitle.text = model?.name?.uppercased()
         placeImage.image = UIImage(named: "ABC")
         descriptionLabel.text = model?.descript
         addressLabel.text = model?.address
@@ -234,7 +224,6 @@ class PlaceView: UIView, MKMapViewDelegate {
         addSubview(smmButton)
         
         addSubview(placeTitle)
-        addSubview(placeSubtitle)
         
         placeImage.addSubview(overlay)
         placeImage.bringSubviewToFront(overlay)
@@ -273,25 +262,13 @@ class PlaceView: UIView, MKMapViewDelegate {
         }
         
         placeTitle.snp.makeConstraints {
-            $0.leading.trailing.equalTo(placeSubtitle)
-            $0.bottom.equalTo(placeSubtitle.snp.top).offset(-4)
-        }
-        
-        placeSubtitle.snp.makeConstraints {
             $0.leading.equalTo(placeImage.snp.leading).offset(UIConstants.sidePadding)
-            $0.trailing.equalTo(placeImage.snp.trailing).offset(-UIConstants.sidePadding)
-            $0.bottom.equalTo(placeImage.snp.bottom).offset(-UIConstants.sidePadding)
-        }
-        
-        mapView.snp.makeConstraints {
-            $0.top.equalTo(placeImage.snp.bottom).offset(UIConstants.topPadding)
-            $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
-            $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
-            $0.height.equalToSuperview().multipliedBy(0.2)
+            $0.trailing.equalTo(placeImage.snp.trailing).offset(-UIConstants.topPadding)
+            $0.bottom.equalTo(placeImage.snp.bottom).offset(-UIConstants.topPadding)
         }
         
         descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(mapView.snp.bottom).offset(UIConstants.topPadding)
+            $0.top.equalTo(placeImage.snp.bottom).offset(UIConstants.topPadding)
             $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
             $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
         }
@@ -306,6 +283,13 @@ class PlaceView: UIView, MKMapViewDelegate {
             $0.top.equalTo(addressLabel.snp.bottom).offset(5)
             $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
             $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
+        }
+        
+        mapView.snp.makeConstraints {
+            $0.top.equalTo(hoursLabel.snp.bottom).offset(UIConstants.topPadding)
+            $0.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
+            $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
+            $0.trailing.equalToSuperview().offset(-UIConstants.topPadding)
         }
     }
 }

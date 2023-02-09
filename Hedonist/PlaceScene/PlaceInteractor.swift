@@ -46,7 +46,6 @@ final class PlaceInteractor: PlaceInteractorProtocol {
     
     func removeFromFavorites(request: Landmark) {
         let favorites = dataManager.fetchPlaces()
-        let checker = favorites.map { $0.name }
         if let object = favorites.first(where: { $0.name == request.name }) {
             dataManager.delete(object: object)
             presenter?.addToFavorites(favorite: false)

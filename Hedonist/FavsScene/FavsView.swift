@@ -30,8 +30,8 @@ final class FavsView: UIView {
     private lazy var favsTitle: UILabel = {
         let title = UILabel()
         title.textColor = .label
-        title.font = .systemFont(ofSize: 36, weight: .heavy)
-        title.text = Titles.favSceneTitle
+        title.font = Fonts.header
+        title.text = Titles.favSceneTitle.uppercased()
         title.textAlignment = .left
         title.numberOfLines = 1
         return title

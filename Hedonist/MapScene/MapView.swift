@@ -39,8 +39,8 @@ final class MapView: UIView {
     private lazy var mapTitle: UILabel = {
         let title = UILabel()
         title.textColor = .label
-        title.font = .systemFont(ofSize: 36, weight: .heavy)
-        title.text = Titles.mapSceneTitle
+        title.font = Fonts.header
+        title.text = Titles.mapSceneTitle.uppercased()
         title.textAlignment = .left
         title.numberOfLines = 1
         return title

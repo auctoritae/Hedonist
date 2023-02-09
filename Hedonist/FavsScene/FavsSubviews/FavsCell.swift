@@ -42,7 +42,7 @@ final class FavsCell: UITableViewCell {
     private lazy var placeTitle: UILabel = {
         let title = UILabel()
         title.textColor = .white
-        title.font = .systemFont(ofSize: 18, weight: .bold)
+        title.font = Fonts.cellTitle
         title.textAlignment = .left
         title.numberOfLines = 2
         return title
@@ -51,7 +51,7 @@ final class FavsCell: UITableViewCell {
     private lazy var placeSubtitle: UILabel = {
         let title = UILabel()
         title.textColor = .lightGray
-        title.font = .systemFont(ofSize: 14, weight: .regular)
+        title.font = Fonts.subtitle
         title.textAlignment = .left
         title.numberOfLines = 1
         return title
