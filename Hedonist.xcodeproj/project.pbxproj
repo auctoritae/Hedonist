@@ -21,9 +21,6 @@
 		FE5CD4C82961BAC50094DCC4 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5CD4C72961BAC50094DCC4 /* ApiManager.swift */; };
 		FE5CD4CB2961BB530094DCC4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FE5CD4CA2961BB530094DCC4 /* Alamofire */; };
 		FE77DB5E297C46C900CD2C0A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE77DB5D297C46C900CD2C0A /* Extensions.swift */; };
-		FE9041B1299560D80054200A /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE9041B0299560D80054200A /* SF-Pro-Display-Bold.otf */; };
-		FE9041B3299560E30054200A /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE9041B2299560E30054200A /* SF-Pro-Display-Light.otf */; };
-		FE9041B5299560F00054200A /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE9041B4299560F00054200A /* SF-Pro-Display-Medium.otf */; };
 		FE94AB072967599D007BE0D6 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = FE94AB062967599D007BE0D6 /* AlamofireImage */; };
 		FE99DB052969908500FD5064 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99DB042969908500FD5064 /* Helpers.swift */; };
 		FE99DB07296990F000FD5064 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99DB06296990F000FD5064 /* SearchCell.swift */; };
@@ -68,9 +65,6 @@
 		FE393C52295CC41A00A10023 /* PlaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceVC.swift; sourceTree = "<group>"; };
 		FE5CD4C72961BAC50094DCC4 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		FE77DB5D297C46C900CD2C0A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		FE9041B0299560D80054200A /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Display-Bold.otf"; path = "../../../../../../../Library/Fonts/SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
-		FE9041B2299560E30054200A /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Display-Light.otf"; path = "../../../../../../../Library/Fonts/SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
-		FE9041B4299560F00054200A /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Display-Medium.otf"; path = "../../../../../../../Library/Fonts/SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		FE99DB042969908500FD5064 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		FE99DB06296990F000FD5064 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		FEBD8FC729670B8300286F8C /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -175,9 +169,6 @@
 		FE9041AB29955CCF0054200A /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				FE9041B0299560D80054200A /* SF-Pro-Display-Bold.otf */,
-				FE9041B4299560F00054200A /* SF-Pro-Display-Medium.otf */,
-				FE9041B2299560E30054200A /* SF-Pro-Display-Light.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -328,9 +319,6 @@
 			files = (
 				FE0BB2AF29537CEE00F757E8 /* LaunchScreen.storyboard in Resources */,
 				FE0BB2AC29537CEE00F757E8 /* Assets.xcassets in Resources */,
-				FE9041B3299560E30054200A /* SF-Pro-Display-Light.otf in Resources */,
-				FE9041B1299560D80054200A /* SF-Pro-Display-Bold.otf in Resources */,
-				FE9041B5299560F00054200A /* SF-Pro-Display-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
