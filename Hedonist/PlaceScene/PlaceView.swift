@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import MapKit
 import CoreData
+import Device
 
 protocol PlaceViewProtocol: AnyObject {
     func displayPlace(viewModel: Landmark, favorite: Bool)
@@ -168,6 +169,23 @@ class PlaceView: UIView, MKMapViewDelegate {
             mapView.addAnnotation(annotation)
         }
     }
+    
+    
+    private func isSmallScreen() -> Bool {
+        if Device.version() == .iPhone8 || Device.version() == .iPhone8Plus {
+            return true
+        }
+        
+        if Device.version() == .iPhoneSE2 {
+            return true
+        }
+        
+        if Device.version() == .iPhone12Mini || Device.version() == .iPhone13Mini {
+            return true
+        }
+        
+        return false
+    }
 
     
     @objc private func close() {
@@ -208,7 +226,10 @@ class PlaceView: UIView, MKMapViewDelegate {
         backgroundColor = .black
         
         addSubview(placeImage)
-        addSubview(mapView)
+        
+        if isSmallScreen() == false {
+            addSubview(mapView)
+        }
         
         addSubview(descriptionLabel)
         addSubview(addressLabel)
@@ -281,11 +302,13 @@ class PlaceView: UIView, MKMapViewDelegate {
             $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
         }
         
-        mapView.snp.makeConstraints {
-            $0.top.equalTo(hoursLabel.snp.bottom).offset(UIConstants.topPadding)
-            $0.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
-            $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
-            $0.trailing.equalToSuperview().offset(-UIConstants.topPadding)
+        if isSmallScreen() == false {
+            mapView.snp.makeConstraints {
+                $0.top.equalTo(hoursLabel.snp.bottom).offset(UIConstants.topPadding)
+                $0.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
+                $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
+                $0.trailing.equalToSuperview().offset(-UIConstants.topPadding)
+            }
         }
     }
 }

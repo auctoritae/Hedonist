@@ -21,6 +21,7 @@
 		FE52B6B929993D4E008114B0 /* JetBrainsMono-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE52B6B829993D4A008114B0 /* JetBrainsMono-SemiBold.ttf */; };
 		FE52B6BB29993D63008114B0 /* JetBrainsMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE52B6BA29993D63008114B0 /* JetBrainsMono-Regular.ttf */; };
 		FE52B6BD29993DAD008114B0 /* JetBrainsMono-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE52B6BC29993DAD008114B0 /* JetBrainsMono-Light.ttf */; };
+		FE52B6C029994F00008114B0 /* Device in Frameworks */ = {isa = PBXBuildFile; productRef = FE52B6BF29994F00008114B0 /* Device */; };
 		FE5CD4C82961BAC50094DCC4 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5CD4C72961BAC50094DCC4 /* ApiManager.swift */; };
 		FE5CD4CB2961BB530094DCC4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FE5CD4CA2961BB530094DCC4 /* Alamofire */; };
 		FE77DB5E297C46C900CD2C0A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE77DB5D297C46C900CD2C0A /* Extensions.swift */; };
@@ -106,6 +107,7 @@
 			files = (
 				FE422D8F2955F45100353890 /* SnapKit in Frameworks */,
 				FE5CD4CB2961BB530094DCC4 /* Alamofire in Frameworks */,
+				FE52B6C029994F00008114B0 /* Device in Frameworks */,
 				FE94AB072967599D007BE0D6 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +280,7 @@
 				FE422D8E2955F45100353890 /* SnapKit */,
 				FE5CD4CA2961BB530094DCC4 /* Alamofire */,
 				FE94AB062967599D007BE0D6 /* AlamofireImage */,
+				FE52B6BF29994F00008114B0 /* Device */,
 			);
 			productName = Hedonist;
 			productReference = FE0BB29F29537CEC00F757E8 /* Hedonist.app */;
@@ -311,6 +314,7 @@
 				FE422D8D2955F45100353890 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				FE5CD4C92961BB530094DCC4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				FE94AB052967599D007BE0D6 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				FE52B6BE29994F00008114B0 /* XCRemoteSwiftPackageReference "Device" */,
 			);
 			productRefGroup = FE0BB2A029537CEC00F757E8 /* Products */;
 			projectDirPath = "";
@@ -444,7 +448,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -498,7 +502,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -525,7 +529,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -563,7 +567,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -613,6 +617,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		FE52B6BE29994F00008114B0 /* XCRemoteSwiftPackageReference "Device" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Ekhoo/Device.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.3.0;
+			};
+		};
 		FE5CD4C92961BB530094DCC4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -636,6 +648,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FE422D8D2955F45100353890 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		FE52B6BF29994F00008114B0 /* Device */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE52B6BE29994F00008114B0 /* XCRemoteSwiftPackageReference "Device" */;
+			productName = Device;
 		};
 		FE5CD4CA2961BB530094DCC4 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
