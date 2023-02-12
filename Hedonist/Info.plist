@@ -6,8 +6,7 @@
 	<string>Dark</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string></string>
-		<string></string>
+		<string>STIXTwoText.ttf</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Разрешите использовать Вашу геолокацию чтобы увидеть себя на карте</string>

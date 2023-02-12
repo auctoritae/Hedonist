@@ -37,9 +37,9 @@ class PlaceView: UIView, MKMapViewDelegate {
     private lazy var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.colors = [
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor,
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0.7).cgColor,
             UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor,
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor
+            UIColor(red: 0, green: 0, blue: 0, alpha: 1.0).cgColor
         ]
         return gradient
     }()
@@ -263,8 +263,8 @@ class PlaceView: UIView, MKMapViewDelegate {
         
         placeTitle.snp.makeConstraints {
             $0.leading.equalTo(placeImage.snp.leading).offset(UIConstants.sidePadding)
-            $0.trailing.equalTo(placeImage.snp.trailing).offset(-UIConstants.topPadding)
-            $0.bottom.equalTo(placeImage.snp.bottom).offset(-UIConstants.topPadding)
+            $0.trailing.equalTo(placeImage.snp.trailing).offset(-30)
+            $0.bottom.equalTo(placeImage.snp.bottom)
         }
         
         descriptionLabel.snp.makeConstraints {

@@ -121,7 +121,7 @@ final class MainCell: UITableViewCell {
         
         landmarkTitle.snp.makeConstraints {
             $0.leading.trailing.equalTo(landmarkSubtitle)
-            $0.bottom.equalTo(landmarkSubtitle.snp.top).offset(-2)
+            $0.bottom.equalTo(landmarkSubtitle.snp.top).offset(-5)
         }
         
         landmarkSubtitle.snp.makeConstraints {

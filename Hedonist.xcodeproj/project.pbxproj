@@ -64,6 +64,7 @@
 		FE393C50295CC40200A10023 /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
 		FE393C52295CC41A00A10023 /* PlaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceVC.swift; sourceTree = "<group>"; };
 		FE5CD4C72961BAC50094DCC4 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		FE61A2BA299905DA003D9BC5 /* STIXTwoText.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = STIXTwoText.ttf; path = ../../../../../../../System/Library/Fonts/Supplemental/STIXTwoText.ttf; sourceTree = "<group>"; };
 		FE77DB5D297C46C900CD2C0A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FE99DB042969908500FD5064 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		FE99DB06296990F000FD5064 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
@@ -169,6 +170,7 @@
 		FE9041AB29955CCF0054200A /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				FE61A2BA299905DA003D9BC5 /* STIXTwoText.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";

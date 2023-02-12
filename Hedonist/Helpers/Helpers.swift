@@ -16,12 +16,11 @@ enum Titles {
 
 
 enum Fonts {
-    static let header = UIFont(name: "SF Pro Display Bold", size: 46)
-    static let placeTitle = UIFont(name: "SF Pro Display Bold", size: 36)
-    static let cellTitle = UIFont(name: "SF Pro Display Bold", size: 20)
-    static let subtitle = UIFont(name: "SF Pro Display Medium", size: 14)
-    static let body = UIFont(name: "SF Pro Display Light", size: 16)
-    static let bubble = UIFont(name: "SF Pro Display Bold", size: 14)
+    static let header = UIFont(name: "STIX Two Text Regular", size: 54)
+    static let placeTitle = UIFont(name: "STIX Two Text Regular", size: 34)
+    static let cellTitle = UIFont(name: "STIX Two Text Regular", size: 24)
+    static let subtitle = UIFont(name: "STIX Two Text Regular", size: 18)
+    static let body = UIFont(name: "STIX Two Text Regular", size: 18)
 }
 
 

@@ -33,7 +33,7 @@ final class SearchCell: UICollectionViewCell {
     private lazy var categoryTitle: UILabel = {
         let title = UILabel()
         title.textColor = .black
-        title.font = Fonts.bubble
+        title.font = .systemFont(ofSize: 12, weight: .bold)
         title.textAlignment = .center
         title.numberOfLines = 1
         return title
