@@ -20,7 +20,7 @@ enum Fonts {
     static let placeTitle = UIFont(name: "JetBrains Mono SemiBold", size: 32)
     static let cellTitle = UIFont(name: "JetBrains Mono Regular", size: 24)
     static let cellSubtitle = UIFont(name: "JetBrains Mono Light", size: 18)
-    static let body = UIFont(name: "JetBrains Mono Light", size: 16)
+    static let body = UIFont(name: "JetBrains Mono Light", size: 14)
     static let bubble = UIFont(name: "JetBrains Mono SemiBold", size: 14)
 }
 
@@ -35,7 +35,7 @@ enum SearchTitles: String, CaseIterable {
 
 
 enum UIConstants {
-    static let sidePadding: CGFloat = 15
+    static let sidePadding: CGFloat = 20
     static let topPadding: CGFloat = 25
     static let iconSize: CGFloat = 32
 }
@@ -58,8 +58,8 @@ enum Errors {
 
 
 enum AlertTitle {
-    static let error = "😔😔😔"
-    static let success = "🎉🎉🎉"
+    static let error = "😔"
+    static let success = "🎉"
 }
 
 

@@ -28,7 +28,7 @@ final class FavsCell: UITableViewCell {
         let gradient = CAGradientLayer()
         gradient.colors = [
             UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor,
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0.7).cgColor
         ]
         return gradient
     }()
@@ -36,6 +36,7 @@ final class FavsCell: UITableViewCell {
     private lazy var overlay: UIView = {
         let container = UIView()
         container.layer.masksToBounds = true
+        container.layer.addSublayer(gradient)
         return container
     }()
     
@@ -93,11 +94,11 @@ final class FavsCell: UITableViewCell {
     
     
     // MARK: - UI
-    override func layoutSublayers(of layer: CALayer) {
-        super.layoutSublayers(of: layer)
-        overlay.layer.addSublayer(gradient)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         gradient.frame = overlay.bounds
     }
+    
     
     private func layoutUI() {
         contentView.backgroundColor = .systemBackground

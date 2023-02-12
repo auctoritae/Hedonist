@@ -24,8 +24,7 @@ class PlaceView: UIView, MKMapViewDelegate {
     var router: PlaceRouterProtocol?
     
     private var isFavorite: Bool?
-    private var symbolConfig = UIImage.SymbolConfiguration(pointSize: UIConstants.iconSize, weight: .medium, scale: .medium)
-
+    
     var model: Landmark? {
         didSet {
             placeData()
@@ -37,7 +36,7 @@ class PlaceView: UIView, MKMapViewDelegate {
     private lazy var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.colors = [
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0.7).cgColor,
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor,
             UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor,
             UIColor(red: 0, green: 0, blue: 0, alpha: 1.0).cgColor
         ]
@@ -53,7 +52,7 @@ class PlaceView: UIView, MKMapViewDelegate {
     
     private lazy var closeButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "x.circle.fill", withConfiguration: symbolConfig), for: .normal)
+        button.setImage(UIImage(named: "xMark")?.withTintColor(.white), for: .normal)
         button.addTarget(self, action: #selector(close), for: .touchUpInside)
         button.tintColor = .white
         button.contentMode = .scaleAspectFit
@@ -70,7 +69,7 @@ class PlaceView: UIView, MKMapViewDelegate {
     
     private lazy var smmButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "camera.circle.fill", withConfiguration: symbolConfig), for: .normal)
+        button.setImage(UIImage(named: "smmMark")?.withTintColor(.white), for: .normal)
         button.addTarget(self, action: #selector(smm), for: .touchUpInside)
         button.tintColor = .white
         button.contentMode = .scaleAspectFit
@@ -79,7 +78,7 @@ class PlaceView: UIView, MKMapViewDelegate {
     
     private lazy var callButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "phone.circle.fill", withConfiguration: symbolConfig), for: .normal)
+        button.setImage(UIImage(named: "callMark")?.withTintColor(.white), for: .normal)
         button.addTarget(self, action: #selector(call), for: .touchUpInside)
         button.tintColor = .white
         button.contentMode = .scaleAspectFit
@@ -178,11 +177,8 @@ class PlaceView: UIView, MKMapViewDelegate {
     
     @objc private func favorites() {
         if let landmark = model {
-            if isFavorite == true {
-                interactor?.removeFromFavorites(request: landmark)
-            } else {
-                interactor?.addToFavorites(request: landmark)
-            }
+            if isFavorite == true { interactor?.removeFromFavorites(request: landmark) }
+            else { interactor?.addToFavorites(request: landmark) }
         }
     }
     
@@ -209,7 +205,7 @@ class PlaceView: UIView, MKMapViewDelegate {
     }
     
     private func layoutUI() {
-        backgroundColor = .systemBackground
+        backgroundColor = .black
         
         addSubview(placeImage)
         addSubview(mapView)
@@ -238,25 +234,25 @@ class PlaceView: UIView, MKMapViewDelegate {
         }
         
         closeButton.snp.makeConstraints {
-            $0.width.height.equalTo(40)
+            $0.width.height.equalTo(50)
             $0.top.equalTo(safeAreaLayoutGuide.snp.top)
             $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
         }
         
         favoritesButton.snp.makeConstraints {
-            $0.width.height.equalTo(40)
+            $0.width.height.equalTo(50)
             $0.top.equalTo(safeAreaLayoutGuide.snp.top)
-            $0.leading.equalTo(closeButton.snp.trailing).offset(10)
+            $0.leading.equalTo(closeButton.snp.trailing)
         }
         
         callButton.snp.makeConstraints {
-            $0.width.height.equalTo(40)
+            $0.width.height.equalTo(50)
             $0.top.equalTo(safeAreaLayoutGuide.snp.top)
-            $0.trailing.equalTo(smmButton.snp.leading).offset(-10)
+            $0.trailing.equalTo(smmButton.snp.leading)
         }
         
         smmButton.snp.makeConstraints {
-            $0.width.height.equalTo(40)
+            $0.width.height.equalTo(50)
             $0.top.equalTo(safeAreaLayoutGuide.snp.top)
             $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
         }
@@ -300,6 +296,9 @@ extension PlaceView: PlaceViewProtocol {
     func displayPlace(viewModel: Landmark, favorite: Bool) {
         model = viewModel
         isFavorite = favorite
+        
+        if favorite == true { favoritesButton.setImage(UIImage(named: "favMark")?.withTintColor(.white), for: .normal) }
+        else { favoritesButton.setImage(UIImage(named: "notfavMark")?.withTintColor(.white), for: .normal) }
     }
     
     
@@ -315,6 +314,9 @@ extension PlaceView: PlaceViewProtocol {
     
     func updateStatus(_ favorite: Bool) {
         isFavorite = favorite
+        
+        if favorite == true { favoritesButton.setImage(UIImage(named: "favMark")?.withTintColor(.white), for: .normal) }
+        else { favoritesButton.setImage(UIImage(named: "notfavMark")?.withTintColor(.white), for: .normal) }
     }
     
     

@@ -25,7 +25,7 @@ final class PlaceRouter: PlaceRouterProtocol {
         if let instagram = from.url, let url = URL(string: instagram) {
             viewController?.present(SFSafariViewController(url: url), animated: true)
         } else {
-            viewController?.presentAlert(title: AlertTitle.error, message: Errors.serverError)
+            viewController?.presentAlert(title: AlertTitle.error, message: Errors.faillURL)
         }
     }
     
