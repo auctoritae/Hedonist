@@ -42,7 +42,7 @@ final class FavsView: UIView {
         table.register(FavsCell.self, forCellReuseIdentifier: FavsCell.cellId())
         table.delegate = self
         table.dataSource = self
-        table.rowHeight = 125
+        table.rowHeight = 140
         table.backgroundColor = .systemBackground
         table.separatorStyle = .none
         table.showsVerticalScrollIndicator = false

@@ -52,7 +52,7 @@ final class MainCell: UITableViewCell {
     private lazy var landmarkSubtitle: UILabel = {
         let title = UILabel()
         title.textColor = .lightGray
-        title.font = Fonts.subtitle
+        title.font = Fonts.cellSubtitle
         title.textAlignment = .left
         title.numberOfLines = 1
         return title
@@ -121,7 +121,7 @@ final class MainCell: UITableViewCell {
         
         landmarkTitle.snp.makeConstraints {
             $0.leading.trailing.equalTo(landmarkSubtitle)
-            $0.bottom.equalTo(landmarkSubtitle.snp.top).offset(-5)
+            $0.bottom.equalTo(landmarkSubtitle.snp.top).offset(-4)
         }
         
         landmarkSubtitle.snp.makeConstraints {

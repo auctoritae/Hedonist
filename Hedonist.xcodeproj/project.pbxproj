@@ -18,6 +18,9 @@
 		FE393C51295CC40200A10023 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE393C50295CC40200A10023 /* PlaceView.swift */; };
 		FE393C53295CC41A00A10023 /* PlaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE393C52295CC41A00A10023 /* PlaceVC.swift */; };
 		FE422D8F2955F45100353890 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FE422D8E2955F45100353890 /* SnapKit */; };
+		FE52B6B929993D4E008114B0 /* JetBrainsMono-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE52B6B829993D4A008114B0 /* JetBrainsMono-SemiBold.ttf */; };
+		FE52B6BB29993D63008114B0 /* JetBrainsMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE52B6BA29993D63008114B0 /* JetBrainsMono-Regular.ttf */; };
+		FE52B6BD29993DAD008114B0 /* JetBrainsMono-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE52B6BC29993DAD008114B0 /* JetBrainsMono-Light.ttf */; };
 		FE5CD4C82961BAC50094DCC4 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5CD4C72961BAC50094DCC4 /* ApiManager.swift */; };
 		FE5CD4CB2961BB530094DCC4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FE5CD4CA2961BB530094DCC4 /* Alamofire */; };
 		FE77DB5E297C46C900CD2C0A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE77DB5D297C46C900CD2C0A /* Extensions.swift */; };
@@ -63,8 +66,10 @@
 		FE393C4E295CC3EF00A10023 /* PlaceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRouter.swift; sourceTree = "<group>"; };
 		FE393C50295CC40200A10023 /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
 		FE393C52295CC41A00A10023 /* PlaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceVC.swift; sourceTree = "<group>"; };
+		FE52B6B829993D4A008114B0 /* JetBrainsMono-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JetBrainsMono-SemiBold.ttf"; path = "../../../../../Library/Fonts/JetBrainsMono-SemiBold.ttf"; sourceTree = "<group>"; };
+		FE52B6BA29993D63008114B0 /* JetBrainsMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JetBrainsMono-Regular.ttf"; path = "../../../../../Library/Fonts/JetBrainsMono-Regular.ttf"; sourceTree = "<group>"; };
+		FE52B6BC29993DAD008114B0 /* JetBrainsMono-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JetBrainsMono-Light.ttf"; path = "../../../../../Library/Fonts/JetBrainsMono-Light.ttf"; sourceTree = "<group>"; };
 		FE5CD4C72961BAC50094DCC4 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
-		FE61A2BA299905DA003D9BC5 /* STIXTwoText.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = STIXTwoText.ttf; path = ../../../../../../../System/Library/Fonts/Supplemental/STIXTwoText.ttf; sourceTree = "<group>"; };
 		FE77DB5D297C46C900CD2C0A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FE99DB042969908500FD5064 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		FE99DB06296990F000FD5064 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
@@ -170,7 +175,9 @@
 		FE9041AB29955CCF0054200A /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				FE61A2BA299905DA003D9BC5 /* STIXTwoText.ttf */,
+				FE52B6B829993D4A008114B0 /* JetBrainsMono-SemiBold.ttf */,
+				FE52B6BA29993D63008114B0 /* JetBrainsMono-Regular.ttf */,
+				FE52B6BC29993DAD008114B0 /* JetBrainsMono-Light.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -320,7 +327,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE0BB2AF29537CEE00F757E8 /* LaunchScreen.storyboard in Resources */,
+				FE52B6B929993D4E008114B0 /* JetBrainsMono-SemiBold.ttf in Resources */,
+				FE52B6BD29993DAD008114B0 /* JetBrainsMono-Light.ttf in Resources */,
 				FE0BB2AC29537CEE00F757E8 /* Assets.xcassets in Resources */,
+				FE52B6BB29993D63008114B0 /* JetBrainsMono-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

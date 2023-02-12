@@ -51,7 +51,7 @@ final class FavsCell: UITableViewCell {
     private lazy var placeSubtitle: UILabel = {
         let title = UILabel()
         title.textColor = .lightGray
-        title.font = Fonts.subtitle
+        title.font = Fonts.cellSubtitle
         title.textAlignment = .left
         title.numberOfLines = 1
         return title
@@ -120,7 +120,7 @@ final class FavsCell: UITableViewCell {
         
         placeTitle.snp.makeConstraints {
             $0.leading.trailing.equalTo(placeSubtitle)
-            $0.bottom.equalTo(placeSubtitle.snp.top).offset(-5)
+            $0.bottom.equalTo(placeSubtitle.snp.top).offset(-4)
         }
         
         placeSubtitle.snp.makeConstraints {
