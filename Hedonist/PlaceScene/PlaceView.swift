@@ -10,6 +10,7 @@ import SnapKit
 import MapKit
 import CoreData
 import Device
+import AlamofireImage
 
 protocol PlaceViewProtocol: AnyObject {
     func displayPlace(viewModel: Landmark, favorite: Bool)
@@ -153,10 +154,13 @@ class PlaceView: UIView, MKMapViewDelegate {
     // MARK: - Private
     private func placeData() {
         placeTitle.text = model?.name?.uppercased()
-        placeImage.image = UIImage(named: "ABC")
         descriptionLabel.text = model?.descript
         addressLabel.text = model?.address
         hoursLabel.text = model?.workhours
+        
+        if let reference = model?.image, let url = URL(string: reference) {
+            placeImage.af.setImage(withURL: url)
+        }
         
         if let latitude = model?.lat, let longtitude = model?.long {
             let location = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)

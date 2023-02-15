@@ -90,7 +90,10 @@ final class MainCell: UITableViewCell {
     private func landmarkSetup() {
         landmarkTitle.text = landmark?.name
         landmarkSubtitle.text = landmark?.category
-        landmarkImage.image = UIImage(named: "ABC")
+        
+        if let reference = landmark?.image, let url = URL(string: reference) {
+            landmarkImage.af.setImage(withURL: url)
+        }
     }
     
     
