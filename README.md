@@ -15,7 +15,7 @@ Presnya is one of the oldest, historical and at the same time, fashionable distr
 ### Tech Stack:
 - UIKit
 - Alamofire
-- Snapkit (100% programmatic layout)
+- SnapKit (100% programmatic layout)
 - CoreData
 - Clean Swift architecture
 - MapKit
