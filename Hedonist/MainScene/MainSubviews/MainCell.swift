@@ -64,6 +64,7 @@ final class MainCell: UITableViewCell {
         image.layer.cornerRadius = 8
         image.layer.masksToBounds = true
         image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
         return image
     }()
     
@@ -92,7 +93,7 @@ final class MainCell: UITableViewCell {
         landmarkSubtitle.text = landmark?.category
         
         if let reference = landmark?.image, let url = URL(string: reference) {
-            landmarkImage.af.setImage(withURL: url)
+            landmarkImage.af.setImage(withURL: url, placeholderImage: UIImage(named: "Placeholder"))
         }
     }
     
@@ -106,6 +107,7 @@ final class MainCell: UITableViewCell {
     
     private func layoutUI() {
         contentView.backgroundColor = .systemBackground
+        contentView.clipsToBounds = true
         
         contentView.addSubview(landmarkImage)
         contentView.addSubview(landmarkTitle)

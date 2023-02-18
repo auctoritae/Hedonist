@@ -89,7 +89,7 @@ final class FavsCell: UITableViewCell {
     private func placeSetup() {
         placeTitle.text = place?.name
         placeSubtitle.text = place?.category
-        placeImage.image = UIImage(named: "ABC")
+        placeImage.image = UIImage(named: "Placeholder")
     }
     
     
