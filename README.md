@@ -20,3 +20,5 @@ Presnya is one of the oldest, historical and at the same time, fashionable distr
 - Clean Swift architecture
 - MapKit
 - CallKit
+- SPM
+
