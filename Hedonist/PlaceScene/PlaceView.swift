@@ -12,6 +12,10 @@ import CoreData
 import Device
 import AlamofireImage
 
+extension Notification.Name {
+    static let NotifyFavoritesUpdate = Notification.Name("NotifyFavoritesUpdate")
+}
+
 protocol PlaceViewProtocol: AnyObject {
     func displayPlace(viewModel: Landmark, favorite: Bool)
     func displaySMM(viewModel: Landmark)
@@ -324,8 +328,11 @@ extension PlaceView: PlaceViewProtocol {
         model = viewModel
         isFavorite = favorite
         
-        if favorite == true { favoritesButton.setImage(UIImage(named: "favMark")?.withTintColor(.white), for: .normal) }
-        else { favoritesButton.setImage(UIImage(named: "notfavMark")?.withTintColor(.white), for: .normal) }
+        if favorite == true {
+            favoritesButton.setImage(UIImage(named: "favMark")?.withTintColor(.white), for: .normal)
+        } else {
+            favoritesButton.setImage(UIImage(named: "notfavMark")?.withTintColor(.white), for: .normal)
+        }
     }
     
     
@@ -341,9 +348,14 @@ extension PlaceView: PlaceViewProtocol {
     
     func updateStatus(_ favorite: Bool) {
         isFavorite = favorite
+        NotificationCenter.default.post(name: .NotifyFavoritesUpdate, object: nil)
         
-        if favorite == true { favoritesButton.setImage(UIImage(named: "favMark")?.withTintColor(.white), for: .normal) }
-        else { favoritesButton.setImage(UIImage(named: "notfavMark")?.withTintColor(.white), for: .normal) }
+        if favorite == true {
+            favoritesButton.setImage(UIImage(named: "favMark")?.withTintColor(.white), for: .normal)
+            router?.presentFavAlert()
+        } else {
+            favoritesButton.setImage(UIImage(named: "notfavMark")?.withTintColor(.white), for: .normal)
+        }
     }
     
     

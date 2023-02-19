@@ -62,6 +62,12 @@ final class FavsView: UIView {
     }
     
     
+    // MARK: - Private
+    @objc private func updateFavorites() {
+        interactor?.fetchFavorites()
+    }
+    
+    
     // MARK: - UI
     private func layoutUI() {
         backgroundColor = .systemBackground
@@ -79,6 +85,13 @@ final class FavsView: UIView {
             $0.top.equalTo(favsTitle.snp.bottom).offset(10)
             $0.leading.trailing.bottom.equalToSuperview()
         }
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateFavorites),
+            name: .NotifyFavoritesUpdate,
+            object: nil
+        )
     }
 }
 

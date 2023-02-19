@@ -8,8 +8,13 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    
+    // MARK: - Variable
     var window: UIWindow?
+    
+    private lazy var tabController = UITabBarController()
+    private lazy var mainVC = MainBuilder.build()
+    private lazy var favsVC = FavsBuilder.build()
+    private lazy var mapVC = MapBuilder.build()
     
     
     // MARK: - System implementation
@@ -31,11 +36,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     // MARK: - Private implementation
     private func createTabBarController() -> UITabBarController {
-        let tabController = UITabBarController()
-        let mainVC = MainBuilder.build()
-        let favsVC = FavsBuilder.build()
-        let mapVC = MapBuilder.build()
-        
         mainVC.tabBarItem = UITabBarItem(title: Titles.mainTabTitle, image: UIImage(systemName: "antenna.radiowaves.left.and.right.circle.fill"), tag: 0)
         favsVC.tabBarItem = UITabBarItem(title: Titles.favSceneTitle, image: UIImage(systemName: "heart.circle.fill"), tag: 1)
         mapVC.tabBarItem = UITabBarItem(title: Titles.mapSceneTitle, image: UIImage(systemName: "map.circle.fill"), tag: 2)

@@ -12,6 +12,7 @@ import SafariServices
 protocol PlaceRouterProtocol: AnyObject {
     func openSMM(from: Landmark)
     func openCall(from: Landmark)
+    func presentFavAlert()
     func close()
 }
 
@@ -38,6 +39,11 @@ final class PlaceRouter: PlaceRouterProtocol {
         } else {
             viewController?.presentAlert(title: AlertTitle.error, message: Errors.serverError)
         }
+    }
+    
+    
+    func presentFavAlert() {
+        viewController?.presentAlert(title: AlertTitle.success, message: Alerts.addedToFavorites)
     }
     
     

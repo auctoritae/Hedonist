@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import AlamofireImage
 
 final class FavsCell: UITableViewCell {
     // MARK: - Class function
@@ -89,7 +90,10 @@ final class FavsCell: UITableViewCell {
     private func placeSetup() {
         placeTitle.text = place?.name
         placeSubtitle.text = place?.category
-        placeImage.image = UIImage(named: "Placeholder")
+        
+        if let reference = place?.picture, let url = URL(string: reference) {
+            placeImage.af.setImage(withURL: url, placeholderImage: UIImage(named: "Placeholder"))
+        }
     }
     
     
