@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FavsRouterProtocol: AnyObject {
-    func openFavorite(place: Place)
+    func openFavorite(place: Landmark)
 }
 
 final class FavsRouter: FavsRouterProtocol {
@@ -17,7 +17,10 @@ final class FavsRouter: FavsRouterProtocol {
     
     
     // MARK: - Variable
-    func openFavorite(place: Place) {
-        
+    func openFavorite(place: Landmark) {
+        let scene = PlaceBuilder.build(place: place)
+        scene.modalPresentationStyle = .overFullScreen
+        scene.modalTransitionStyle = .coverVertical
+        viewController?.present(scene, animated: true)
     }
 }

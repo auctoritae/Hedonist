@@ -9,7 +9,7 @@ import Foundation
 
 protocol FavsPresenterProtocol: AnyObject {
     func presentFavorites(response: [Place])
-    func presentFavorite(response: Place)
+    func presentFavorite(response: [Place])
     func removeFavorite(response: Place)
 }
 
@@ -25,8 +25,21 @@ final class FavsPresenter: FavsPresenterProtocol {
     }
     
     
-    func presentFavorite(response: Place) {
-        
+    func presentFavorite(response: [Place]) {
+        view?.displayFavorite(viewModel: response.map { viewModel -> Landmark in
+            Landmark(
+                category: viewModel.category,
+                name: viewModel.name,
+                address: viewModel.address,
+                lat: viewModel.lat,
+                long: viewModel.long,
+                descript: viewModel.descript,
+                phone: viewModel.phone,
+                workhours: viewModel.workhours,
+                image: viewModel.picture,
+                url: viewModel.smm
+            )
+        })
     }
     
     

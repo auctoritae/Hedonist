@@ -9,7 +9,7 @@ import Foundation
 
 protocol FavsInteractorProtocol: AnyObject {
     func fetchFavorites()
-    func selectFavorite(request: Place)
+    func selectFavorite(request: [Place])
     func removeFavorite(request: Place)
 }
 
@@ -32,8 +32,9 @@ final class FavsInteractor: FavsInteractorProtocol {
     }
     
     
-    func selectFavorite(request: Place) {
-        
+    func selectFavorite(request: [Place]) {
+        let response = request
+        presenter?.presentFavorite(response: response)
     }
     
     

@@ -10,14 +10,15 @@ import SnapKit
 
 protocol FavsViewProtocol: AnyObject {
     func dispalyFavorites(viewModel: [Place])
-    func displayFavorite(viewModel: Place)
-    func removeFavorite(viewModel: Place)
+    func displayFavorite(viewModel: [Landmark])
 }
 
 final class FavsView: UIView {
     // MARK: - Variable
     var interactor: FavsInteractorProtocol?
     var router: FavsRouterProtocol?
+    
+    private var mock: [Place] = []
     
     private var model: [Place]? {
         didSet {
@@ -122,6 +123,14 @@ extension FavsView: UITableViewDelegate, UITableViewDataSource {
             animations: { cell.alpha = 1 }
         )
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let place = model?[indexPath.row] {
+            mock.append(place)
+            interactor?.selectFavorite(request: mock)
+        }
+    }
 }
 
 
@@ -133,12 +142,10 @@ extension FavsView: FavsViewProtocol {
     }
     
     
-    func displayFavorite(viewModel: Place) {
-        
-    }
-    
-    
-    func removeFavorite(viewModel: Place) {
-        
+    func displayFavorite(viewModel: [Landmark]) {
+        mock.removeAll()
+        mock = []
+        guard let landmark = viewModel.first else { return }
+        router?.openFavorite(place: landmark)
     }
 }

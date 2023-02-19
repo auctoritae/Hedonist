@@ -203,8 +203,11 @@ class PlaceView: UIView, MKMapViewDelegate {
     
     @objc private func favorites() {
         if let landmark = model {
-            if isFavorite == true { interactor?.removeFromFavorites(request: landmark) }
-            else { interactor?.addToFavorites(request: landmark) }
+            if isFavorite == true {
+                interactor?.removeFromFavorites(request: landmark)
+            } else {
+                interactor?.addToFavorites(request: landmark)
+            }
         }
     }
     
@@ -324,6 +327,7 @@ class PlaceView: UIView, MKMapViewDelegate {
 
 // MARK: - Implementation
 extension PlaceView: PlaceViewProtocol {
+    
     func displayPlace(viewModel: Landmark, favorite: Bool) {
         model = viewModel
         isFavorite = favorite
