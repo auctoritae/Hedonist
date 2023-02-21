@@ -10,7 +10,6 @@ import Foundation
 protocol FavsPresenterProtocol: AnyObject {
     func presentFavorites(response: [Place])
     func presentFavorite(response: [Place])
-    func removeFavorite(response: Place)
 }
 
 final class FavsPresenter: FavsPresenterProtocol {
@@ -40,10 +39,5 @@ final class FavsPresenter: FavsPresenterProtocol {
                 url: viewModel.smm
             )
         })
-    }
-    
-    
-    func removeFavorite(response: Place) {
-        
     }
 }

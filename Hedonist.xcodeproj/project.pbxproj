@@ -11,6 +11,7 @@
 		FE0BB2A529537CEC00F757E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0BB2A429537CEC00F757E8 /* SceneDelegate.swift */; };
 		FE0BB2AC29537CEE00F757E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE0BB2AB29537CEE00F757E8 /* Assets.xcassets */; };
 		FE0BB2AF29537CEE00F757E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE0BB2AD29537CEE00F757E8 /* LaunchScreen.storyboard */; };
+		FE280B1429A51FB9004B26C1 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE280B1329A51FB9004B26C1 /* EmptyView.swift */; };
 		FE393C49295CC3C800A10023 /* PlaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE393C48295CC3C800A10023 /* PlaceBuilder.swift */; };
 		FE393C4B295CC3D600A10023 /* PlaceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE393C4A295CC3D600A10023 /* PlaceInteractor.swift */; };
 		FE393C4D295CC3E300A10023 /* PlacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE393C4C295CC3E300A10023 /* PlacePresenter.swift */; };
@@ -61,6 +62,7 @@
 		FE0BB2AB29537CEE00F757E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE0BB2AE29537CEE00F757E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE0BB2B029537CEE00F757E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE280B1329A51FB9004B26C1 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		FE393C48295CC3C800A10023 /* PlaceBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceBuilder.swift; sourceTree = "<group>"; };
 		FE393C4A295CC3D600A10023 /* PlaceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInteractor.swift; sourceTree = "<group>"; };
 		FE393C4C295CC3E300A10023 /* PlacePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePresenter.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				FEE6B7EA295704A100C3689F /* FavsCell.swift */,
+				FE280B1329A51FB9004B26C1 /* EmptyView.swift */,
 			);
 			path = FavsSubviews;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				FEE6B7E92957047E00C3689F /* MainCell.swift in Sources */,
 				FEE6B7CF2957010D00C3689F /* MainPresenter.swift in Sources */,
 				FEE6B7D72957023F00C3689F /* MapBuilder.swift in Sources */,
+				FE280B1429A51FB9004B26C1 /* EmptyView.swift in Sources */,
 				FE393C4B295CC3D600A10023 /* PlaceInteractor.swift in Sources */,
 				FEE6B7EB295704A100C3689F /* FavsCell.swift in Sources */,
 				FE99DB052969908500FD5064 /* Helpers.swift in Sources */,
