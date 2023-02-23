@@ -38,11 +38,6 @@ final class FavsView: UIView {
         return title
     }()
     
-    private lazy var emptyState: EmptyView = {
-        let empty = EmptyView()
-        return empty
-    }()
-    
     private lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
         table.register(FavsCell.self, forCellReuseIdentifier: FavsCell.cellId())
@@ -80,7 +75,6 @@ final class FavsView: UIView {
         
         addSubview(favsTitle)
         addSubview(tableView)
-        addSubview(emptyState)
         
         favsTitle.snp.makeConstraints {
             $0.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
@@ -91,10 +85,6 @@ final class FavsView: UIView {
         tableView.snp.makeConstraints {
             $0.top.equalTo(favsTitle.snp.bottom).offset(10)
             $0.leading.trailing.bottom.equalToSuperview()
-        }
-        
-        emptyState.snp.makeConstraints {
-            $0.edges.equalTo(tableView)
         }
         
         NotificationCenter.default.addObserver(
@@ -110,7 +100,9 @@ final class FavsView: UIView {
 extension FavsView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        model?.count ?? 0
+        if model?.count == 0 { tableView.setEmptyState(EmptyState.favsEmpty) }
+        else { tableView.restore() }
+        return model?.count ?? 0
     }
     
     
@@ -147,13 +139,8 @@ extension FavsView: UITableViewDelegate, UITableViewDataSource {
 extension FavsView: FavsViewProtocol {
     // MARK: - Implementation
     func dispalyFavorites(viewModel: [Place]) {
-        if viewModel.count > 0 {
-            model = viewModel
-            tableView.reloadData()
-            emptyState.isHidden = true
-        } else {
-            emptyState.isHidden = false
-        }
+        model = viewModel
+        tableView.reloadData()
     }
     
     

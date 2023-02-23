@@ -17,9 +17,9 @@ enum Titles {
 
 enum Fonts {
     static let header = UIFont(name: "JetBrains Mono SemiBold", size: 44)
-    static let placeTitle = UIFont(name: "JetBrains Mono SemiBold", size: 32)
-    static let cellTitle = UIFont(name: "JetBrains Mono Regular", size: 24)
-    static let cellSubtitle = UIFont(name: "JetBrains Mono Light", size: 18)
+    static let placeTitle = UIFont(name: "JetBrains Mono SemiBold", size: 30)
+    static let cellTitle = UIFont(name: "JetBrains Mono Regular", size: 22)
+    static let cellSubtitle = UIFont(name: "JetBrains Mono Light", size: 16)
     static let body = UIFont(name: "JetBrains Mono Light", size: 14)
     static let bubble = UIFont(name: "JetBrains Mono SemiBold", size: 14)
 }
@@ -70,5 +70,5 @@ enum Alerts {
 
 
 enum EmptyState {
-    static let favsEmpty = "У Вас пока еще нет мест в Избранном. Посмотрите, что есть в нашей подборке🧐"
+    static let favsEmpty = "У Вас пока еще нет мест в Избранном.\nПосмотрите, что есть в нашей подборке🧐"
 }
