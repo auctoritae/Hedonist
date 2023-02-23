@@ -40,7 +40,7 @@ final class DataManager {
         var fetched: [Place] = []
         
         do { fetched = try persistentContainer.viewContext.fetch(request) }
-        catch { print("Fetching error occured") }
+        catch { debugPrint("CoreData fetch error occured") }
         
         return fetched
     }
@@ -67,5 +67,6 @@ final class DataManager {
     func delete(object: Place) {
         let context = persistentContainer.viewContext
         context.delete(object)
+        saveContext()
     }
 }
