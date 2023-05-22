@@ -139,7 +139,6 @@ extension MapView: CLLocationManagerDelegate {
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion(center: center, latitudinalMeters: DefaultLocation.zoom, longitudinalMeters: DefaultLocation.zoom)
         
-        mapView.setRegion(region, animated: true)
         locationManager.startUpdatingLocation()
     }
     
