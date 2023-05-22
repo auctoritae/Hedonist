@@ -74,7 +74,7 @@ final class MapView: UIView {
     
     
     private func setDefaultRegion() {
-        let location = CLLocationCoordinate2D(latitude: 55.7582313, longitude: 37.5949771)
+        let location = CLLocationCoordinate2D(latitude: DefaultLocation.latitude, longitude: DefaultLocation.longitude)
         let region = MKCoordinateRegion(center: location, latitudinalMeters: DefaultLocation.zoom, longitudinalMeters: DefaultLocation.zoom)
         mapView.setRegion(region, animated: false)
     }
@@ -135,9 +135,10 @@ extension MapView: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
+        
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion(center: center, latitudinalMeters: DefaultLocation.zoom, longitudinalMeters: DefaultLocation.zoom)
-        mapView.setRegion(region, animated: true)
+        
         locationManager.startUpdatingLocation()
     }
     
@@ -151,17 +152,17 @@ extension MapView: CLLocationManagerDelegate {
                 setDefaultRegion()
             
             case .denied:
-                setDefaultRegion()
+                 setDefaultRegion()
                 
             case .authorizedAlways:
+                setDefaultRegion()
                 mapView.showsUserLocation = true
                 locationManager.startUpdatingLocation()
-                setDefaultRegion()
                 
             case .authorizedWhenInUse:
+                setDefaultRegion()
                 mapView.showsUserLocation = true
                 locationManager.startUpdatingLocation()
-                setDefaultRegion()
                 
             @unknown default: break
         }
