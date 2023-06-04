@@ -8,10 +8,10 @@
 import UIKit
 
 enum Titles {
-    static let mainTabTitle = "Все"
-    static let mainSceneTitle = "Места"
-    static let favSceneTitle = "Избранное"
-    static let mapSceneTitle = "Карта"
+    static let mainTabTitle = "All"
+    static let mainSceneTitle = "Feed"
+    static let favSceneTitle = "Favorites"
+    static let mapSceneTitle = "Map"
 }
 
 
@@ -21,16 +21,17 @@ enum Fonts {
     static let cellTitle = UIFont(name: "JetBrainsMono-Regular", size: 22)
     static let cellSubtitle = UIFont(name: "JetBrainsMono-Light", size: 16)
     static let body = UIFont(name: "JetBrainsMono-Light", size: 14)
-    static let bubble = UIFont(name: "JetBrainsMono-SemiBold", size: 14)
+    static let bubble = UIFont(name: "JetBrainsMono-SemiBold", size: 12)
 }
 
 
 enum SearchTitles: String, CaseIterable {
-    case all = "Все"
-    case breakfasts = "Завтраки"
-    case restaraunt = "Ресторан"
-    case places = "Места"
-    case drinks = "Бар"
+    case all = "all"
+    case breakfasts = "breakfast"
+    case restaraunt = "restaurants"
+    case places = "landmarks"
+    case drinks = "drinks"
+    case city = "city"
 }
 
 
@@ -42,18 +43,18 @@ enum UIConstants {
 
 
 enum DefaultLocation {
-    static let latitude = 55.7582313
-    static let longitude = 37.5949771
+    static let latitude = 37.983810
+    static let longitude = 23.727539
     static let zoom: Double = 1000
 }
 
 
 enum Errors {
-    static let fetchError = "Ошибка загрузки.\nПожалуста, попробуйте еще раз"
-    static let faillURL = "Неверный или устаревший адрес ссылки.\nВ ближайшее обновление все поправим"
-    static let favsFail = "Произошла ошибка при добавлении в Избранное"
-    static let phoneError = "У этого места нет актуального номера телефона в данный момент"
-    static let serverError = "Ошибка обработки действия на сервере. Пожалуйста, попробуйте позднее"
+    static let fetchError = "Fetch error.\nPlease try again"
+    static let faillURL = "URL failure.\nDon't worry, it will be fixed soon"
+    static let favsFail = "Something went wrong - try to add place to Favorites again"
+    static let phoneError = "There is no cell number for this place"
+    static let serverError = "Server error. Please try again later"
 }
 
 
@@ -64,11 +65,11 @@ enum AlertTitle {
 
 
 enum Alerts {
-    static let addedToFavorites = "Добавили в Избранное"
-    static let locationServices = "Похоже, у Вас не включена геолокация или отсутствует разрешение на ее использование. Вы можете изменить это в настройках Вашего iPhone"
+    static let addedToFavorites = "Added to favorites"
+    static let locationServices = "Looks like that location is off or disallowed. You can change it in the your device settings."
 }
 
 
 enum EmptyState {
-    static let favsEmpty = "У Вас пока еще нет мест в Избранном.\nПосмотрите, что есть в нашей подборке🧐"
+    static let favsEmpty = "You have no favorites now.\nTake a look what we have in the Feed🧐"
 }

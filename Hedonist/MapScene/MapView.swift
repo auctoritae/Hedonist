@@ -32,7 +32,6 @@ final class MapView: UIView {
     var router: MapRouterProtocol?
     
     private var model: [Landmark]?
-    private let locationManager = CLLocationManager()
     
     
     // MARK: - UI Variable
@@ -58,7 +57,6 @@ final class MapView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         layoutUI()
-        setupLocationManager()
     }
     
     required init?(coder: NSCoder) {
@@ -67,12 +65,6 @@ final class MapView: UIView {
     
     
     // MARK: - Private
-    private func setupLocationManager() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    }
-    
-    
     private func setDefaultRegion() {
         let location = CLLocationCoordinate2D(latitude: DefaultLocation.latitude, longitude: DefaultLocation.longitude)
         let region = MKCoordinateRegion(center: location, latitudinalMeters: DefaultLocation.zoom, longitudinalMeters: DefaultLocation.zoom)
@@ -127,44 +119,5 @@ extension MapView: MKMapViewDelegate {
         guard let annotation = annotation as? CustomAnnotation else { return }
         let landmark = annotation.landmark
         interactor?.selectLandmark(request: landmark)
-    }
-}
-
-
-extension MapView: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        
-        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: DefaultLocation.zoom, longitudinalMeters: DefaultLocation.zoom)
-        
-        locationManager.startUpdatingLocation()
-    }
-    
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch manager.authorizationStatus {
-            case .notDetermined:
-                locationManager.requestWhenInUseAuthorization()
-                
-            case .restricted:
-                setDefaultRegion()
-            
-            case .denied:
-                 setDefaultRegion()
-                
-            case .authorizedAlways:
-                setDefaultRegion()
-                mapView.showsUserLocation = true
-                locationManager.startUpdatingLocation()
-                
-            case .authorizedWhenInUse:
-                setDefaultRegion()
-                mapView.showsUserLocation = true
-                locationManager.startUpdatingLocation()
-                
-            @unknown default: break
-        }
     }
 }

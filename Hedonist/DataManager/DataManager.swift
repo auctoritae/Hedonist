@@ -17,6 +17,7 @@ final class DataManager {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         }
+        
         return container
     }()
     

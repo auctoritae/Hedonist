@@ -11,7 +11,6 @@ protocol PlaceInteractorProtocol: AnyObject {
     func fetchPlace(request: Landmark)
     func addToFavorites(request: Landmark)
     func removeFromFavorites(request: Landmark)
-    func openSMM(request: Landmark)
     func call(request: Landmark)
     func close()
 }
@@ -52,12 +51,6 @@ final class PlaceInteractor: PlaceInteractorProtocol {
             dataManager.delete(object: object)
             presenter?.removeFromFavorites(favorite: false)
         }
-    }
-    
-    
-    func openSMM(request: Landmark) {
-        let response = request
-        presenter?.presentSMM(response: response)
     }
     
     

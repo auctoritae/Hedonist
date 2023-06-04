@@ -94,6 +94,8 @@ final class MainCell: UITableViewCell {
         
         if let reference = landmark?.image, let url = URL(string: reference) {
             landmarkImage.af.setImage(withURL: url, placeholderImage: UIImage(named: "Placeholder"))
+        } else {
+            landmarkImage.image = UIImage(named: "Placeholder")
         }
     }
     

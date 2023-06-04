@@ -18,7 +18,6 @@ extension Notification.Name {
 
 protocol PlaceViewProtocol: AnyObject {
     func displayPlace(viewModel: Landmark, favorite: Bool)
-    func displaySMM(viewModel: Landmark)
     func displayCall(viewModel: Landmark)
     func updateStatus(_ favorite: Bool)
     func closeScene()
@@ -68,15 +67,6 @@ class PlaceView: UIView, MKMapViewDelegate {
     private lazy var favoritesButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(favorites), for: .touchUpInside)
-        button.tintColor = .white
-        button.contentMode = .scaleAspectFit
-        return button
-    }()
-    
-    private lazy var smmButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "smmMark")?.withTintColor(.white), for: .normal)
-        button.addTarget(self, action: #selector(smm), for: .touchUpInside)
         button.tintColor = .white
         button.contentMode = .scaleAspectFit
         return button
@@ -164,6 +154,8 @@ class PlaceView: UIView, MKMapViewDelegate {
         
         if let reference = model?.image, let url = URL(string: reference) {
             placeImage.af.setImage(withURL: url)
+        } else {
+            placeImage.image = UIImage(named: "Placeholder")
         }
         
         if let latitude = model?.lat, let longtitude = model?.long {
@@ -212,13 +204,6 @@ class PlaceView: UIView, MKMapViewDelegate {
     }
     
     
-    @objc private func smm() {
-        if let landmark = model {
-            interactor?.openSMM(request: landmark)
-        }
-    }
-    
-    
     @objc private func call() {
         if let landmark = model {
             interactor?.call(request: landmark)
@@ -245,12 +230,9 @@ class PlaceView: UIView, MKMapViewDelegate {
         addSubview(descriptionLabel)
         addSubview(addressLabel)
         addSubview(hoursLabel)
-        
         addSubview(closeButton)
         addSubview(favoritesButton)
         addSubview(callButton)
-        addSubview(smmButton)
-        
         addSubview(placeTitle)
         
         placeImage.addSubview(overlay)
@@ -274,16 +256,10 @@ class PlaceView: UIView, MKMapViewDelegate {
         favoritesButton.snp.makeConstraints {
             $0.width.height.equalTo(50)
             $0.top.equalTo(safeAreaLayoutGuide.snp.top)
-            $0.leading.equalTo(closeButton.snp.trailing)
+            $0.trailing.equalTo(callButton.snp.leading)
         }
         
         callButton.snp.makeConstraints {
-            $0.width.height.equalTo(50)
-            $0.top.equalTo(safeAreaLayoutGuide.snp.top)
-            $0.trailing.equalTo(smmButton.snp.leading)
-        }
-        
-        smmButton.snp.makeConstraints {
             $0.width.height.equalTo(50)
             $0.top.equalTo(safeAreaLayoutGuide.snp.top)
             $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
@@ -337,11 +313,6 @@ extension PlaceView: PlaceViewProtocol {
         } else {
             favoritesButton.setImage(UIImage(named: "notfavMark")?.withTintColor(.white), for: .normal)
         }
-    }
-    
-    
-    func displaySMM(viewModel: Landmark) {
-        router?.openSMM(from: viewModel)
     }
     
     

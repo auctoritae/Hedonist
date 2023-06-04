@@ -11,7 +11,6 @@ protocol PlacePresenterProtocol: AnyObject {
     func presentPlace(response: Landmark, favorite: Bool)
     func addToFavorites(favorite: Bool)
     func removeFromFavorites(favorite: Bool)
-    func presentSMM(response: Landmark)
     func presentCall(response: Landmark)
     func close()
 }
@@ -35,12 +34,6 @@ final class PlacePresenter: PlacePresenterProtocol {
     
     func removeFromFavorites(favorite: Bool) {
         view?.updateStatus(favorite)
-    }
-    
-    
-    func presentSMM(response: Landmark) {
-        let viewModel = response
-        view?.displaySMM(viewModel: viewModel)
     }
     
     

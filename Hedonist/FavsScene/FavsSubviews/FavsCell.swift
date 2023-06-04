@@ -93,6 +93,8 @@ final class FavsCell: UITableViewCell {
         
         if let reference = place?.picture, let url = URL(string: reference) {
             placeImage.af.setImage(withURL: url, placeholderImage: UIImage(named: "Placeholder"))
+        } else {
+            placeImage.image = UIImage(named: "Placeholder")
         }
     }
     
