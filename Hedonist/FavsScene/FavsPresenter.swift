@@ -35,8 +35,7 @@ final class FavsPresenter: FavsPresenterProtocol {
                 descript: viewModel.descript,
                 phone: viewModel.phone,
                 workhours: viewModel.workhours,
-                image: viewModel.picture,
-                url: viewModel.smm
+                image: viewModel.picture
             )
         })
     }

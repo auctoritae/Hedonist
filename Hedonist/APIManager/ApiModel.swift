@@ -21,5 +21,4 @@ struct Landmark: Codable {
     let phone: String?
     let workhours: String?
     let image: String?
-    let url: String?
 }
