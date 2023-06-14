@@ -18,6 +18,7 @@ final class ApiManager: ApiManagerProtocol {
         let configuration = URLSessionConfiguration.af.default
         configuration.timeoutIntervalForRequest = 30
         configuration.waitsForConnectivity = false
+        configuration.requestCachePolicy = .returnCacheDataElseLoad
         return Session(configuration: configuration)
     }()
     

@@ -136,7 +136,7 @@ extension FavsView: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-         let delete = UIContextualAction(style: .destructive, title: "Удалить") { (action, view, nil) in
+         let delete = UIContextualAction(style: .destructive, title: "Remove") { (action, view, nil) in
              if let place = self.model?[indexPath.row] {
                  self.interactor?.deleteFavorite(object: place)
              }
