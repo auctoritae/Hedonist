@@ -30,7 +30,6 @@ enum SearchTitles: String, CaseIterable {
     case breakfasts = "breakfast"
     case restaraunt = "restaurants"
     case places = "landmarks"
-    case drinks = "drinks"
     case city = "city"
 }
 
