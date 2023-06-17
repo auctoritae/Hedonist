@@ -21,13 +21,8 @@ final class MainView: UIView {
     var router: MainRouterProtocol?
     
     private var search: [String] = SearchTitles.allCases.map { $0.rawValue }
-    
-    private var model: [Landmark]? {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-    
+    private var model: [Landmark]?
+
     
     // MARK: - UI Variable
     private lazy var mainTitle: UILabel = {
@@ -171,9 +166,11 @@ extension MainView: UITableViewDelegate, UITableViewDataSource {
 extension MainView: MainViewProtocol {
     func displayLandmarks(viewModel: [Landmark]) {
         model = viewModel.shuffled()
-        tableView.reloadData()
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+        }
     }
     
     

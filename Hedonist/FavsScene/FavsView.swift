@@ -19,12 +19,7 @@ final class FavsView: UIView {
     var router: FavsRouterProtocol?
     
     private var mock: [Place] = []
-    
-    private var model: [Place]? {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    private var model: [Place]?
     
     
     // MARK: - UI Variable
@@ -151,7 +146,7 @@ extension FavsView: FavsViewProtocol {
     // MARK: - Implementation
     func dispalyFavorites(viewModel: [Place]) {
         model = viewModel
-        tableView.reloadData()
+        DispatchQueue.main.async { self.tableView.reloadData() }
     }
     
     

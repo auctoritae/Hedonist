@@ -70,5 +70,5 @@ enum Alerts {
 
 
 enum EmptyState {
-    static let favsEmpty = "You have no favorites now.\nTake a look what we have in the Feed🧐"
+    static let favsEmpty = "You have no favorites now.\nTake a look what we have in the Feed"
 }
