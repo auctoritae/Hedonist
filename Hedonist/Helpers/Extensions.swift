@@ -16,31 +16,43 @@ extension UITableView {
     }
 
     
-    func setEmptyState(_ message: String) {
+    func setEmptyState(_ emptyState: String) {
+        separatorStyle = .none
         let rectangle = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
         let containerView = UIView(frame: rectangle)
         
-        let messageLabel = UILabel()
-        messageLabel.center = center
-        messageLabel.text = message
-        messageLabel.numberOfLines = 0
-        messageLabel.textColor = .white
-        messageLabel.textAlignment = .center
-        messageLabel.font = Fonts.body
-        messageLabel.sizeToFit()
+        let placeholder = UIImageView()
+        placeholder.image = UIImage(named: "Logo")
+        placeholder.contentMode = .scaleAspectFit
+        
+        let message = UILabel()
+        message.center = center
+        message.text = emptyState
+        message.numberOfLines = 0
+        message.textColor = .white
+        message.textAlignment = .center
+        message.font = Fonts.body
+        message.sizeToFit()
         
         addSubview(containerView)
         bringSubviewToFront(containerView)
         backgroundView = containerView
         
-        containerView.addSubview(messageLabel)
-        containerView.bringSubviewToFront(messageLabel)
-        messageLabel.snp.makeConstraints {
+        containerView.addSubview(message)
+        containerView.addSubview(placeholder)
+        containerView.bringSubviewToFront(message)
+        containerView.bringSubviewToFront(placeholder)
+        
+        placeholder.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview().offset(-200)
+            $0.centerY.equalToSuperview().offset(-100)
+            $0.width.height.equalTo(100)
         }
         
-        separatorStyle = .none
+        message.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(placeholder.snp.bottom).offset(UIConstants.topPadding)
+        }
     }
     
     
