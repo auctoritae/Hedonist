@@ -30,8 +30,8 @@ final class MainCell: UITableViewCell {
     private lazy var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.colors = [
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor,
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0.7).cgColor
+            UIColor.black.withAlphaComponent(0.0).cgColor,
+            UIColor.black.withAlphaComponent(0.7).cgColor
         ]
         return gradient
     }()
@@ -147,7 +147,7 @@ final class MainCell: UITableViewCell {
         
         landmarkTitle.snp.makeConstraints {
             $0.leading.trailing.equalTo(landmarkSubtitle)
-            $0.bottom.equalTo(landmarkSubtitle.snp.top).offset(-4)
+            $0.bottom.equalTo(landmarkSubtitle.snp.top)
         }
         
         landmarkSubtitle.snp.makeConstraints {

@@ -22,7 +22,6 @@
 		FE393C51295CC40200A10023 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE393C50295CC40200A10023 /* PlaceView.swift */; };
 		FE393C53295CC41A00A10023 /* PlaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE393C52295CC41A00A10023 /* PlaceVC.swift */; };
 		FE422D8F2955F45100353890 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FE422D8E2955F45100353890 /* SnapKit */; };
-		FE52B6C029994F00008114B0 /* Device in Frameworks */ = {isa = PBXBuildFile; productRef = FE52B6BF29994F00008114B0 /* Device */; };
 		FE5CD4C82961BAC50094DCC4 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5CD4C72961BAC50094DCC4 /* ApiManager.swift */; };
 		FE5CD4CB2961BB530094DCC4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FE5CD4CA2961BB530094DCC4 /* Alamofire */; };
 		FE77DB5E297C46C900CD2C0A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE77DB5D297C46C900CD2C0A /* Extensions.swift */; };
@@ -107,7 +106,6 @@
 			files = (
 				FE422D8F2955F45100353890 /* SnapKit in Frameworks */,
 				FE5CD4CB2961BB530094DCC4 /* Alamofire in Frameworks */,
-				FE52B6C029994F00008114B0 /* Device in Frameworks */,
 				FE94AB072967599D007BE0D6 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,7 +278,6 @@
 				FE422D8E2955F45100353890 /* SnapKit */,
 				FE5CD4CA2961BB530094DCC4 /* Alamofire */,
 				FE94AB062967599D007BE0D6 /* AlamofireImage */,
-				FE52B6BF29994F00008114B0 /* Device */,
 			);
 			productName = Hedonist;
 			productReference = FE0BB29F29537CEC00F757E8 /* Hedonist.app */;
@@ -314,7 +311,6 @@
 				FE422D8D2955F45100353890 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				FE5CD4C92961BB530094DCC4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				FE94AB052967599D007BE0D6 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
-				FE52B6BE29994F00008114B0 /* XCRemoteSwiftPackageReference "Device" */,
 			);
 			productRefGroup = FE0BB2A029537CEC00F757E8 /* Products */;
 			projectDirPath = "";
@@ -617,14 +613,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		FE52B6BE29994F00008114B0 /* XCRemoteSwiftPackageReference "Device" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Ekhoo/Device.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.3.0;
-			};
-		};
 		FE5CD4C92961BB530094DCC4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -648,11 +636,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FE422D8D2955F45100353890 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		FE52B6BF29994F00008114B0 /* Device */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FE52B6BE29994F00008114B0 /* XCRemoteSwiftPackageReference "Device" */;
-			productName = Device;
 		};
 		FE5CD4CA2961BB530094DCC4 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

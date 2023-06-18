@@ -145,7 +145,7 @@ final class FavsCell: UITableViewCell {
         
         placeTitle.snp.makeConstraints {
             $0.leading.trailing.equalTo(placeSubtitle)
-            $0.bottom.equalTo(placeSubtitle.snp.top).offset(-4)
+            $0.bottom.equalTo(placeSubtitle.snp.top)
         }
         
         placeSubtitle.snp.makeConstraints {
