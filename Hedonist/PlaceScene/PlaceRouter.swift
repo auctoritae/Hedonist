@@ -27,13 +27,13 @@ final class PlaceRouter: PlaceRouterProtocol {
                 UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
             }
         } else {
-            viewController?.presentAlert(title: AlertTitle.error, message: Errors.serverError)
+            viewController?.presentAlert(message: Errors.serverError)
         }
     }
     
     
     func presentFavAlert() {
-        viewController?.presentAlert(title: AlertTitle.success, message: Alerts.addedToFavorites)
+        viewController?.presentAlert(message: Alerts.addedToFavorites)
     }
     
     

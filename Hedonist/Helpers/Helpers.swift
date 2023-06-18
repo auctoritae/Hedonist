@@ -57,12 +57,6 @@ enum Errors {
 }
 
 
-enum AlertTitle {
-    static let error = "Error."
-    static let success = "Success!"
-}
-
-
 enum Alerts {
     static let addedToFavorites = "Added to favorites"
     static let locationServices = "Looks like that location is off or disallowed. You can change it in the your device settings."

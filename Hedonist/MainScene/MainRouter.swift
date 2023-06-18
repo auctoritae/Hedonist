@@ -27,6 +27,6 @@ final class MainRouter: MainRouterProtocol {
     
     
     func showError() {
-        viewController?.presentAlert(title: AlertTitle.error, message: Errors.fetchError)
+        viewController?.presentAlert(message: Errors.fetchError)
     }
 }

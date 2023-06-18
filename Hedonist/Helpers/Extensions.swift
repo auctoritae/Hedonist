@@ -65,13 +65,30 @@ extension UITableView {
 
 // MARK: - UIViewController extensions
 extension UIViewController {
-     func presentAlert(title: String, message: String) {
-          DispatchQueue.main.async {
-               let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-               alert.addAction(UIAlertAction(title: "OK", style: .default))
-               alert.modalPresentationStyle = .overFullScreen
-               alert.modalTransitionStyle = .crossDissolve
-               self.present(alert, animated: true)
-          }
-     }
+    func presentAlert(message: String) {
+        DispatchQueue.main.async {
+            let label = UILabel()
+            label.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+            label.textColor = UIColor.white
+            label.font = Fonts.body
+            label.textAlignment = .center
+            label.text = message
+            label.alpha = 1.0
+            label.layer.cornerRadius = 4
+            label.clipsToBounds = true
+            
+            self.view.addSubview(label)
+            label.snp.makeConstraints {
+                $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(5)
+                $0.leading.trailing.equalToSuperview().inset(UIConstants.sidePadding)
+                $0.height.equalTo(40)
+            }
+            
+            UIView.animate(withDuration: 3.5, delay: 0.1, options: .curveEaseOut, animations: {
+                label.alpha = 0.0
+            }, completion: { (isCompleted) in
+                label.removeFromSuperview()
+            })
+        }
+    }
 }
