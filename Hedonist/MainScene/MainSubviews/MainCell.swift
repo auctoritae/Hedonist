@@ -17,6 +17,8 @@ final class MainCell: UITableViewCell {
     
     
     // MARK: - Variable
+    private var cache = ApiManager.shared.cache
+    
     var landmark: Landmark? {
         didSet {
             landmarkSetup()
@@ -75,6 +77,7 @@ final class MainCell: UITableViewCell {
         landmarkTitle.text = nil
         landmarkSubtitle.text = nil
         landmarkImage.image = nil
+        landmarkImage.af.cancelImageRequest()
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -93,7 +96,22 @@ final class MainCell: UITableViewCell {
         landmarkSubtitle.text = landmark?.category
         
         if let reference = landmark?.image, let url = URL(string: reference) {
-            landmarkImage.af.setImage(withURL: url, placeholderImage: UIImage(named: "Placeholder"))
+            let key = NSString(string: reference)
+            if let cacheImage = cache.object(forKey: key) {
+                landmarkImage.image = cacheImage
+                return
+            }
+                
+            landmarkImage.af.setImage(
+                withURL: url,
+                cacheKey: reference,
+                placeholderImage: UIImage(named: "Placeholder"),
+                completion:  { data in
+                    guard let image = data.value else { return }
+                    self.cache.setObject(image, forKey: key)
+                }
+            )
+            
         } else {
             landmarkImage.image = UIImage(named: "Placeholder")
         }

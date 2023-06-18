@@ -5,7 +5,7 @@
 //  Created by a.lobanov on 1/1/23.
 //
 
-import Foundation
+import UIKit
 import Alamofire
 
 protocol ApiManagerProtocol: AnyObject {
@@ -14,6 +14,9 @@ protocol ApiManagerProtocol: AnyObject {
 
 final class ApiManager: ApiManagerProtocol {
     // MARK: - Variable
+    static let shared = ApiManager()
+    public let cache = NSCache<NSString, UIImage>()
+    
     private let session: Session = {
         let configuration = URLSessionConfiguration.af.default
         configuration.timeoutIntervalForRequest = 30

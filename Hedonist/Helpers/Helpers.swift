@@ -58,8 +58,8 @@ enum Errors {
 
 
 enum AlertTitle {
-    static let error = "😔"
-    static let success = "🎉"
+    static let error = "Error."
+    static let success = "Success!"
 }
 
 
