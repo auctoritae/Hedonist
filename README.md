@@ -11,7 +11,7 @@ Discovery one of the most famous places in the world - Athens, the true gem of t
 - Explore different places, sights, food and walking ideas
 - Save your favorites for the future
 - Learn more info about each place
-- Plan your routes and book the best restaurants via phone call
+- Plan your routes and book the best restaurants via your phone
 - Enjoy life, be a true Hedonist and support the local business
 
 ### Tech Stack:
