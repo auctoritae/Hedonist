@@ -19,8 +19,6 @@ final class MapRouter: MapRouterProtocol {
     // MARK: - Implementation
     func openLandmark(landmark: Landmark) {
         let scene = PlaceBuilder.build(place: landmark)
-        scene.modalPresentationStyle = .overFullScreen
-        scene.modalTransitionStyle = .crossDissolve
         viewController?.present(scene, animated: true)
     }
 }

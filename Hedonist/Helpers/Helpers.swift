@@ -42,8 +42,8 @@ enum UIConstants {
 
 
 enum DefaultLocation {
-    static let latitude = 37.983810
-    static let longitude = 23.727539
+    static let latitude = 37.9668459
+    static let longitude = 23.7306856
     static let zoom: Double = 1000
 }
 
@@ -65,4 +65,13 @@ enum Alerts {
 
 enum EmptyState {
     static let favsEmpty = "You have no favorites now.\nTake a look what we have in the Feed"
+}
+
+
+enum Onboarding {
+    static let title = "Welcome to Athens,"
+    static let subtitle = "the city that mixed northern European aesthetics, Balkan rusticity, breathtaking antiquities and legendary hospitality!"
+    static let firstPoint = "- Explore different places, sights, food and walking ideas"
+    static let secondPoint = "- Save favorites, book restaurants, plan routes"
+    static let thirdPoint = "- Enjoy life, be a true Hedonist and support the local business"
 }

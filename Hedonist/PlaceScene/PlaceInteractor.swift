@@ -47,7 +47,6 @@ final class PlaceInteractor: PlaceInteractorProtocol {
         let favorites = dataManager.fetchPlaces()
         guard let name = request.name else { return }
         
-        #warning("TODO: check it")
         if let object = favorites.first(where: { $0.name == name }) {
             dataManager.delete(object: object)
             presenter?.removeFromFavorites(favorite: false)

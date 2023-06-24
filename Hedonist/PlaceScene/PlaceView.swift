@@ -207,19 +207,19 @@ class PlaceView: UIView, MKMapViewDelegate {
         
         closeButton.snp.makeConstraints {
             $0.width.height.equalTo(50)
-            $0.top.equalTo(safeAreaLayoutGuide.snp.top)
-            $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
+            $0.top.equalToSuperview().offset(UIConstants.sidePadding)
+            $0.leading.equalToSuperview().offset(UIConstants.sidePadding - 5)
         }
         
         favoritesButton.snp.makeConstraints {
             $0.width.height.equalTo(50)
-            $0.top.equalTo(safeAreaLayoutGuide.snp.top)
+            $0.top.equalToSuperview().offset(UIConstants.sidePadding)
             $0.trailing.equalTo(callButton.snp.leading)
         }
         
         callButton.snp.makeConstraints {
             $0.width.height.equalTo(50)
-            $0.top.equalTo(safeAreaLayoutGuide.snp.top)
+            $0.top.equalToSuperview().offset(UIConstants.sidePadding)
             $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
         }
         
@@ -236,7 +236,7 @@ class PlaceView: UIView, MKMapViewDelegate {
         }
         
         addressLabel.snp.makeConstraints {
-            $0.top.equalTo(descriptionLabel.snp.bottom).offset(UIConstants.topPadding)
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(UIConstants.topPadding + 10)
             $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
             $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
         }

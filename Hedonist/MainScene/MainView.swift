@@ -78,6 +78,12 @@ final class MainView: UIView {
     }
     
     
+    // MARK: - Private
+    private func checkOnboarding() {
+        router?.showOnboarding()
+    }
+    
+    
     // MARK: - UI
     private func layoutUI() {
         backgroundColor = .systemBackground
@@ -170,6 +176,7 @@ extension MainView: MainViewProtocol {
             self.tableView.reloadData()
             self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+            self.checkOnboarding()
         }
     }
     

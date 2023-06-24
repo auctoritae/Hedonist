@@ -49,6 +49,9 @@ final class MapView: UIView {
         let map = MKMapView()
         map.delegate = self
         map.layer.masksToBounds = true
+        let location = CLLocationCoordinate2D(latitude: DefaultLocation.latitude, longitude: DefaultLocation.longitude)
+        let region = MKCoordinateRegion(center: location, latitudinalMeters: DefaultLocation.zoom, longitudinalMeters: DefaultLocation.zoom)
+        map.setRegion(region, animated: false)
         return map
     }()
     
@@ -62,15 +65,7 @@ final class MapView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    // MARK: - Private
-    private func setDefaultRegion() {
-        let location = CLLocationCoordinate2D(latitude: DefaultLocation.latitude, longitude: DefaultLocation.longitude)
-        let region = MKCoordinateRegion(center: location, latitudinalMeters: DefaultLocation.zoom, longitudinalMeters: DefaultLocation.zoom)
-        mapView.setRegion(region, animated: false)
-    }
-    
+
     
     // MARK: - UI
     private func layoutUI() {
@@ -97,12 +92,15 @@ extension MapView: MapViewProtocol {
     // MARK: - Implementation
     func displayLandmarks(viewModel: [Landmark]) {
         model = viewModel
-        model?.forEach { landmark in
-            let annotation = CustomAnnotation(landmark: landmark)
-            annotation.title = landmark.name
-            annotation.subtitle = landmark.category
-            annotation.coordinate = CLLocationCoordinate2D(latitude: landmark.lat ?? 0.0, longitude: landmark.long ?? 0.0)
-            mapView.addAnnotation(annotation)
+        
+        DispatchQueue.main.async {
+            self.model?.forEach { landmark in
+                let annotation = CustomAnnotation(landmark: landmark)
+                annotation.title = landmark.name
+                annotation.subtitle = landmark.category
+                annotation.coordinate = CLLocationCoordinate2D(latitude: landmark.lat ?? 0.0, longitude: landmark.long ?? 0.0)
+                self.mapView.addAnnotation(annotation)
+            }
         }
     }
     

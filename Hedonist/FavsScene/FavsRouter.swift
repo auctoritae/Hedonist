@@ -19,8 +19,6 @@ final class FavsRouter: FavsRouterProtocol {
     // MARK: - Variable
     func openFavorite(place: Landmark) {
         let scene = PlaceBuilder.build(place: place)
-        scene.modalPresentationStyle = .overFullScreen
-        scene.modalTransitionStyle = .coverVertical
         viewController?.present(scene, animated: true)
     }
 }
