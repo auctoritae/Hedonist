@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		E631C8D72A47141400C18681 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E631C8D62A47141400C18681 /* OnboardingView.swift */; };
 		E631C8D92A47142200C18681 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E631C8D82A47142200C18681 /* OnboardingRouter.swift */; };
-		E631C8DC2A47160D00C18681 /* UDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E631C8DB2A47160D00C18681 /* UDManager.swift */; };
+		E63FA7E22A48B40200A4911A /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63FA7E12A48B40200A4911A /* OnboardingVC.swift */; };
+		E63FA7E42A48B42700A4911A /* OnboardingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63FA7E32A48B42700A4911A /* OnboardingBuilder.swift */; };
 		E656A0EA29FD4E6B000132B3 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E656A0E929FD4E6B000132B3 /* Keys.swift */; };
 		E656A0ED29FD4EA0000132B3 /* JetBrainsMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E656A0EC29FD4EA0000132B3 /* JetBrainsMono-Regular.ttf */; };
 		E656A0EF29FD4EB4000132B3 /* JetBrainsMono-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E656A0EE29FD4EB4000132B3 /* JetBrainsMono-Light.ttf */; };
@@ -59,7 +60,8 @@
 /* Begin PBXFileReference section */
 		E631C8D62A47141400C18681 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		E631C8D82A47142200C18681 /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
-		E631C8DB2A47160D00C18681 /* UDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDManager.swift; sourceTree = "<group>"; };
+		E63FA7E12A48B40200A4911A /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		E63FA7E32A48B42700A4911A /* OnboardingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBuilder.swift; sourceTree = "<group>"; };
 		E656A0E929FD4E6B000132B3 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		E656A0EC29FD4EA0000132B3 /* JetBrainsMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JetBrainsMono-Regular.ttf"; path = "../../../../../Library/Fonts/JetBrainsMono-Regular.ttf"; sourceTree = "<group>"; };
 		E656A0EE29FD4EB4000132B3 /* JetBrainsMono-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JetBrainsMono-Light.ttf"; path = "../../../../../Library/Fonts/JetBrainsMono-Light.ttf"; sourceTree = "<group>"; };
@@ -122,18 +124,12 @@
 		E631C8D52A47128200C18681 /* OnboardingScene */ = {
 			isa = PBXGroup;
 			children = (
+				E63FA7E32A48B42700A4911A /* OnboardingBuilder.swift */,
+				E63FA7E12A48B40200A4911A /* OnboardingVC.swift */,
 				E631C8D62A47141400C18681 /* OnboardingView.swift */,
 				E631C8D82A47142200C18681 /* OnboardingRouter.swift */,
 			);
 			path = OnboardingScene;
-			sourceTree = "<group>";
-		};
-		E631C8DA2A4715F300C18681 /* UDManager */ = {
-			isa = PBXGroup;
-			children = (
-				E631C8DB2A47160D00C18681 /* UDManager.swift */,
-			);
-			path = UDManager;
 			sourceTree = "<group>";
 		};
 		E656A0EB29FD4E8A000132B3 /* Font */ = {
@@ -171,7 +167,6 @@
 				FE99DB032969907000FD5064 /* Helpers */,
 				FE5CD4C62961BAA30094DCC4 /* APIManager */,
 				FEE6B7E72957043B00C3689F /* DataManager */,
-				E631C8DA2A4715F300C18681 /* UDManager */,
 				E631C8D52A47128200C18681 /* OnboardingScene */,
 				FEE6B7BD2956FFC300C3689F /* MainScene */,
 				FEE6B7BE2956FFD400C3689F /* FavsScene */,
@@ -369,13 +364,13 @@
 				FEE6B7EF295704F000C3689F /* DataManager.swift in Sources */,
 				FEE6B7C72957009C00C3689F /* MainView.swift in Sources */,
 				FEE6B7C52957007D00C3689F /* MapVC.swift in Sources */,
+				E63FA7E42A48B42700A4911A /* OnboardingBuilder.swift in Sources */,
 				FE393C4D295CC3E300A10023 /* PlacePresenter.swift in Sources */,
 				FEE6B7CD295700F600C3689F /* MainInteractor.swift in Sources */,
 				FEE6B7C12957004500C3689F /* MainVC.swift in Sources */,
 				FE393C51295CC40200A10023 /* PlaceView.swift in Sources */,
 				FEE6B7D52957022000C3689F /* FavsBuilder.swift in Sources */,
 				FEE6B7D32957016200C3689F /* MainBuilder.swift in Sources */,
-				E631C8DC2A47160D00C18681 /* UDManager.swift in Sources */,
 				FEE6B7E1295702FB00C3689F /* MapPresenter.swift in Sources */,
 				FEE6B7D12957011A00C3689F /* MainRouter.swift in Sources */,
 				E631C8D92A47142200C18681 /* OnboardingRouter.swift in Sources */,
@@ -383,6 +378,7 @@
 				FEE6B7C9295700B000C3689F /* FavsView.swift in Sources */,
 				FEE6B7E32957030400C3689F /* MapRouter.swift in Sources */,
 				FE0BB2A329537CEC00F757E8 /* AppDelegate.swift in Sources */,
+				E63FA7E22A48B40200A4911A /* OnboardingVC.swift in Sources */,
 				FEE6B7DB2957027900C3689F /* FavsPresenter.swift in Sources */,
 				FEE6B7D92957026D00C3689F /* FavsInteractor.swift in Sources */,
 				FE0BB2A529537CEC00F757E8 /* SceneDelegate.swift in Sources */,

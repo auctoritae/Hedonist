@@ -20,6 +20,7 @@ final class MainView: UIView {
     var interactor: MainInteractorProtocol?
     var router: MainRouterProtocol?
     
+    private var ud = UserDefaults.standard
     private var search: [String] = SearchTitles.allCases.map { $0.rawValue }
     private var model: [Landmark]?
 
@@ -71,6 +72,7 @@ final class MainView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         layoutUI()
+        checkOnboarding()
     }
     
     required init?(coder: NSCoder) {
@@ -81,6 +83,11 @@ final class MainView: UIView {
     // MARK: - Private
     private func checkOnboarding() {
         router?.showOnboarding()
+
+//        if check == nil {
+//            router?.showOnboarding()
+//            ud.set(true, forKey: Onboarding.key)
+//        }
     }
     
     

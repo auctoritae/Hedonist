@@ -153,7 +153,7 @@ final class MainCell: UITableViewCell {
         landmarkSubtitle.snp.makeConstraints {
             $0.leading.equalTo(landmarkImage.snp.leading).offset(UIConstants.sidePadding)
             $0.trailing.equalTo(landmarkImage.snp.trailing).offset(-UIConstants.sidePadding)
-            $0.bottom.equalTo(landmarkImage.snp.bottom).offset(-UIConstants.sidePadding)
+            $0.bottom.equalTo(landmarkImage.snp.bottom).offset(-10)
         }
     }
 }

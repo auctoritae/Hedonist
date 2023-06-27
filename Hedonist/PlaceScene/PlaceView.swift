@@ -40,7 +40,7 @@ class PlaceView: UIView, MKMapViewDelegate {
     private lazy var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.colors = [
-            UIColor.black.withAlphaComponent(0.3).cgColor,
+            UIColor.black.withAlphaComponent(0.7).cgColor,
             UIColor.black.withAlphaComponent(0.1).cgColor,
             UIColor.black.withAlphaComponent(1.0).cgColor
         ]
@@ -207,26 +207,26 @@ class PlaceView: UIView, MKMapViewDelegate {
         
         closeButton.snp.makeConstraints {
             $0.width.height.equalTo(50)
-            $0.top.equalToSuperview().offset(UIConstants.sidePadding)
+            $0.top.equalTo(safeAreaLayoutGuide.snp.top)
             $0.leading.equalToSuperview().offset(UIConstants.sidePadding - 5)
         }
         
         favoritesButton.snp.makeConstraints {
             $0.width.height.equalTo(50)
-            $0.top.equalToSuperview().offset(UIConstants.sidePadding)
+            $0.top.equalTo(closeButton.snp.top)
             $0.trailing.equalTo(callButton.snp.leading)
         }
         
         callButton.snp.makeConstraints {
             $0.width.height.equalTo(50)
-            $0.top.equalToSuperview().offset(UIConstants.sidePadding)
+            $0.top.equalTo(closeButton.snp.top)
             $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
         }
         
         placeTitle.snp.makeConstraints {
             $0.leading.equalTo(placeImage.snp.leading).offset(UIConstants.sidePadding)
             $0.trailing.equalTo(placeImage.snp.trailing).offset(-20)
-            $0.bottom.equalTo(placeImage.snp.bottom)
+            $0.bottom.equalTo(placeImage.snp.bottom).offset(10)
         }
         
         descriptionLabel.snp.makeConstraints {

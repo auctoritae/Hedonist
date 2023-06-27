@@ -12,7 +12,12 @@ protocol OnboardingRouterProtocol: AnyObject {
 }
 
 final class OnboardingRouter: OnboardingRouterProtocol {
+    // MARK: - Variable
+    weak var viewController: OnboardingVC?
+    
+    
+    // MARK: - Implementation
     func close() {
-        
+        viewController?.dismiss(animated: true)
     }
 }

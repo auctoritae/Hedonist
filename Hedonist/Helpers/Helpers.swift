@@ -36,7 +36,7 @@ enum SearchTitles: String, CaseIterable {
 
 enum UIConstants {
     static let sidePadding: CGFloat = 20
-    static let topPadding: CGFloat = 25
+    static let topPadding: CGFloat = 30
     static let iconSize: CGFloat = 32
 }
 
@@ -69,9 +69,10 @@ enum EmptyState {
 
 
 enum Onboarding {
-    static let title = "Welcome to Athens,"
-    static let subtitle = "the city that mixed northern European aesthetics, Balkan rusticity, breathtaking antiquities and legendary hospitality!"
-    static let firstPoint = "- Explore different places, sights, food and walking ideas"
-    static let secondPoint = "- Save favorites, book restaurants, plan routes"
-    static let thirdPoint = "- Enjoy life, be a true Hedonist and support the local business"
+    static let key = "Onboarding"
+    static let title = "Welcome to Athens!"
+    static let subtitle = "The city that mixed northern European aesthetics, Balkan rusticity, breathtaking antiquities and legendary hospitality."
+    static let firstPoint = "• Explore different places, sights, food and walking ideas"
+    static let secondPoint = "• Save favorites, book restaurants, plan routes"
+    static let thirdPoint = "• Enjoy life, be a true Hedonist and support the local business"
 }
