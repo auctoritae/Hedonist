@@ -20,7 +20,6 @@ final class MainView: UIView {
     var interactor: MainInteractorProtocol?
     var router: MainRouterProtocol?
     
-    private var ud = UserDefaults.standard
     private var search: [String] = SearchTitles.allCases.map { $0.rawValue }
     private var model: [Landmark]?
 
@@ -82,12 +81,10 @@ final class MainView: UIView {
     
     // MARK: - Private
     private func checkOnboarding() {
-        router?.showOnboarding()
-
-//        if check == nil {
-//            router?.showOnboarding()
-//            ud.set(true, forKey: Onboarding.key)
-//        }
+        let onboarding = UserDefaults.standard.bool(forKey: Onboarding.key)
+        if onboarding == false {
+            router?.showOnboarding()
+        }
     }
     
     

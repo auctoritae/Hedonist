@@ -29,7 +29,9 @@ final class MainRouter: MainRouterProtocol {
     
     func showOnboarding() {
         let onboarding = OnboardingBuilder.build()
-        viewController?.present(onboarding, animated: true)
+        viewController?.present(onboarding, animated: true) {
+            UserDefaults.standard.set(true, forKey: Onboarding.key)
+        }
     }
     
     
