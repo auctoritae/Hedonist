@@ -58,7 +58,7 @@ final class MainView: UIView {
         table.register(MainCell.self, forCellReuseIdentifier: MainCell.cellId())
         table.delegate = self
         table.dataSource = self
-        table.rowHeight = 215
+        table.rowHeight = 200
         table.backgroundColor = .systemBackground
         table.separatorStyle = .none
         table.showsVerticalScrollIndicator = false
