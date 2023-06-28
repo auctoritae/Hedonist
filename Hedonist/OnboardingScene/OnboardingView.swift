@@ -125,7 +125,7 @@ final class OnboardingView: UIView {
     }
     
     private func layoutUI() {
-        backgroundColor = .black
+        backgroundColor = .systemBackground
         
         addSubview(onboardingImage)
         addSubview(closeButton)

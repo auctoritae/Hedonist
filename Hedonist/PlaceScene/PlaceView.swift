@@ -182,7 +182,7 @@ class PlaceView: UIView, MKMapViewDelegate {
     }
     
     private func layoutUI() {
-        backgroundColor = .black
+        backgroundColor = .systemBackground
         
         addSubview(placeImage)
         addSubview(descriptionLabel)

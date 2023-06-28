@@ -131,13 +131,17 @@ extension FavsView: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-         let delete = UIContextualAction(style: .destructive, title: "Remove") { (action, view, nil) in
-             if let place = self.model?[indexPath.row] {
-                 self.interactor?.deleteFavorite(object: place)
-             }
-         }
+        let delete = UIContextualAction(style: .destructive, title: "") { (action, view, completion) in
+            if let place = self.model?[indexPath.row] {
+                self.interactor?.deleteFavorite(object: place)
+                completion(true)
+            }
+        }
         
-         return UISwipeActionsConfiguration(actions: [delete])
+        delete.image = UIImage(systemName: "trash.circle.fill")?.withRenderingMode(.alwaysOriginal)
+        delete.backgroundColor = .systemBackground
+        
+        return UISwipeActionsConfiguration(actions: [delete])
     }
 }
 
