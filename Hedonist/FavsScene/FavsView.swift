@@ -19,12 +19,7 @@ final class FavsView: UIView {
     var router: FavsRouterProtocol?
     
     private var mock: [Place] = []
-    
-    private var model: [Place]? {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    private var model: [Place]?
     
     
     // MARK: - UI Variable
@@ -43,7 +38,7 @@ final class FavsView: UIView {
         table.register(FavsCell.self, forCellReuseIdentifier: FavsCell.cellId())
         table.delegate = self
         table.dataSource = self
-        table.rowHeight = 215
+        table.rowHeight = 160
         table.backgroundColor = .systemBackground
         table.separatorStyle = .none
         table.showsVerticalScrollIndicator = false
@@ -136,13 +131,17 @@ extension FavsView: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-         let delete = UIContextualAction(style: .destructive, title: "Удалить") { (action, view, nil) in
-             if let place = self.model?[indexPath.row] {
-                 self.interactor?.deleteFavorite(object: place)
-             }
-         }
+        let delete = UIContextualAction(style: .destructive, title: "") { (action, view, completion) in
+            if let place = self.model?[indexPath.row] {
+                self.interactor?.deleteFavorite(object: place)
+                completion(true)
+            }
+        }
         
-         return UISwipeActionsConfiguration(actions: [delete])
+        delete.image = UIImage(systemName: "trash.circle.fill")?.withRenderingMode(.alwaysOriginal)
+        delete.backgroundColor = .systemBackground
+        
+        return UISwipeActionsConfiguration(actions: [delete])
     }
 }
 
@@ -151,7 +150,7 @@ extension FavsView: FavsViewProtocol {
     // MARK: - Implementation
     func dispalyFavorites(viewModel: [Place]) {
         model = viewModel
-        tableView.reloadData()
+        DispatchQueue.main.async { self.tableView.reloadData() }
     }
     
     

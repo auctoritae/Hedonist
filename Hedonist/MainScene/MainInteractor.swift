@@ -27,15 +27,13 @@ final class MainInteractor: MainInteractorProtocol {
     
     // MARK: - Implementation
     func fetchLandmarks() {
-        api.fetchData { [weak self] (result, error) in
-            if let data = result {
+        Task {
+            do {
+                let data = try await api.fetchData()
                 let response = data.record
-                self?.presenter?.presentLandmarks(response: response)
-            }
-            
-            if let error = error {
-                debugPrint(error.localizedDescription)
-                self?.presenter?.presentError()
+                presenter?.presentLandmarks(response: response)
+            } catch {
+                presenter?.presentError()
             }
         }
     }
@@ -50,15 +48,13 @@ final class MainInteractor: MainInteractorProtocol {
     func selectSearchFilter(filter: String) {
         let filter = filter
         
-        api.fetchData { [weak self] (result, error) in
-            if let data = result {
+        Task {
+            do {
+                let data = try await api.fetchData()
                 let response = data.record
-                self?.presenter?.presentSearchFilter(response: response, filter: filter)
-            }
-            
-            if let error = error {
-                debugPrint(error.localizedDescription)
-                self?.presenter?.presentError()
+                presenter?.presentSearchFilter(response: response, filter: filter)
+            } catch {
+                presenter?.presentError()
             }
         }
     }

@@ -5,10 +5,11 @@
 //  Created by a.lobanov on 12/24/22.
 //
 
-import Foundation
+import UIKit
 
 protocol MainRouterProtocol: AnyObject {
     func openLandmark(landmark: Landmark)
+    func showOnboarding()
     func showError()
 }
 
@@ -26,7 +27,15 @@ final class MainRouter: MainRouterProtocol {
     }
     
     
+    func showOnboarding() {
+        let onboarding = OnboardingBuilder.build()
+        viewController?.present(onboarding, animated: true) {
+            UserDefaults.standard.set(true, forKey: Onboarding.key)
+        }
+    }
+    
+    
     func showError() {
-        viewController?.presentAlert(title: AlertTitle.error, message: Errors.fetchError)
+        viewController?.presentAlert(message: Errors.fetchError)
     }
 }

@@ -26,10 +26,13 @@ final class MapInteractor: MapInteractorProtocol {
     
     // MARK: - Implementation
     func fetchLandmarks() {
-        api.fetchData { [weak self] (result, error) in
-            if let data = result {
+        Task {
+            do {
+                let data = try await api.fetchData()
                 let response = data.record
-                self?.presenter?.presentLandmarks(response: response)
+                presenter?.presentLandmarks(response: response)
+            } catch {
+                debugPrint("MapInteractor fetchLandmarks error")
             }
         }
     }

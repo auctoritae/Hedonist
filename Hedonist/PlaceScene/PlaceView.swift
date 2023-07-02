@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 import MapKit
 import CoreData
-import Device
 import AlamofireImage
 
 extension Notification.Name {
@@ -18,7 +17,6 @@ extension Notification.Name {
 
 protocol PlaceViewProtocol: AnyObject {
     func displayPlace(viewModel: Landmark, favorite: Bool)
-    func displaySMM(viewModel: Landmark)
     func displayCall(viewModel: Landmark)
     func updateStatus(_ favorite: Bool)
     func closeScene()
@@ -42,9 +40,9 @@ class PlaceView: UIView, MKMapViewDelegate {
     private lazy var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.colors = [
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor,
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor,
-            UIColor(red: 0, green: 0, blue: 0, alpha: 1.0).cgColor
+            UIColor.black.withAlphaComponent(0.7).cgColor,
+            UIColor.black.withAlphaComponent(0.1).cgColor,
+            UIColor.black.withAlphaComponent(1.0).cgColor
         ]
         return gradient
     }()
@@ -73,15 +71,6 @@ class PlaceView: UIView, MKMapViewDelegate {
         return button
     }()
     
-    private lazy var smmButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "smmMark")?.withTintColor(.white), for: .normal)
-        button.addTarget(self, action: #selector(smm), for: .touchUpInside)
-        button.tintColor = .white
-        button.contentMode = .scaleAspectFit
-        return button
-    }()
-    
     private lazy var callButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "callMark")?.withTintColor(.white), for: .normal)
@@ -90,15 +79,7 @@ class PlaceView: UIView, MKMapViewDelegate {
         button.contentMode = .scaleAspectFit
         return button
     }()
-    
-    private lazy var mapView: MKMapView = {
-        let map = MKMapView()
-        map.delegate = self
-        map.layer.cornerRadius = 8
-        map.layer.masksToBounds = true
-        return map
-    }()
-    
+
     private lazy var placeTitle: UILabel = {
         let title = UILabel()
         title.textColor = .white
@@ -164,35 +145,9 @@ class PlaceView: UIView, MKMapViewDelegate {
         
         if let reference = model?.image, let url = URL(string: reference) {
             placeImage.af.setImage(withURL: url)
+        } else {
+            placeImage.image = UIImage(named: "Placeholder")
         }
-        
-        if let latitude = model?.lat, let longtitude = model?.long {
-            let location = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
-            let region = MKCoordinateRegion(center: location, latitudinalMeters: 700, longitudinalMeters: 700)
-            
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
-            
-            mapView.setRegion(region, animated: false)
-            mapView.addAnnotation(annotation)
-        }
-    }
-    
-    
-    private func isSmallScreen() -> Bool {
-        if Device.version() == .iPhone8 || Device.version() == .iPhone8Plus {
-            return true
-        }
-        
-        if Device.version() == .iPhoneSE2 {
-            return true
-        }
-        
-        if Device.version() == .iPhone12Mini || Device.version() == .iPhone13Mini {
-            return true
-        }
-        
-        return false
     }
 
     
@@ -212,13 +167,6 @@ class PlaceView: UIView, MKMapViewDelegate {
     }
     
     
-    @objc private func smm() {
-        if let landmark = model {
-            interactor?.openSMM(request: landmark)
-        }
-    }
-    
-    
     @objc private func call() {
         if let landmark = model {
             interactor?.call(request: landmark)
@@ -234,23 +182,15 @@ class PlaceView: UIView, MKMapViewDelegate {
     }
     
     private func layoutUI() {
-        backgroundColor = .black
+        backgroundColor = .systemBackground
         
         addSubview(placeImage)
-        
-        if isSmallScreen() == false {
-            addSubview(mapView)
-        }
-        
         addSubview(descriptionLabel)
         addSubview(addressLabel)
         addSubview(hoursLabel)
-        
         addSubview(closeButton)
         addSubview(favoritesButton)
         addSubview(callButton)
-        addSubview(smmButton)
-        
         addSubview(placeTitle)
         
         placeImage.addSubview(overlay)
@@ -258,7 +198,7 @@ class PlaceView: UIView, MKMapViewDelegate {
         
         placeImage.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalToSuperview().multipliedBy(0.4)
+            $0.height.equalToSuperview().multipliedBy(0.45)
         }
         
         overlay.snp.makeConstraints {
@@ -268,31 +208,25 @@ class PlaceView: UIView, MKMapViewDelegate {
         closeButton.snp.makeConstraints {
             $0.width.height.equalTo(50)
             $0.top.equalTo(safeAreaLayoutGuide.snp.top)
-            $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
+            $0.leading.equalToSuperview().offset(UIConstants.sidePadding - 5)
         }
         
         favoritesButton.snp.makeConstraints {
             $0.width.height.equalTo(50)
-            $0.top.equalTo(safeAreaLayoutGuide.snp.top)
-            $0.leading.equalTo(closeButton.snp.trailing)
+            $0.top.equalTo(closeButton.snp.top)
+            $0.trailing.equalTo(callButton.snp.leading)
         }
         
         callButton.snp.makeConstraints {
             $0.width.height.equalTo(50)
-            $0.top.equalTo(safeAreaLayoutGuide.snp.top)
-            $0.trailing.equalTo(smmButton.snp.leading)
-        }
-        
-        smmButton.snp.makeConstraints {
-            $0.width.height.equalTo(50)
-            $0.top.equalTo(safeAreaLayoutGuide.snp.top)
+            $0.top.equalTo(closeButton.snp.top)
             $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
         }
         
         placeTitle.snp.makeConstraints {
             $0.leading.equalTo(placeImage.snp.leading).offset(UIConstants.sidePadding)
-            $0.trailing.equalTo(placeImage.snp.trailing).offset(-30)
-            $0.bottom.equalTo(placeImage.snp.bottom)
+            $0.trailing.equalTo(placeImage.snp.trailing).offset(-20)
+            $0.bottom.equalTo(placeImage.snp.bottom).offset(10)
         }
         
         descriptionLabel.snp.makeConstraints {
@@ -302,7 +236,7 @@ class PlaceView: UIView, MKMapViewDelegate {
         }
         
         addressLabel.snp.makeConstraints {
-            $0.top.equalTo(descriptionLabel.snp.bottom).offset(UIConstants.sidePadding)
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(UIConstants.topPadding + 10)
             $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
             $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
         }
@@ -311,15 +245,6 @@ class PlaceView: UIView, MKMapViewDelegate {
             $0.top.equalTo(addressLabel.snp.bottom).offset(5)
             $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
             $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
-        }
-        
-        if isSmallScreen() == false {
-            mapView.snp.makeConstraints {
-                $0.top.equalTo(hoursLabel.snp.bottom).offset(UIConstants.topPadding)
-                $0.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
-                $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
-                $0.trailing.equalToSuperview().offset(-UIConstants.topPadding)
-            }
         }
     }
 }
@@ -337,11 +262,6 @@ extension PlaceView: PlaceViewProtocol {
         } else {
             favoritesButton.setImage(UIImage(named: "notfavMark")?.withTintColor(.white), for: .normal)
         }
-    }
-    
-    
-    func displaySMM(viewModel: Landmark) {
-        router?.openSMM(from: viewModel)
     }
     
     

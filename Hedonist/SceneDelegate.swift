@@ -42,6 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         tabController.viewControllers = [mainVC, favsVC, mapVC]
         UITabBar.appearance().backgroundColor = .systemBackground
+        
         return tabController
     }
 }

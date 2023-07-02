@@ -21,13 +21,8 @@ final class MainView: UIView {
     var router: MainRouterProtocol?
     
     private var search: [String] = SearchTitles.allCases.map { $0.rawValue }
-    
-    private var model: [Landmark]? {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-    
+    private var model: [Landmark]?
+
     
     // MARK: - UI Variable
     private lazy var mainTitle: UILabel = {
@@ -63,7 +58,7 @@ final class MainView: UIView {
         table.register(MainCell.self, forCellReuseIdentifier: MainCell.cellId())
         table.delegate = self
         table.dataSource = self
-        table.rowHeight = 215
+        table.rowHeight = 200
         table.backgroundColor = .systemBackground
         table.separatorStyle = .none
         table.showsVerticalScrollIndicator = false
@@ -76,10 +71,20 @@ final class MainView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         layoutUI()
+        checkOnboarding()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: - Private
+    private func checkOnboarding() {
+        let onboarding = UserDefaults.standard.bool(forKey: Onboarding.key)
+        if onboarding == false {
+            router?.showOnboarding()
+        }
     }
     
     
@@ -129,7 +134,7 @@ extension MainView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 36)
+        return CGSize(width: 110, height: 36)
     }
     
     
@@ -171,9 +176,12 @@ extension MainView: UITableViewDelegate, UITableViewDataSource {
 extension MainView: MainViewProtocol {
     func displayLandmarks(viewModel: [Landmark]) {
         model = viewModel.shuffled()
-        tableView.reloadData()
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+            self.checkOnboarding()
+        }
     }
     
     

@@ -17,6 +17,7 @@ final class DataManager {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         }
+        
         return container
     }()
     
@@ -58,7 +59,6 @@ final class DataManager {
         place.name = landmark.name
         place.phone = landmark.phone
         place.picture = landmark.image
-        place.smm = landmark.url
         place.workhours = landmark.workhours
         saveContext()
     }

@@ -19,15 +19,6 @@
       }
     },
     {
-      "identity" : "device",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Ekhoo/Device.git",
-      "state" : {
-        "revision" : "4a4d1faaf90ee267e53421ed98f425fb8eaa2591",
-        "version" : "3.3.0"
-      }
-    },
-    {
       "identity" : "snapkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SnapKit/SnapKit.git",

@@ -17,6 +17,8 @@ final class FavsCell: UITableViewCell {
     
     
     // MARK: - Variable
+    private var cache = ApiManager.shared.cache
+    
     var place: Place? {
         didSet {
             placeSetup()
@@ -74,6 +76,7 @@ final class FavsCell: UITableViewCell {
         placeTitle.text = nil
         placeSubtitle.text = nil
         placeImage.image = nil
+        placeImage.af.cancelImageRequest()
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -92,7 +95,24 @@ final class FavsCell: UITableViewCell {
         placeSubtitle.text = place?.category
         
         if let reference = place?.picture, let url = URL(string: reference) {
-            placeImage.af.setImage(withURL: url, placeholderImage: UIImage(named: "Placeholder"))
+            let key = NSString(string: reference)
+            if let cacheImage = cache.object(forKey: key) {
+                placeImage.image = cacheImage
+                return
+            }
+            
+            placeImage.af.setImage(
+                withURL: url,
+                cacheKey: reference,
+                placeholderImage: UIImage(named: "Placeholder"),
+                completion:  { data in
+                    guard let image = data.value else { return }
+                    self.cache.setObject(image, forKey: key)
+                }
+            )
+            
+        } else {
+            placeImage.image = UIImage(named: "Placeholder")
         }
     }
     
@@ -125,7 +145,7 @@ final class FavsCell: UITableViewCell {
         
         placeTitle.snp.makeConstraints {
             $0.leading.trailing.equalTo(placeSubtitle)
-            $0.bottom.equalTo(placeSubtitle.snp.top).offset(-4)
+            $0.bottom.equalTo(placeSubtitle.snp.top)
         }
         
         placeSubtitle.snp.makeConstraints {

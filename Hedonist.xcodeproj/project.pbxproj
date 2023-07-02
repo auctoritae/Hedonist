@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E631C8D72A47141400C18681 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E631C8D62A47141400C18681 /* OnboardingView.swift */; };
+		E631C8D92A47142200C18681 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E631C8D82A47142200C18681 /* OnboardingRouter.swift */; };
+		E63FA7E22A48B40200A4911A /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63FA7E12A48B40200A4911A /* OnboardingVC.swift */; };
+		E63FA7E42A48B42700A4911A /* OnboardingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63FA7E32A48B42700A4911A /* OnboardingBuilder.swift */; };
 		E656A0EA29FD4E6B000132B3 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E656A0E929FD4E6B000132B3 /* Keys.swift */; };
 		E656A0ED29FD4EA0000132B3 /* JetBrainsMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E656A0EC29FD4EA0000132B3 /* JetBrainsMono-Regular.ttf */; };
 		E656A0EF29FD4EB4000132B3 /* JetBrainsMono-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E656A0EE29FD4EB4000132B3 /* JetBrainsMono-Light.ttf */; };
@@ -22,7 +26,6 @@
 		FE393C51295CC40200A10023 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE393C50295CC40200A10023 /* PlaceView.swift */; };
 		FE393C53295CC41A00A10023 /* PlaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE393C52295CC41A00A10023 /* PlaceVC.swift */; };
 		FE422D8F2955F45100353890 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FE422D8E2955F45100353890 /* SnapKit */; };
-		FE52B6C029994F00008114B0 /* Device in Frameworks */ = {isa = PBXBuildFile; productRef = FE52B6BF29994F00008114B0 /* Device */; };
 		FE5CD4C82961BAC50094DCC4 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5CD4C72961BAC50094DCC4 /* ApiManager.swift */; };
 		FE5CD4CB2961BB530094DCC4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FE5CD4CA2961BB530094DCC4 /* Alamofire */; };
 		FE77DB5E297C46C900CD2C0A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE77DB5D297C46C900CD2C0A /* Extensions.swift */; };
@@ -55,6 +58,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E631C8D62A47141400C18681 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		E631C8D82A47142200C18681 /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
+		E63FA7E12A48B40200A4911A /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		E63FA7E32A48B42700A4911A /* OnboardingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBuilder.swift; sourceTree = "<group>"; };
 		E656A0E929FD4E6B000132B3 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		E656A0EC29FD4EA0000132B3 /* JetBrainsMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JetBrainsMono-Regular.ttf"; path = "../../../../../Library/Fonts/JetBrainsMono-Regular.ttf"; sourceTree = "<group>"; };
 		E656A0EE29FD4EB4000132B3 /* JetBrainsMono-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JetBrainsMono-Light.ttf"; path = "../../../../../Library/Fonts/JetBrainsMono-Light.ttf"; sourceTree = "<group>"; };
@@ -107,7 +114,6 @@
 			files = (
 				FE422D8F2955F45100353890 /* SnapKit in Frameworks */,
 				FE5CD4CB2961BB530094DCC4 /* Alamofire in Frameworks */,
-				FE52B6C029994F00008114B0 /* Device in Frameworks */,
 				FE94AB072967599D007BE0D6 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +121,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E631C8D52A47128200C18681 /* OnboardingScene */ = {
+			isa = PBXGroup;
+			children = (
+				E63FA7E32A48B42700A4911A /* OnboardingBuilder.swift */,
+				E63FA7E12A48B40200A4911A /* OnboardingVC.swift */,
+				E631C8D62A47141400C18681 /* OnboardingView.swift */,
+				E631C8D82A47142200C18681 /* OnboardingRouter.swift */,
+			);
+			path = OnboardingScene;
+			sourceTree = "<group>";
+		};
 		E656A0EB29FD4E8A000132B3 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +167,7 @@
 				FE99DB032969907000FD5064 /* Helpers */,
 				FE5CD4C62961BAA30094DCC4 /* APIManager */,
 				FEE6B7E72957043B00C3689F /* DataManager */,
+				E631C8D52A47128200C18681 /* OnboardingScene */,
 				FEE6B7BD2956FFC300C3689F /* MainScene */,
 				FEE6B7BE2956FFD400C3689F /* FavsScene */,
 				FEE6B7BF2956FFEC00C3689F /* MapScene */,
@@ -280,7 +298,6 @@
 				FE422D8E2955F45100353890 /* SnapKit */,
 				FE5CD4CA2961BB530094DCC4 /* Alamofire */,
 				FE94AB062967599D007BE0D6 /* AlamofireImage */,
-				FE52B6BF29994F00008114B0 /* Device */,
 			);
 			productName = Hedonist;
 			productReference = FE0BB29F29537CEC00F757E8 /* Hedonist.app */;
@@ -314,7 +331,6 @@
 				FE422D8D2955F45100353890 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				FE5CD4C92961BB530094DCC4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				FE94AB052967599D007BE0D6 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
-				FE52B6BE29994F00008114B0 /* XCRemoteSwiftPackageReference "Device" */,
 			);
 			productRefGroup = FE0BB2A029537CEC00F757E8 /* Products */;
 			projectDirPath = "";
@@ -348,6 +364,7 @@
 				FEE6B7EF295704F000C3689F /* DataManager.swift in Sources */,
 				FEE6B7C72957009C00C3689F /* MainView.swift in Sources */,
 				FEE6B7C52957007D00C3689F /* MapVC.swift in Sources */,
+				E63FA7E42A48B42700A4911A /* OnboardingBuilder.swift in Sources */,
 				FE393C4D295CC3E300A10023 /* PlacePresenter.swift in Sources */,
 				FEE6B7CD295700F600C3689F /* MainInteractor.swift in Sources */,
 				FEE6B7C12957004500C3689F /* MainVC.swift in Sources */,
@@ -356,10 +373,12 @@
 				FEE6B7D32957016200C3689F /* MainBuilder.swift in Sources */,
 				FEE6B7E1295702FB00C3689F /* MapPresenter.swift in Sources */,
 				FEE6B7D12957011A00C3689F /* MainRouter.swift in Sources */,
+				E631C8D92A47142200C18681 /* OnboardingRouter.swift in Sources */,
 				FEE6B7DD2957028300C3689F /* FavsRouter.swift in Sources */,
 				FEE6B7C9295700B000C3689F /* FavsView.swift in Sources */,
 				FEE6B7E32957030400C3689F /* MapRouter.swift in Sources */,
 				FE0BB2A329537CEC00F757E8 /* AppDelegate.swift in Sources */,
+				E63FA7E22A48B40200A4911A /* OnboardingVC.swift in Sources */,
 				FEE6B7DB2957027900C3689F /* FavsPresenter.swift in Sources */,
 				FEE6B7D92957026D00C3689F /* FavsInteractor.swift in Sources */,
 				FE0BB2A529537CEC00F757E8 /* SceneDelegate.swift in Sources */,
@@ -371,6 +390,7 @@
 				FEE6B7CF2957010D00C3689F /* MainPresenter.swift in Sources */,
 				FEE6B7D72957023F00C3689F /* MapBuilder.swift in Sources */,
 				E656A0EA29FD4E6B000132B3 /* Keys.swift in Sources */,
+				E631C8D72A47141400C18681 /* OnboardingView.swift in Sources */,
 				FE393C4B295CC3D600A10023 /* PlaceInteractor.swift in Sources */,
 				FEE6B7EB295704A100C3689F /* FavsCell.swift in Sources */,
 				FE99DB052969908500FD5064 /* Helpers.swift in Sources */,
@@ -617,14 +637,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		FE52B6BE29994F00008114B0 /* XCRemoteSwiftPackageReference "Device" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Ekhoo/Device.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.3.0;
-			};
-		};
 		FE5CD4C92961BB530094DCC4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -648,11 +660,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FE422D8D2955F45100353890 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		FE52B6BF29994F00008114B0 /* Device */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FE52B6BE29994F00008114B0 /* XCRemoteSwiftPackageReference "Device" */;
-			productName = Device;
 		};
 		FE5CD4CA2961BB530094DCC4 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

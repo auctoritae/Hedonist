@@ -17,6 +17,8 @@ final class MainCell: UITableViewCell {
     
     
     // MARK: - Variable
+    private var cache = ApiManager.shared.cache
+    
     var landmark: Landmark? {
         didSet {
             landmarkSetup()
@@ -28,8 +30,8 @@ final class MainCell: UITableViewCell {
     private lazy var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.colors = [
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor,
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0.7).cgColor
+            UIColor.black.withAlphaComponent(0.0).cgColor,
+            UIColor.black.withAlphaComponent(0.7).cgColor
         ]
         return gradient
     }()
@@ -75,6 +77,7 @@ final class MainCell: UITableViewCell {
         landmarkTitle.text = nil
         landmarkSubtitle.text = nil
         landmarkImage.image = nil
+        landmarkImage.af.cancelImageRequest()
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -93,7 +96,24 @@ final class MainCell: UITableViewCell {
         landmarkSubtitle.text = landmark?.category
         
         if let reference = landmark?.image, let url = URL(string: reference) {
-            landmarkImage.af.setImage(withURL: url, placeholderImage: UIImage(named: "Placeholder"))
+            let key = NSString(string: reference)
+            if let cacheImage = cache.object(forKey: key) {
+                landmarkImage.image = cacheImage
+                return
+            }
+                
+            landmarkImage.af.setImage(
+                withURL: url,
+                cacheKey: reference,
+                placeholderImage: UIImage(named: "Placeholder"),
+                completion:  { data in
+                    guard let image = data.value else { return }
+                    self.cache.setObject(image, forKey: key)
+                }
+            )
+            
+        } else {
+            landmarkImage.image = UIImage(named: "Placeholder")
         }
     }
     
@@ -127,13 +147,13 @@ final class MainCell: UITableViewCell {
         
         landmarkTitle.snp.makeConstraints {
             $0.leading.trailing.equalTo(landmarkSubtitle)
-            $0.bottom.equalTo(landmarkSubtitle.snp.top).offset(-4)
+            $0.bottom.equalTo(landmarkSubtitle.snp.top)
         }
         
         landmarkSubtitle.snp.makeConstraints {
             $0.leading.equalTo(landmarkImage.snp.leading).offset(UIConstants.sidePadding)
             $0.trailing.equalTo(landmarkImage.snp.trailing).offset(-UIConstants.sidePadding)
-            $0.bottom.equalTo(landmarkImage.snp.bottom).offset(-UIConstants.sidePadding)
+            $0.bottom.equalTo(landmarkImage.snp.bottom).offset(-10)
         }
     }
 }

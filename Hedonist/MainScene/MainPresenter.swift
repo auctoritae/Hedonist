@@ -36,7 +36,7 @@ final class MainPresenter: MainPresenterProtocol {
         let filter = filter
         let viewModel = response
 
-        if filter == "Все" {
+        if filter == "all" {
             view?.displayLandmarks(viewModel: viewModel)
         } else {
             view?.displaySearchFilter(viewModel: viewModel, filter: filter)
