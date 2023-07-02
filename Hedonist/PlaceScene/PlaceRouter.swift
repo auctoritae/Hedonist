@@ -27,7 +27,7 @@ final class PlaceRouter: PlaceRouterProtocol {
                 UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
             }
         } else {
-            viewController?.presentAlert(message: Errors.serverError)
+            viewController?.presentAlert(message: Errors.phoneError)
         }
     }
     

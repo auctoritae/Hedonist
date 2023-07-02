@@ -52,7 +52,7 @@ enum Errors {
     static let fetchError = "Fetch error.\nPlease try again"
     static let faillURL = "URL failure.\nDon't worry, it will be fixed soon"
     static let favsFail = "Something went wrong - try to add place to Favorites again"
-    static let phoneError = "There is no cell number for this place"
+    static let phoneError = "No cell number found for this place"
     static let serverError = "Server error. Please try again later"
 }
 
