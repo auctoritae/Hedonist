@@ -542,7 +542,7 @@
 				DEVELOPMENT_TEAM = 8SY2WQX9CL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Hedonist/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Hedonist;
+				INFOPLIST_KEY_CFBundleDisplayName = Hedonistic;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Разрешите использовать Вашу геолокацию чтобы увидеть себя на карте";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -582,7 +582,7 @@
 				DEVELOPMENT_TEAM = 8SY2WQX9CL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Hedonist/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Hedonist;
+				INFOPLIST_KEY_CFBundleDisplayName = Hedonistic;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Разрешите использовать Вашу геолокацию чтобы увидеть себя на карте";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
