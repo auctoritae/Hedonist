@@ -16,8 +16,19 @@
 default_platform(:ios)
 
 platform :ios do
-desc "Custom setup"
-  lane :custom do
+    desc "Custom setup"
+    lane :custom do
     
-  end
+    end
+    
+    desc "Export App"
+    lane :export_app do
+        gym(
+            project: "Hedonist.xcodeproj",
+            scheme: "Hedonist",
+            clean: true,
+            export_xcargs: "-allowProvisioningUpdates",
+            output_name: "Hedonistic.ipa"
+        )
+    end
 end
