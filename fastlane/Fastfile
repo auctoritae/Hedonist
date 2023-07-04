@@ -16,19 +16,9 @@
 default_platform(:ios)
 
 platform :ios do
-    desc "Custom setup"
-    lane :custom do
-    
-    end
-    
-    desc "Export App"
-    lane :export_app do
-        gym(
-            project: "Hedonist.xcodeproj",
-            scheme: "Hedonist",
-            clean: true,
-            export_xcargs: "-allowProvisioningUpdates",
-            output_name: "Hedonistic.ipa"
-        )
+    desc "Screenshots"
+    lane :screenshots do
+        capture_screenshots
+        frame_screenshots(white: false)
     end
 end
