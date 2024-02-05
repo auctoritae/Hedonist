@@ -134,7 +134,8 @@ extension MainView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 110, height: 36)
+        let item = search[indexPath.row]
+        return SearchCell.cellSize(title: item)
     }
     
     

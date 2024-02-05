@@ -14,6 +14,12 @@ final class SearchCell: UICollectionViewCell {
         String(describing: SearchCell.self)
     }
     
+    static func cellSize(title: String) -> CGSize {
+        let textSize = (title as NSString).size()
+        let width = textSize.width + (textSize.width / 2 ) + (12 * 2)
+        return CGSize(width: width, height: 36)
+    }
+    
     
     // MARK: - Variable
     var item: String? {
@@ -81,7 +87,6 @@ final class SearchCell: UICollectionViewCell {
         contentView.layer.masksToBounds = true
         
         contentView.addSubview(categoryTitle)
-        
         categoryTitle.snp.makeConstraints {
             $0.top.bottom.equalToSuperview().inset(5)
             $0.leading.trailing.equalToSuperview().inset(10)

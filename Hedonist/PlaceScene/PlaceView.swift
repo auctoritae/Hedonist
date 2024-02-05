@@ -144,7 +144,11 @@ class PlaceView: UIView, MKMapViewDelegate {
         hoursLabel.text = model?.workhours
         
         if let reference = model?.image, let url = URL(string: reference) {
-            placeImage.af.setImage(withURL: url)
+            placeImage.af.setImage(
+                withURL: url,
+                placeholderImage: UIImage(named: "Placeholder"),
+                progressQueue: .global()
+            )
         } else {
             placeImage.image = UIImage(named: "Placeholder")
         }

@@ -35,16 +35,6 @@ final class MapView: UIView {
     
     
     // MARK: - UI Variable
-    private lazy var mapTitle: UILabel = {
-        let title = UILabel()
-        title.textColor = .label
-        title.font = Fonts.header
-        title.text = Titles.mapSceneTitle.uppercased()
-        title.textAlignment = .left
-        title.numberOfLines = 1
-        return title
-    }()
-    
     private lazy var mapView: MKMapView = {
         let map = MKMapView()
         map.delegate = self
@@ -71,17 +61,9 @@ final class MapView: UIView {
     private func layoutUI() {
         backgroundColor = .systemBackground
         
-        addSubview(mapTitle)
         addSubview(mapView)
-        
-        mapTitle.snp.makeConstraints {
-            $0.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
-            $0.leading.equalToSuperview().offset(UIConstants.sidePadding)
-            $0.trailing.equalToSuperview().offset(-UIConstants.sidePadding)
-        }
-        
         mapView.snp.makeConstraints {
-            $0.top.equalTo(mapTitle.snp.bottom).offset(10)
+            $0.top.equalToSuperview().offset(10)
             $0.leading.trailing.bottom.equalToSuperview()
         }
     }

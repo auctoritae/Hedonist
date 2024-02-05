@@ -106,6 +106,7 @@ final class MainCell: UITableViewCell {
                 withURL: url,
                 cacheKey: reference,
                 placeholderImage: UIImage(named: "Placeholder"),
+                progressQueue: .global(),
                 completion:  { data in
                     guard let image = data.value else { return }
                     self.cache.setObject(image, forKey: key)

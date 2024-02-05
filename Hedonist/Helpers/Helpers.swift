@@ -16,7 +16,7 @@ enum Titles {
 
 
 enum Fonts {
-    static let header = UIFont(name: "JetBrainsMono-SemiBold", size: 44)
+    static let header = UIFont(name: "JetBrainsMono-SemiBold", size: 40)
     static let placeTitle = UIFont(name: "JetBrainsMono-SemiBold", size: 30)
     static let cellTitle = UIFont(name: "JetBrainsMono-Regular", size: 22)
     static let cellSubtitle = UIFont(name: "JetBrainsMono-Light", size: 16)
