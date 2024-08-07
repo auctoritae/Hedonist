@@ -24,5 +24,3 @@ Discovery one of the most famous places in the world - Athens, the true gem of t
 - CallKit
 - SPM
 
-### [AppStore](https://apps.apple.com/us/app/hedonistic/id6450903232)
-
