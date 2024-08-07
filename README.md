@@ -1,4 +1,4 @@
-# Hedonistic
+# Hedonist
 
 > *Athens pocket guide. Explore like a local.*
 
